@@ -29,6 +29,23 @@
         private void InitializeComponent()
         {
             tpClienteCadastro = new TabPage();
+            cmbCidade = new ComboBox();
+            txtUf = new TextBox();
+            txtBairro = new TextBox();
+            txtNumero = new TextBox();
+            txtComplemento = new TextBox();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            txtLogradouro = new TextBox();
+            btnCep = new Button();
+            textCEP = new MaskedTextBox();
+            txtCEP = new Label();
+            labelEstadoCivil = new Label();
+            cmbEstadoCivil = new ComboBox();
             labelGenero = new Label();
             cmbGenero = new ComboBox();
             btnCancelar = new Button();
@@ -50,8 +67,6 @@
             btnVisualizar = new Button();
             btnNovo = new Button();
             tcCliente = new TabControl();
-            cmbEstadoCivil = new ComboBox();
-            labelEstadoCivil = new Label();
             tpClienteCadastro.SuspendLayout();
             tpClienteConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridClientes).BeginInit();
@@ -62,6 +77,21 @@
             // 
             // tpClienteCadastro
             // 
+            tpClienteCadastro.Controls.Add(cmbCidade);
+            tpClienteCadastro.Controls.Add(txtUf);
+            tpClienteCadastro.Controls.Add(txtBairro);
+            tpClienteCadastro.Controls.Add(txtNumero);
+            tpClienteCadastro.Controls.Add(txtComplemento);
+            tpClienteCadastro.Controls.Add(label8);
+            tpClienteCadastro.Controls.Add(label7);
+            tpClienteCadastro.Controls.Add(label6);
+            tpClienteCadastro.Controls.Add(label5);
+            tpClienteCadastro.Controls.Add(label3);
+            tpClienteCadastro.Controls.Add(label4);
+            tpClienteCadastro.Controls.Add(txtLogradouro);
+            tpClienteCadastro.Controls.Add(btnCep);
+            tpClienteCadastro.Controls.Add(textCEP);
+            tpClienteCadastro.Controls.Add(txtCEP);
             tpClienteCadastro.Controls.Add(labelEstadoCivil);
             tpClienteCadastro.Controls.Add(cmbEstadoCivil);
             tpClienteCadastro.Controls.Add(labelGenero);
@@ -81,6 +111,147 @@
             tpClienteCadastro.Text = "Cadastro";
             tpClienteCadastro.UseVisualStyleBackColor = true;
             // 
+            // cmbCidade
+            // 
+            cmbCidade.FormattingEnabled = true;
+            cmbCidade.Location = new Point(327, 180);
+            cmbCidade.Name = "cmbCidade";
+            cmbCidade.Size = new Size(233, 23);
+            cmbCidade.TabIndex = 41;
+            // 
+            // txtUf
+            // 
+            txtUf.Location = new Point(566, 179);
+            txtUf.Name = "txtUf";
+            txtUf.Size = new Size(41, 23);
+            txtUf.TabIndex = 40;
+            // 
+            // txtBairro
+            // 
+            txtBairro.Location = new Point(187, 179);
+            txtBairro.Name = "txtBairro";
+            txtBairro.Size = new Size(134, 23);
+            txtBairro.TabIndex = 38;
+            // 
+            // txtNumero
+            // 
+            txtNumero.Location = new Point(510, 132);
+            txtNumero.Name = "txtNumero";
+            txtNumero.Size = new Size(100, 23);
+            txtNumero.TabIndex = 37;
+            // 
+            // txtComplemento
+            // 
+            txtComplemento.Location = new Point(0, 179);
+            txtComplemento.Name = "txtComplemento";
+            txtComplemento.Size = new Size(181, 23);
+            txtComplemento.TabIndex = 36;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(566, 162);
+            label8.Name = "label8";
+            label8.Size = new Size(21, 15);
+            label8.TabIndex = 35;
+            label8.Text = "UF";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(327, 162);
+            label7.Name = "label7";
+            label7.Size = new Size(44, 15);
+            label7.TabIndex = 34;
+            label7.Text = "Cidade";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(187, 161);
+            label6.Name = "label6";
+            label6.Size = new Size(38, 15);
+            label6.TabIndex = 33;
+            label6.Text = "Bairro";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(0, 161);
+            label5.Name = "label5";
+            label5.Size = new Size(84, 15);
+            label5.TabIndex = 32;
+            label5.Text = "Complemento";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(510, 113);
+            label3.Name = "label3";
+            label3.Size = new Size(51, 15);
+            label3.TabIndex = 31;
+            label3.Text = "Número";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(190, 114);
+            label4.Name = "label4";
+            label4.Size = new Size(69, 15);
+            label4.TabIndex = 30;
+            label4.Text = "Logradouro";
+            // 
+            // txtLogradouro
+            // 
+            txtLogradouro.Location = new Point(190, 132);
+            txtLogradouro.Name = "txtLogradouro";
+            txtLogradouro.Size = new Size(314, 23);
+            txtLogradouro.TabIndex = 22;
+            // 
+            // btnCep
+            // 
+            btnCep.Location = new Point(109, 131);
+            btnCep.Name = "btnCep";
+            btnCep.Size = new Size(75, 23);
+            btnCep.TabIndex = 21;
+            btnCep.Text = "Buscar";
+            btnCep.UseVisualStyleBackColor = true;
+            btnCep.Click += btnCep_Click;
+            // 
+            // textCEP
+            // 
+            textCEP.Location = new Point(3, 131);
+            textCEP.Mask = "00000-000";
+            textCEP.Name = "textCEP";
+            textCEP.Size = new Size(100, 23);
+            textCEP.TabIndex = 20;
+            // 
+            // txtCEP
+            // 
+            txtCEP.AutoSize = true;
+            txtCEP.Location = new Point(3, 113);
+            txtCEP.Name = "txtCEP";
+            txtCEP.Size = new Size(28, 15);
+            txtCEP.TabIndex = 18;
+            txtCEP.Text = "CEP";
+            // 
+            // labelEstadoCivil
+            // 
+            labelEstadoCivil.AutoSize = true;
+            labelEstadoCivil.Location = new Point(398, 58);
+            labelEstadoCivil.Name = "labelEstadoCivil";
+            labelEstadoCivil.Size = new Size(68, 15);
+            labelEstadoCivil.TabIndex = 17;
+            labelEstadoCivil.Text = "Estado Civil";
+            // 
+            // cmbEstadoCivil
+            // 
+            cmbEstadoCivil.FormattingEnabled = true;
+            cmbEstadoCivil.Location = new Point(398, 79);
+            cmbEstadoCivil.Name = "cmbEstadoCivil";
+            cmbEstadoCivil.Size = new Size(106, 23);
+            cmbEstadoCivil.TabIndex = 16;
+            // 
             // labelGenero
             // 
             labelGenero.AutoSize = true;
@@ -95,7 +266,7 @@
             cmbGenero.FormattingEnabled = true;
             cmbGenero.Location = new Point(398, 28);
             cmbGenero.Name = "cmbGenero";
-            cmbGenero.Size = new Size(97, 23);
+            cmbGenero.Size = new Size(106, 23);
             cmbGenero.TabIndex = 14;
             // 
             // btnCancelar
@@ -138,7 +309,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(5, 108);
+            txtEmail.Location = new Point(3, 79);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(372, 23);
             txtEmail.TabIndex = 10;
@@ -153,7 +324,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(5, 90);
+            label1.Location = new Point(3, 61);
             label1.Name = "label1";
             label1.Size = new Size(41, 15);
             label1.TabIndex = 9;
@@ -302,23 +473,6 @@
             tcCliente.Size = new Size(621, 321);
             tcCliente.TabIndex = 0;
             // 
-            // cmbEstadoCivil
-            // 
-            cmbEstadoCivil.FormattingEnabled = true;
-            cmbEstadoCivil.Location = new Point(510, 28);
-            cmbEstadoCivil.Name = "cmbEstadoCivil";
-            cmbEstadoCivil.Size = new Size(97, 23);
-            cmbEstadoCivil.TabIndex = 16;
-            // 
-            // labelEstadoCivil
-            // 
-            labelEstadoCivil.AutoSize = true;
-            labelEstadoCivil.Location = new Point(510, 7);
-            labelEstadoCivil.Name = "labelEstadoCivil";
-            labelEstadoCivil.Size = new Size(68, 15);
-            labelEstadoCivil.TabIndex = 17;
-            labelEstadoCivil.Text = "Estado Civil";
-            // 
             // ClienteForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -365,5 +519,20 @@
         private Label labelGenero;
         private Label labelEstadoCivil;
         private ComboBox cmbEstadoCivil;
+        private Label txtCEP;
+        private MaskedTextBox textCEP;
+        private Button btnCep;
+        private TextBox txtUf;
+        private TextBox txtBairro;
+        private TextBox txtNumero;
+        private TextBox txtComplemento;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label3;
+        private Label label4;
+        private TextBox txtLogradouro;
+        private ComboBox cmbCidade;
     }
 }

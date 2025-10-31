@@ -29,8 +29,16 @@
                 clienteExistente.Email = cliente.Email;
                 clienteExistente.Genero = cliente.Genero;
                 clienteExistente.estadocivil = cliente.estadocivil;
+                clienteExistente.Cep = cliente.Cep;
+                clienteExistente.Logradouro = cliente.Logradouro;
+                clienteExistente.Complemento = cliente.Complemento;
+                clienteExistente.Bairro = cliente.Bairro;
+                clienteExistente.Localidade = cliente.Localidade;
+                clienteExistente.Uf = cliente.Uf;
                 _context.SaveChanges();
             }
+
+
         }
         public void Remover(int id)
         {
