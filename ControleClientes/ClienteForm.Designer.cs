@@ -416,7 +416,7 @@
             btnPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnPesquisar.ForeColor = SystemColors.ControlText;
             btnPesquisar.Image = Properties.Resources.search;
-            btnPesquisar.Location = new Point(519, -1);
+            btnPesquisar.Location = new Point(513, -1);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(88, 23);
             btnPesquisar.TabIndex = 1;

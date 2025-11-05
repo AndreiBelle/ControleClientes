@@ -21,6 +21,27 @@ namespace ControleClientes.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("ControleClientes.Cidade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("NomeCidade")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UF")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cidade");
+                });
+
             modelBuilder.Entity("ControleClientes.Cliente", b =>
                 {
                     b.Property<int>("Id")
@@ -36,6 +57,9 @@ namespace ControleClientes.Migrations
                     b.Property<string>("Cep")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("CidadeId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Complemento")
                         .IsRequired()
@@ -73,7 +97,25 @@ namespace ControleClientes.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CidadeId");
+
                     b.ToTable("Clientes");
+                });
+
+            modelBuilder.Entity("ControleClientes.Cliente", b =>
+                {
+                    b.HasOne("ControleClientes.Cidade", "Cidade")
+                        .WithMany("Clientes")
+                        .HasForeignKey("CidadeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cidade");
+                });
+
+            modelBuilder.Entity("ControleClientes.Cidade", b =>
+                {
+                    b.Navigation("Clientes");
                 });
 #pragma warning restore 612, 618
         }

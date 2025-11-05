@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ControleClientes.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251024002743_endereco")]
-    partial class endereco
+    [Migration("20251105001347_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,27 @@ namespace ControleClientes.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("ControleClientes.Cidade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("NomeCidade")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UF")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cidade");
+                });
 
             modelBuilder.Entity("ControleClientes.Cliente", b =>
                 {
@@ -39,6 +60,9 @@ namespace ControleClientes.Migrations
                     b.Property<string>("Cep")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("CidadeId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Complemento")
                         .IsRequired()
@@ -76,7 +100,25 @@ namespace ControleClientes.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CidadeId");
+
                     b.ToTable("Clientes");
+                });
+
+            modelBuilder.Entity("ControleClientes.Cliente", b =>
+                {
+                    b.HasOne("ControleClientes.Cidade", "Cidade")
+                        .WithMany("Clientes")
+                        .HasForeignKey("CidadeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cidade");
+                });
+
+            modelBuilder.Entity("ControleClientes.Cidade", b =>
+                {
+                    b.Navigation("Clientes");
                 });
 #pragma warning restore 612, 618
         }

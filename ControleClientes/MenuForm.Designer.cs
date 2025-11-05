@@ -36,6 +36,7 @@
             ladoALadoHorizontalToolStripMenuItem = new ToolStripMenuItem();
             ladoALadoVerticalToolStripMenuItem = new ToolStripMenuItem();
             íconesMinimizadosToolStripMenuItem = new ToolStripMenuItem();
+            cidadeToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             // 
             // cadastroToolStripMenuItem
             // 
-            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clienteToolStripMenuItem });
+            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clienteToolStripMenuItem, cidadeToolStripMenuItem });
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             cadastroToolStripMenuItem.Size = new Size(66, 20);
             cadastroToolStripMenuItem.Text = "Cadastro";
@@ -58,7 +59,7 @@
             // clienteToolStripMenuItem
             // 
             clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            clienteToolStripMenuItem.Size = new Size(111, 22);
+            clienteToolStripMenuItem.Size = new Size(180, 22);
             clienteToolStripMenuItem.Text = "Cliente";
             clienteToolStripMenuItem.Click += clienteToolStripMenuItem_Click;
             // 
@@ -97,6 +98,12 @@
             íconesMinimizadosToolStripMenuItem.Text = "Ícones minimizados";
             íconesMinimizadosToolStripMenuItem.Click += íconesMinimizadosToolStripMenuItem_Click;
             // 
+            // cidadeToolStripMenuItem
+            // 
+            cidadeToolStripMenuItem.Name = "cidadeToolStripMenuItem";
+            cidadeToolStripMenuItem.Size = new Size(180, 22);
+            cidadeToolStripMenuItem.Text = "Cidade";
+            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -123,5 +130,6 @@
         private ToolStripMenuItem ladoALadoHorizontalToolStripMenuItem;
         private ToolStripMenuItem ladoALadoVerticalToolStripMenuItem;
         private ToolStripMenuItem íconesMinimizadosToolStripMenuItem;
+        private ToolStripMenuItem cidadeToolStripMenuItem;
     }
 }
