@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.Runtime.ConstrainedExecution;
+using System.Runtime.Intrinsics.X86;
+using System.Text.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ControleClientes
@@ -8,10 +10,17 @@ namespace ControleClientes
         private readonly ClienteRepository _repository;
         private int? editingId = null;
 
-        List<Endereco> enderecos = new List<Endereco>
+        List<Cidade> _cidades;
+
+        private void CarregarCidades()
         {
-            new Endereco {Localidade = ""}
-        };
+            var cidadeRepository = new CidadeRepository();
+            _cidades = cidadeRepository.ListarTodos();
+            cmbCidade.DataSource = _cidades;
+            cmbCidade.DisplayMember = "Nome";
+            cmbCidade.ValueMember = "id";
+
+        }
 
         List<ItemEstadoCivil> estadocivillista = new List<ItemEstadoCivil>
         {
@@ -32,9 +41,9 @@ namespace ControleClientes
 
         private void CarregarEnd()
         {
-            cmbCidade.DataSource = enderecos;
+
             cmbGenero.DisplayMember = "Localidade";
-            
+
         }
 
         private void CarregarGenero()
@@ -59,13 +68,23 @@ namespace ControleClientes
             CarregarEnd();
             _repository = new ClienteRepository();
             AtualizarGrid();
-
+            CarregarCidades();
         }
 
         private void AtualizarGrid()
         {
             var clientes = _repository.ListarTodos();
             gridClientes.DataSource = clientes;
+            gridClientes.Columns["CidadeId"].Visible = false;
+            gridClientes.Columns["Cidade"].Visible = false;
+            gridClientes.Columns["Cep"].Visible = false;
+            gridClientes.Columns["Logradouro"].Visible = false;
+            gridClientes.Columns["Numero"].Visible = false;
+            gridClientes.Columns["Complemento"].Visible = false;
+            gridClientes.Columns["Bairro"].Visible = false;
+            gridClientes.Columns["Localidade"].Visible = false;
+            gridClientes.Columns["uf"].Visible = false;
+            gridClientes.Columns["estadocivil"].Visible = false;
         }
         private void LimparCampos()
         {
@@ -92,6 +111,9 @@ namespace ControleClientes
             if (gridClientes.SelectedRows.Count == 0)
                 return;
             var cliente = (Cliente)gridClientes.SelectedRows[0].DataBoundItem;
+            var cidade = _cidades.FirstOrDefault(c => c.Id == cliente.Id);
+            cmbCidade.SelectedItem = cidade;
+            txtUf.Text = cidade.UF;
             txtNome.Text = cliente.Nome;
             txtEmail.Text = cliente.Email;
             textCEP.Text = cliente.Cep;
@@ -124,8 +146,9 @@ namespace ControleClientes
         {
 
             ItemEstadoCivil estado = (ItemEstadoCivil)cmbEstadoCivil.SelectedItem;
-            Endereco endereco = (Endereco)cmbCidade.SelectedItem;
             ItemGenero genero = (ItemGenero)cmbGenero.SelectedItem;
+            Cidade cidade = (Cidade)cmbCidade.SelectedItem;
+
             var cliente = new Cliente
             {
                 Nome = txtNome.Text.Trim(),
@@ -138,7 +161,8 @@ namespace ControleClientes
                 Uf = txtUf.Text.Trim(),
                 Numero = txtNumero.Text.Trim(),
                 Genero = genero.Valor,
-                estadocivil = estado.Valor
+                estadocivil = estado.Valor,
+                CidadeId = cidade.Id
 
             }; ;
 
@@ -205,6 +229,13 @@ namespace ControleClientes
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            var Clientes = _repository.ObterPorNome(txtPesquisa.Text);
+            gridClientes.AutoGenerateColumns = false;
+            gridClientes.DataSource = Clientes;
         }
     }
 }

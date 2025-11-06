@@ -103,10 +103,11 @@
             tpClienteCadastro.Controls.Add(txtNome);
             tpClienteCadastro.Controls.Add(label1);
             tpClienteCadastro.Controls.Add(label2);
-            tpClienteCadastro.Location = new Point(4, 24);
+            tpClienteCadastro.Location = new Point(4, 29);
+            tpClienteCadastro.Margin = new Padding(3, 4, 3, 4);
             tpClienteCadastro.Name = "tpClienteCadastro";
-            tpClienteCadastro.Padding = new Padding(3);
-            tpClienteCadastro.Size = new Size(613, 293);
+            tpClienteCadastro.Padding = new Padding(3, 4, 3, 4);
+            tpClienteCadastro.Size = new Size(702, 395);
             tpClienteCadastro.TabIndex = 2;
             tpClienteCadastro.Text = "Cadastro";
             tpClienteCadastro.UseVisualStyleBackColor = true;
@@ -114,105 +115,112 @@
             // cmbCidade
             // 
             cmbCidade.FormattingEnabled = true;
-            cmbCidade.Location = new Point(327, 180);
+            cmbCidade.Location = new Point(374, 240);
+            cmbCidade.Margin = new Padding(3, 4, 3, 4);
             cmbCidade.Name = "cmbCidade";
-            cmbCidade.Size = new Size(233, 23);
+            cmbCidade.Size = new Size(266, 28);
             cmbCidade.TabIndex = 41;
             // 
             // txtUf
             // 
-            txtUf.Location = new Point(566, 179);
+            txtUf.Location = new Point(647, 239);
+            txtUf.Margin = new Padding(3, 4, 3, 4);
             txtUf.Name = "txtUf";
-            txtUf.Size = new Size(41, 23);
+            txtUf.Size = new Size(46, 27);
             txtUf.TabIndex = 40;
             // 
             // txtBairro
             // 
-            txtBairro.Location = new Point(187, 179);
+            txtBairro.Location = new Point(214, 239);
+            txtBairro.Margin = new Padding(3, 4, 3, 4);
             txtBairro.Name = "txtBairro";
-            txtBairro.Size = new Size(134, 23);
+            txtBairro.Size = new Size(153, 27);
             txtBairro.TabIndex = 38;
             // 
             // txtNumero
             // 
-            txtNumero.Location = new Point(510, 132);
+            txtNumero.Location = new Point(583, 176);
+            txtNumero.Margin = new Padding(3, 4, 3, 4);
             txtNumero.Name = "txtNumero";
-            txtNumero.Size = new Size(100, 23);
+            txtNumero.Size = new Size(114, 27);
             txtNumero.TabIndex = 37;
             // 
             // txtComplemento
             // 
-            txtComplemento.Location = new Point(0, 179);
+            txtComplemento.Location = new Point(0, 239);
+            txtComplemento.Margin = new Padding(3, 4, 3, 4);
             txtComplemento.Name = "txtComplemento";
-            txtComplemento.Size = new Size(181, 23);
+            txtComplemento.Size = new Size(206, 27);
             txtComplemento.TabIndex = 36;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(566, 162);
+            label8.Location = new Point(647, 216);
             label8.Name = "label8";
-            label8.Size = new Size(21, 15);
+            label8.Size = new Size(26, 20);
             label8.TabIndex = 35;
             label8.Text = "UF";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(327, 162);
+            label7.Location = new Point(374, 216);
             label7.Name = "label7";
-            label7.Size = new Size(44, 15);
+            label7.Size = new Size(56, 20);
             label7.TabIndex = 34;
             label7.Text = "Cidade";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(187, 161);
+            label6.Location = new Point(214, 215);
             label6.Name = "label6";
-            label6.Size = new Size(38, 15);
+            label6.Size = new Size(49, 20);
             label6.TabIndex = 33;
             label6.Text = "Bairro";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(0, 161);
+            label5.Location = new Point(0, 215);
             label5.Name = "label5";
-            label5.Size = new Size(84, 15);
+            label5.Size = new Size(104, 20);
             label5.TabIndex = 32;
             label5.Text = "Complemento";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(510, 113);
+            label3.Location = new Point(583, 151);
             label3.Name = "label3";
-            label3.Size = new Size(51, 15);
+            label3.Size = new Size(63, 20);
             label3.TabIndex = 31;
             label3.Text = "Número";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(190, 114);
+            label4.Location = new Point(217, 152);
             label4.Name = "label4";
-            label4.Size = new Size(69, 15);
+            label4.Size = new Size(87, 20);
             label4.TabIndex = 30;
             label4.Text = "Logradouro";
             // 
             // txtLogradouro
             // 
-            txtLogradouro.Location = new Point(190, 132);
+            txtLogradouro.Location = new Point(217, 176);
+            txtLogradouro.Margin = new Padding(3, 4, 3, 4);
             txtLogradouro.Name = "txtLogradouro";
-            txtLogradouro.Size = new Size(314, 23);
+            txtLogradouro.Size = new Size(358, 27);
             txtLogradouro.TabIndex = 22;
             // 
             // btnCep
             // 
-            btnCep.Location = new Point(109, 131);
+            btnCep.Location = new Point(125, 175);
+            btnCep.Margin = new Padding(3, 4, 3, 4);
             btnCep.Name = "btnCep";
-            btnCep.Size = new Size(75, 23);
+            btnCep.Size = new Size(86, 31);
             btnCep.TabIndex = 21;
             btnCep.Text = "Buscar";
             btnCep.UseVisualStyleBackColor = true;
@@ -220,62 +228,66 @@
             // 
             // textCEP
             // 
-            textCEP.Location = new Point(3, 131);
+            textCEP.Location = new Point(3, 175);
+            textCEP.Margin = new Padding(3, 4, 3, 4);
             textCEP.Mask = "00000-000";
             textCEP.Name = "textCEP";
-            textCEP.Size = new Size(100, 23);
+            textCEP.Size = new Size(114, 27);
             textCEP.TabIndex = 20;
             // 
             // txtCEP
             // 
             txtCEP.AutoSize = true;
-            txtCEP.Location = new Point(3, 113);
+            txtCEP.Location = new Point(3, 151);
             txtCEP.Name = "txtCEP";
-            txtCEP.Size = new Size(28, 15);
+            txtCEP.Size = new Size(34, 20);
             txtCEP.TabIndex = 18;
             txtCEP.Text = "CEP";
             // 
             // labelEstadoCivil
             // 
             labelEstadoCivil.AutoSize = true;
-            labelEstadoCivil.Location = new Point(398, 58);
+            labelEstadoCivil.Location = new Point(455, 77);
             labelEstadoCivil.Name = "labelEstadoCivil";
-            labelEstadoCivil.Size = new Size(68, 15);
+            labelEstadoCivil.Size = new Size(86, 20);
             labelEstadoCivil.TabIndex = 17;
             labelEstadoCivil.Text = "Estado Civil";
             // 
             // cmbEstadoCivil
             // 
             cmbEstadoCivil.FormattingEnabled = true;
-            cmbEstadoCivil.Location = new Point(398, 79);
+            cmbEstadoCivil.Location = new Point(455, 105);
+            cmbEstadoCivil.Margin = new Padding(3, 4, 3, 4);
             cmbEstadoCivil.Name = "cmbEstadoCivil";
-            cmbEstadoCivil.Size = new Size(106, 23);
+            cmbEstadoCivil.Size = new Size(121, 28);
             cmbEstadoCivil.TabIndex = 16;
             // 
             // labelGenero
             // 
             labelGenero.AutoSize = true;
-            labelGenero.Location = new Point(398, 7);
+            labelGenero.Location = new Point(455, 9);
             labelGenero.Name = "labelGenero";
-            labelGenero.Size = new Size(45, 15);
+            labelGenero.Size = new Size(57, 20);
             labelGenero.TabIndex = 15;
             labelGenero.Text = "Gênero";
             // 
             // cmbGenero
             // 
             cmbGenero.FormattingEnabled = true;
-            cmbGenero.Location = new Point(398, 28);
+            cmbGenero.Location = new Point(455, 37);
+            cmbGenero.Margin = new Padding(3, 4, 3, 4);
             cmbGenero.Name = "cmbGenero";
-            cmbGenero.Size = new Size(106, 23);
+            cmbGenero.Size = new Size(121, 28);
             cmbGenero.TabIndex = 14;
             // 
             // btnCancelar
             // 
             btnCancelar.Image = Properties.Resources.cross_circle;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(525, 237);
+            btnCancelar.Location = new Point(600, 316);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(84, 23);
+            btnCancelar.Size = new Size(96, 31);
             btnCancelar.TabIndex = 13;
             btnCancelar.Text = "&Cancelar";
             btnCancelar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -286,9 +298,10 @@
             // 
             btnSalvar.Image = Properties.Resources.floppy_disk_circle_arrow_right;
             btnSalvar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalvar.Location = new Point(429, 237);
+            btnSalvar.Location = new Point(490, 316);
+            btnSalvar.Margin = new Padding(3, 4, 3, 4);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(90, 23);
+            btnSalvar.Size = new Size(103, 31);
             btnSalvar.TabIndex = 12;
             btnSalvar.Text = "&Salvar";
             btnSalvar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -299,9 +312,10 @@
             // 
             btnExcluir.Image = Properties.Resources.trash_xmark__1_;
             btnExcluir.ImageAlign = ContentAlignment.TopLeft;
-            btnExcluir.Location = new Point(5, 237);
+            btnExcluir.Location = new Point(6, 316);
+            btnExcluir.Margin = new Padding(3, 4, 3, 4);
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(85, 23);
+            btnExcluir.Size = new Size(97, 31);
             btnExcluir.TabIndex = 11;
             btnExcluir.Text = "  &Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
@@ -309,33 +323,35 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(3, 79);
+            txtEmail.Location = new Point(3, 105);
+            txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(372, 23);
+            txtEmail.Size = new Size(425, 27);
             txtEmail.TabIndex = 10;
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(3, 28);
+            txtNome.Location = new Point(3, 37);
+            txtNome.Margin = new Padding(3, 4, 3, 4);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(374, 23);
+            txtNome.Size = new Size(427, 27);
             txtNome.TabIndex = 8;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(3, 61);
+            label1.Location = new Point(3, 81);
             label1.Name = "label1";
-            label1.Size = new Size(41, 15);
+            label1.Size = new Size(52, 20);
             label1.TabIndex = 9;
             label1.Text = "E-mail";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(3, 10);
+            label2.Location = new Point(3, 13);
             label2.Name = "label2";
-            label2.Size = new Size(43, 15);
+            label2.Size = new Size(53, 20);
             label2.TabIndex = 7;
             label2.Text = "Nome:";
             // 
@@ -344,10 +360,11 @@
             tpClienteConsulta.Controls.Add(gridClientes);
             tpClienteConsulta.Controls.Add(pnlSuperior);
             tpClienteConsulta.Controls.Add(pnlInferior);
-            tpClienteConsulta.Location = new Point(4, 24);
+            tpClienteConsulta.Location = new Point(4, 29);
+            tpClienteConsulta.Margin = new Padding(3, 4, 3, 4);
             tpClienteConsulta.Name = "tpClienteConsulta";
-            tpClienteConsulta.Padding = new Padding(3);
-            tpClienteConsulta.Size = new Size(613, 293);
+            tpClienteConsulta.Padding = new Padding(3, 4, 3, 4);
+            tpClienteConsulta.Size = new Size(702, 395);
             tpClienteConsulta.TabIndex = 1;
             tpClienteConsulta.Text = "Consulta";
             tpClienteConsulta.UseVisualStyleBackColor = true;
@@ -359,10 +376,12 @@
             gridClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridClientes.Columns.AddRange(new DataGridViewColumn[] { ColID, ColNome, colemail });
             gridClientes.Dock = DockStyle.Fill;
-            gridClientes.Location = new Point(3, 26);
+            gridClientes.Location = new Point(3, 35);
+            gridClientes.Margin = new Padding(3, 4, 3, 4);
             gridClientes.Name = "gridClientes";
             gridClientes.ReadOnly = true;
-            gridClientes.Size = new Size(607, 240);
+            gridClientes.RowHeadersWidth = 51;
+            gridClientes.Size = new Size(696, 324);
             gridClientes.TabIndex = 0;
             // 
             // ColID
@@ -370,16 +389,18 @@
             ColID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             ColID.DataPropertyName = "Id";
             ColID.HeaderText = "ID";
+            ColID.MinimumWidth = 6;
             ColID.Name = "ColID";
             ColID.ReadOnly = true;
             ColID.Resizable = DataGridViewTriState.True;
-            ColID.Width = 43;
+            ColID.Width = 53;
             // 
             // ColNome
             // 
             ColNome.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ColNome.DataPropertyName = "Nome";
             ColNome.HeaderText = "Nome";
+            ColNome.MinimumWidth = 6;
             ColNome.Name = "ColNome";
             ColNome.ReadOnly = true;
             // 
@@ -388,6 +409,7 @@
             colemail.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             colemail.DataPropertyName = "Email";
             colemail.HeaderText = "E-mail";
+            colemail.MinimumWidth = 6;
             colemail.Name = "colemail";
             colemail.ReadOnly = true;
             // 
@@ -396,9 +418,10 @@
             pnlSuperior.Controls.Add(txtPesquisa);
             pnlSuperior.Controls.Add(btnPesquisar);
             pnlSuperior.Dock = DockStyle.Top;
-            pnlSuperior.Location = new Point(3, 3);
+            pnlSuperior.Location = new Point(3, 4);
+            pnlSuperior.Margin = new Padding(3, 4, 3, 4);
             pnlSuperior.Name = "pnlSuperior";
-            pnlSuperior.Size = new Size(607, 23);
+            pnlSuperior.Size = new Size(696, 31);
             pnlSuperior.TabIndex = 0;
             pnlSuperior.TabStop = true;
             // 
@@ -406,9 +429,10 @@
             // 
             txtPesquisa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPesquisa.Location = new Point(0, 0);
+            txtPesquisa.Margin = new Padding(3, 4, 3, 4);
             txtPesquisa.Name = "txtPesquisa";
             txtPesquisa.PlaceholderText = "Pesquisar nomes";
-            txtPesquisa.Size = new Size(509, 23);
+            txtPesquisa.Size = new Size(583, 27);
             txtPesquisa.TabIndex = 0;
             // 
             // btnPesquisar
@@ -416,23 +440,26 @@
             btnPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnPesquisar.ForeColor = SystemColors.ControlText;
             btnPesquisar.Image = Properties.Resources.search;
-            btnPesquisar.Location = new Point(513, -1);
+            btnPesquisar.Location = new Point(588, -1);
+            btnPesquisar.Margin = new Padding(3, 4, 3, 4);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(88, 23);
+            btnPesquisar.Size = new Size(101, 31);
             btnPesquisar.TabIndex = 1;
             btnPesquisar.Text = "&Pesquisar";
             btnPesquisar.TextAlign = ContentAlignment.MiddleRight;
             btnPesquisar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.Click += btnPesquisar_Click;
             // 
             // pnlInferior
             // 
             pnlInferior.Controls.Add(btnVisualizar);
             pnlInferior.Controls.Add(btnNovo);
             pnlInferior.Dock = DockStyle.Bottom;
-            pnlInferior.Location = new Point(3, 266);
+            pnlInferior.Location = new Point(3, 359);
+            pnlInferior.Margin = new Padding(3, 4, 3, 4);
             pnlInferior.Name = "pnlInferior";
-            pnlInferior.Size = new Size(607, 24);
+            pnlInferior.Size = new Size(696, 32);
             pnlInferior.TabIndex = 0;
             pnlInferior.TabStop = true;
             // 
@@ -440,9 +467,10 @@
             // 
             btnVisualizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnVisualizar.Image = Properties.Resources.eye;
-            btnVisualizar.Location = new Point(465, 0);
+            btnVisualizar.Location = new Point(533, 0);
+            btnVisualizar.Margin = new Padding(3, 4, 3, 4);
             btnVisualizar.Name = "btnVisualizar";
-            btnVisualizar.Size = new Size(82, 24);
+            btnVisualizar.Size = new Size(94, 32);
             btnVisualizar.TabIndex = 3;
             btnVisualizar.Text = "&Visualizar";
             btnVisualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -453,9 +481,10 @@
             // 
             btnNovo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnNovo.Image = Properties.Resources.add_document;
-            btnNovo.Location = new Point(547, 0);
+            btnNovo.Location = new Point(627, 0);
+            btnNovo.Margin = new Padding(3, 4, 3, 4);
             btnNovo.Name = "btnNovo";
-            btnNovo.Size = new Size(60, 24);
+            btnNovo.Size = new Size(69, 32);
             btnNovo.TabIndex = 2;
             btnNovo.Text = "&Novo";
             btnNovo.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -467,19 +496,21 @@
             tcCliente.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tcCliente.Controls.Add(tpClienteConsulta);
             tcCliente.Controls.Add(tpClienteCadastro);
-            tcCliente.Location = new Point(1, -22);
+            tcCliente.Location = new Point(1, -29);
+            tcCliente.Margin = new Padding(3, 4, 3, 4);
             tcCliente.Name = "tcCliente";
             tcCliente.SelectedIndex = 0;
-            tcCliente.Size = new Size(621, 321);
+            tcCliente.Size = new Size(710, 428);
             tcCliente.TabIndex = 0;
             // 
             // ClienteForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(621, 299);
+            ClientSize = new Size(710, 399);
             Controls.Add(tcCliente);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ClienteForm";
             Text = "Controle Clientes";
             tpClienteCadastro.ResumeLayout(false);

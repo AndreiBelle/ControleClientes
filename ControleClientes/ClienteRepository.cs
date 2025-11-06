@@ -2,6 +2,14 @@
 {
     public class ClienteRepository
     {
+
+        public IEnumerable<Cidade> ObterPorNome(string nome)
+        {
+            return _context.Cidades.Where(c => c.Nome.ToLower().Contains(nome.ToLower()))
+                .ToList();
+        }
+
+
         private readonly AppDbContext _context;
         public ClienteRepository()
         {
@@ -35,6 +43,7 @@
                 clienteExistente.Bairro = cliente.Bairro;
                 clienteExistente.Localidade = cliente.Localidade;
                 clienteExistente.Uf = cliente.Uf;
+                clienteExistente.CidadeId = cliente.CidadeId; 
                 _context.SaveChanges();
             }
 
