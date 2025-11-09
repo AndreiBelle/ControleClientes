@@ -6,6 +6,7 @@ namespace ControleClientes
     {
       public DbSet<Cliente> Clientes { get; set; }
       public DbSet<Cidade> Cidades { get; set; }
+      public DbSet<Os> OrdemServico { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -18,6 +19,12 @@ namespace ControleClientes
               .HasOne(c => c.Cidade)
               .WithMany(c => c.Clientes)
               .HasForeignKey(c => c.CidadeId);
+
+            modelBuilder.Entity<Os>()
+              .HasOne(o => o.Cliente)
+              .WithMany(o => o.Os)
+              .HasForeignKey(o => o.OsId);
+
         }
     }
 }

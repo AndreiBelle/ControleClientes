@@ -37,6 +37,7 @@
             ladoALadoHorizontalToolStripMenuItem = new ToolStripMenuItem();
             ladoALadoVerticalToolStripMenuItem = new ToolStripMenuItem();
             íconesMinimizadosToolStripMenuItem = new ToolStripMenuItem();
+            ordemDeServiçoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             // 
             // cadastroToolStripMenuItem
             // 
-            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clienteToolStripMenuItem, cidadeToolStripMenuItem });
+            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clienteToolStripMenuItem, cidadeToolStripMenuItem, ordemDeServiçoToolStripMenuItem });
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             cadastroToolStripMenuItem.Size = new Size(82, 24);
             cadastroToolStripMenuItem.Text = "Cadastro";
@@ -107,6 +108,13 @@
             íconesMinimizadosToolStripMenuItem.Text = "Ícones minimizados";
             íconesMinimizadosToolStripMenuItem.Click += íconesMinimizadosToolStripMenuItem_Click;
             // 
+            // ordemDeServiçoToolStripMenuItem
+            // 
+            ordemDeServiçoToolStripMenuItem.Name = "ordemDeServiçoToolStripMenuItem";
+            ordemDeServiçoToolStripMenuItem.Size = new Size(224, 26);
+            ordemDeServiçoToolStripMenuItem.Text = "Ordem de Serviço";
+            ordemDeServiçoToolStripMenuItem.Click += ordemDeServiçoToolStripMenuItem_Click;
+            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -135,5 +143,6 @@
         private ToolStripMenuItem ladoALadoVerticalToolStripMenuItem;
         private ToolStripMenuItem íconesMinimizadosToolStripMenuItem;
         private ToolStripMenuItem cidadeToolStripMenuItem;
+        private ToolStripMenuItem ordemDeServiçoToolStripMenuItem;
     }
 }
