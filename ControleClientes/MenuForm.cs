@@ -42,5 +42,12 @@ namespace ControleClientes
             cidadeForm.MdiParent = this;
             cidadeForm.Show();
         }
+
+        private void ordemDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OsForm osForm = new OsForm();
+            osForm.MdiParent = this;
+            osForm.Show();
+        }
     }
 }

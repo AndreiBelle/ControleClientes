@@ -311,7 +311,7 @@
             // btnExcluir
             // 
             btnExcluir.Image = Properties.Resources.trash_xmark__1_;
-            btnExcluir.ImageAlign = ContentAlignment.TopLeft;
+            btnExcluir.ImageAlign = ContentAlignment.MiddleLeft;
             btnExcluir.Location = new Point(6, 316);
             btnExcluir.Margin = new Padding(3, 4, 3, 4);
             btnExcluir.Name = "btnExcluir";
@@ -467,10 +467,11 @@
             // 
             btnVisualizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnVisualizar.Image = Properties.Resources.eye;
-            btnVisualizar.Location = new Point(533, 0);
+            btnVisualizar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVisualizar.Location = new Point(525, 0);
             btnVisualizar.Margin = new Padding(3, 4, 3, 4);
             btnVisualizar.Name = "btnVisualizar";
-            btnVisualizar.Size = new Size(94, 32);
+            btnVisualizar.Size = new Size(102, 32);
             btnVisualizar.TabIndex = 3;
             btnVisualizar.Text = "&Visualizar";
             btnVisualizar.TextImageRelation = TextImageRelation.ImageBeforeText;

@@ -1,16 +1,18 @@
-﻿using System.Runtime.ConstrainedExecution;
-using System.Runtime.Intrinsics.X86;
-using System.Text.Json;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using System.Text.Json;
 
 namespace ControleClientes
 {
     public partial class ClienteForm : Form
     {
         private readonly ClienteRepository _repository;
+
+        private readonly CidadeRepository _cidadeRepository;
+
         private int? editingId = null;
 
         List<Cidade> _cidades;
+
+        private static readonly HttpClient _httpClient = new HttpClient();
 
         private void CarregarCidades()
         {
@@ -19,6 +21,7 @@ namespace ControleClientes
             cmbCidade.DataSource = _cidades;
             cmbCidade.DisplayMember = "Nome";
             cmbCidade.ValueMember = "id";
+            cmbCidade.SelectedIndex = -1;
 
         }
 
@@ -67,13 +70,16 @@ namespace ControleClientes
             CarregarEstado();
             CarregarEnd();
             _repository = new ClienteRepository();
+            _cidadeRepository = new CidadeRepository(); 
             AtualizarGrid();
             CarregarCidades();
         }
 
         private void AtualizarGrid()
         {
+
             var clientes = _repository.ListarTodos();
+            gridClientes.DataSource = null;
             gridClientes.DataSource = clientes;
             gridClientes.Columns["CidadeId"].Visible = false;
             gridClientes.Columns["Cidade"].Visible = false;
@@ -85,6 +91,7 @@ namespace ControleClientes
             gridClientes.Columns["Localidade"].Visible = false;
             gridClientes.Columns["uf"].Visible = false;
             gridClientes.Columns["estadocivil"].Visible = false;
+            gridClientes.Columns["OS"].Visible = false;
         }
         private void LimparCampos()
         {
@@ -97,6 +104,7 @@ namespace ControleClientes
             txtNumero.Focus();
             editingId = null;
             gridClientes.ClearSelection();
+            
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -111,13 +119,15 @@ namespace ControleClientes
             if (gridClientes.SelectedRows.Count == 0)
                 return;
             var cliente = (Cliente)gridClientes.SelectedRows[0].DataBoundItem;
-            var cidade = _cidades.FirstOrDefault(c => c.Id == cliente.Id);
+            var cidade = _cidades.FirstOrDefault(c => c.Id == cliente.CidadeId);
             cmbCidade.SelectedItem = cidade;
             txtUf.Text = cidade.UF;
             txtNome.Text = cliente.Nome;
             txtEmail.Text = cliente.Email;
             textCEP.Text = cliente.Cep;
+            txtBairro.Text = cliente.Bairro;
             txtLogradouro.Text = cliente.Logradouro;
+            txtNumero.Text = cliente.Numero;
             txtComplemento.Text = cliente.Complemento;
             cmbGenero.SelectedItem = itemGeneros.FirstOrDefault(
                 g => g.Valor == cliente.Genero);
@@ -147,7 +157,28 @@ namespace ControleClientes
 
             ItemEstadoCivil estado = (ItemEstadoCivil)cmbEstadoCivil.SelectedItem;
             ItemGenero genero = (ItemGenero)cmbGenero.SelectedItem;
-            Cidade cidade = (Cidade)cmbCidade.SelectedItem;
+
+            string nomeCidade = cmbCidade.Text.Trim();
+            string ufCidade = txtUf.Text.Trim();
+
+            Cidade cidade = _cidades.FirstOrDefault(c => c.Nome.Equals(nomeCidade, StringComparison.OrdinalIgnoreCase) && 
+            c.UF.Equals(ufCidade, StringComparison.OrdinalIgnoreCase));
+
+            if (cidade == null)
+            {
+                MessageBox.Show("Cidade não encontrada no cadastro. Resgistrando nova cidade...", "Atenção!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nova cidade cadastrada!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cidade = new Cidade
+                {
+                    Nome = nomeCidade,
+                    UF = ufCidade,
+                };
+
+                _cidadeRepository.Adicionar(cidade);
+                CarregarCidades();
+                AtualizarGrid();
+
+            }
 
             var cliente = new Cliente
             {
@@ -157,17 +188,18 @@ namespace ControleClientes
                 Logradouro = txtLogradouro.Text.Trim(),
                 Complemento = txtComplemento.Text.Trim(),
                 Bairro = txtBairro.Text.Trim(),
-                Localidade = cmbCidade.Text.Trim(),
-                Uf = txtUf.Text.Trim(),
+                Localidade = cidade.Nome, 
+                Uf = cidade.UF,           
                 Numero = txtNumero.Text.Trim(),
                 Genero = genero.Valor,
                 estadocivil = estado.Valor,
                 CidadeId = cidade.Id
-
-            }; ;
+            };
 
             if (editingId == null)
+            {
                 _repository.Adicionar(cliente);
+            }
             else
             {
                 cliente.Id = editingId.Value;
@@ -177,6 +209,7 @@ namespace ControleClientes
             LimparCampos();
             AtualizarGrid();
             tcCliente.SelectTab(tpClienteConsulta);
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -187,9 +220,11 @@ namespace ControleClientes
         private async Task<Endereco> BuscarCepAsync(string cep)
         {
             string url = $"https://viacep.com.br/ws/{cep}/json/";
-            using (HttpClient client = new HttpClient())
+
+            try
             {
-                HttpResponseMessage response = await client.GetAsync(url);
+                HttpResponseMessage response = await _httpClient.GetAsync(url);
+
                 if (response.IsSuccessStatusCode)
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
@@ -197,6 +232,10 @@ namespace ControleClientes
                 }
                 else
                     throw new Exception($"Consultando o CEP. Código de status: {response.StatusCode}");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro de rede ao buscar CEP: {ex.Message}");
             }
         }
 

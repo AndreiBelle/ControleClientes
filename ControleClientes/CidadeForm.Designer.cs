@@ -59,11 +59,11 @@
             // 
             tabControlCidades.Controls.Add(tabPageConsultaCidades);
             tabControlCidades.Controls.Add(tabPageCadastroCidades);
-            tabControlCidades.Location = new Point(-1, 0);
+            tabControlCidades.Location = new Point(-1, -29);
             tabControlCidades.Margin = new Padding(3, 4, 3, 4);
             tabControlCidades.Name = "tabControlCidades";
             tabControlCidades.SelectedIndex = 0;
-            tabControlCidades.Size = new Size(722, 432);
+            tabControlCidades.Size = new Size(722, 461);
             tabControlCidades.TabIndex = 3;
             // 
             // tabPageConsultaCidades
@@ -75,7 +75,7 @@
             tabPageConsultaCidades.Margin = new Padding(3, 4, 3, 4);
             tabPageConsultaCidades.Name = "tabPageConsultaCidades";
             tabPageConsultaCidades.Padding = new Padding(3, 4, 3, 4);
-            tabPageConsultaCidades.Size = new Size(714, 399);
+            tabPageConsultaCidades.Size = new Size(714, 428);
             tabPageConsultaCidades.TabIndex = 0;
             tabPageConsultaCidades.Text = "tabPage1";
             tabPageConsultaCidades.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             // 
             panelInferior.Controls.Add(btnVisualizarCidade);
             panelInferior.Controls.Add(btnNovaCidade);
-            panelInferior.Location = new Point(0, 360);
+            panelInferior.Location = new Point(0, 383);
             panelInferior.Margin = new Padding(3, 4, 3, 4);
             panelInferior.Name = "panelInferior";
             panelInferior.Size = new Size(712, 37);
@@ -130,12 +130,13 @@
             // 
             btnVisualizarCidade.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnVisualizarCidade.Image = Properties.Resources.eye;
-            btnVisualizarCidade.Location = new Point(546, 1);
+            btnVisualizarCidade.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVisualizarCidade.Location = new Point(535, 1);
             btnVisualizarCidade.Margin = new Padding(3, 4, 3, 4);
             btnVisualizarCidade.Name = "btnVisualizarCidade";
-            btnVisualizarCidade.Size = new Size(94, 32);
+            btnVisualizarCidade.Size = new Size(105, 32);
             btnVisualizarCidade.TabIndex = 5;
-            btnVisualizarCidade.Text = "&Visualizar";
+            btnVisualizarCidade.Text = "Visualizar";
             btnVisualizarCidade.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnVisualizarCidade.UseVisualStyleBackColor = true;
             btnVisualizarCidade.Click += btnVisualizarCidade_Click;
@@ -166,7 +167,7 @@
             dataGridCidade.Name = "dataGridCidade";
             dataGridCidade.ReadOnly = true;
             dataGridCidade.RowHeadersWidth = 51;
-            dataGridCidade.Size = new Size(712, 309);
+            dataGridCidade.Size = new Size(712, 331);
             dataGridCidade.TabIndex = 1;
             // 
             // Cidade
@@ -198,7 +199,7 @@
             tabPageCadastroCidades.Margin = new Padding(3, 4, 3, 4);
             tabPageCadastroCidades.Name = "tabPageCadastroCidades";
             tabPageCadastroCidades.Padding = new Padding(3, 4, 3, 4);
-            tabPageCadastroCidades.Size = new Size(714, 399);
+            tabPageCadastroCidades.Size = new Size(714, 428);
             tabPageCadastroCidades.TabIndex = 1;
             tabPageCadastroCidades.Text = "tabPage2";
             tabPageCadastroCidades.UseVisualStyleBackColor = true;
@@ -234,7 +235,7 @@
             // btnExcluirCidade
             // 
             btnExcluirCidade.Image = Properties.Resources.trash_xmark__1_;
-            btnExcluirCidade.ImageAlign = ContentAlignment.TopLeft;
+            btnExcluirCidade.ImageAlign = ContentAlignment.MiddleLeft;
             btnExcluirCidade.Location = new Point(15, 266);
             btnExcluirCidade.Margin = new Padding(3, 4, 3, 4);
             btnExcluirCidade.Name = "btnExcluirCidade";
