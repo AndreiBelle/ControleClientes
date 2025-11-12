@@ -69,6 +69,8 @@
             buttonVizualizar = new Button();
             buttonNovo = new Button();
             dataGridOS = new DataGridView();
+            OS = new DataGridViewTextBoxColumn();
+            Cliente = new DataGridViewTextBoxColumn();
             tabControlOS = new TabControl();
             tabPageCadastroTipo = new TabPage();
             comboBoxTipo = new ComboBox();
@@ -77,6 +79,7 @@
             buttonExcluirTipo = new Button();
             textBoxValor = new TextBox();
             labelValor = new Label();
+            textBoxTipo = new TextBox();
             labelTipo = new Label();
             Id = new DataGridViewTextBoxColumn();
             ValorTotal = new DataGridViewTextBoxColumn();
@@ -527,9 +530,26 @@
             dataGridOS.Location = new Point(0, 43);
             dataGridOS.Margin = new Padding(3, 4, 3, 4);
             dataGridOS.Name = "dataGridOS";
+            dataGridOS.ReadOnly = true;
             dataGridOS.RowHeadersWidth = 51;
             dataGridOS.Size = new Size(763, 420);
             dataGridOS.TabIndex = 1;
+            // 
+            // OS
+            // 
+            OS.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            OS.HeaderText = "Id";
+            OS.MinimumWidth = 6;
+            OS.Name = "OS";
+            OS.ReadOnly = true;
+            // 
+            // Cliente
+            // 
+            Cliente.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Cliente.HeaderText = "Cliente";
+            Cliente.MinimumWidth = 6;
+            Cliente.Name = "Cliente";
+            Cliente.ReadOnly = true;
             // 
             // tabControlOS
             // 
@@ -551,6 +571,7 @@
             tabPageCadastroTipo.Controls.Add(buttonExcluirTipo);
             tabPageCadastroTipo.Controls.Add(textBoxValor);
             tabPageCadastroTipo.Controls.Add(labelValor);
+            tabPageCadastroTipo.Controls.Add(textBoxTipo);
             tabPageCadastroTipo.Controls.Add(labelTipo);
             tabPageCadastroTipo.Location = new Point(4, 29);
             tabPageCadastroTipo.Name = "tabPageCadastroTipo";
@@ -624,6 +645,13 @@
             labelValor.Size = new Size(43, 20);
             labelValor.TabIndex = 2;
             labelValor.Text = "Valor";
+            // 
+            // textBoxTipo
+            // 
+            textBoxTipo.Location = new Point(18, 48);
+            textBoxTipo.Name = "textBoxTipo";
+            textBoxTipo.Size = new Size(203, 27);
+            textBoxTipo.TabIndex = 1;
             // 
             // labelTipo
             // 
@@ -712,6 +740,7 @@
         private Button buttonTipo;
         private TabPage tabPageCadastroTipo;
         private Label labelValor;
+        private TextBox textBoxTipo;
         private Label labelTipo;
         private TextBox textBoxValor;
         private Button buttonCancelTipo;
@@ -725,6 +754,8 @@
         private ComboBox comboBoxTipoOs;
         private TextBox textBoxValorTotal;
         private Label labelTotal;
+        private DataGridViewTextBoxColumn OS;
+        private DataGridViewTextBoxColumn Cliente;
         private TextBox textBoxCEP;
         private Label labelCEP;
         private ComboBox comboBoxTipo;

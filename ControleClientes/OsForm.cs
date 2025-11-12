@@ -99,6 +99,13 @@
             var os = _repository.ListarTodos();
             dataGridOS.DataSource = null; 
             dataGridOS.DataSource = os;
+            dataGridOS.Columns["Cep"].Visible = false;
+            dataGridOS.Columns["Logradouro"].Visible = false;
+            dataGridOS.Columns["Numero"].Visible = false;
+            dataGridOS.Columns["Complemento"].Visible = false;
+            dataGridOS.Columns["Bairro"].Visible = false;
+            dataGridOS.Columns["Localidade"].Visible = false;
+            dataGridOS.Columns["uf"].Visible = false;
         }
 
 
