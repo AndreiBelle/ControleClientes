@@ -2,6 +2,7 @@
 {
     public partial class OsForm : Form
     {
+        private List<OsItem> _itensServico = new List<OsItem>();
         private readonly OsRepository _repository;
         private readonly TipoOsRepository _tosRepository;
         private int? editingId = null;
@@ -18,6 +19,42 @@
             CarregarClientes();
             CarregarTiposDeOs();
             AtualizarGrid();
+            ConfigurarGridItens();
+        }
+
+        private void ConfigurarGridItens()
+        {
+
+            dataGridCadastro.AutoGenerateColumns = false;
+            dataGridCadastro.DataSource = null;
+
+            dataGridCadastro.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "ServicoNome",
+                HeaderText = "Serviço",
+                DataPropertyName = "TipoOsNome"
+            });
+
+        }
+
+        private void AtualizarGridItens()
+        {
+
+            var listaParaGrid = _itensServico.Select(item => new
+            {
+                Servico = item.TipoOs.Nome,
+                Quantidade = item.Quantidade,
+                ValorUnitario = item.ValorUnitario,
+                ValorTotal = item.ValorTotalItem
+            }).ToList();
+
+            dataGridCadastro.DataSource = null;
+            dataGridCadastro.DataSource = listaParaGrid;
+
+            if (dataGridCadastro.Columns.Contains("ValorUnitario"))
+                dataGridCadastro.Columns["ValorUnitario"].DefaultCellStyle.Format = "C2";
+            if (dataGridCadastro.Columns.Contains("ValorTotal"))
+                dataGridCadastro.Columns["ValorTotal"].DefaultCellStyle.Format = "C2";
         }
 
         public void CarregarClientes()
@@ -39,10 +76,10 @@
             comboBoxTipoOs.DisplayMember = "Nome";
             comboBoxTipoOs.ValueMember = "Id";
             comboBoxTipoOs.SelectedIndex = -1;
-            comboBoxTipo.DataSource = _tos;
-            comboBoxTipo.DisplayMember = "Nome";
-            comboBoxTipo.ValueMember = "Id";
-            comboBoxTipo.SelectedIndex = -1;
+            //comboBoxTipo.DataSource = _tos;
+            //comboBoxTipo.DisplayMember = "Nome";
+            //comboBoxTipo.ValueMember = "Id";
+            //comboBoxTipo.SelectedIndex = -1;
         }
 
         private void comboBoxCliente_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,11 +122,13 @@
             textBoxDescricao.Clear();
             comboBoxCliente.SelectedIndex = -1;
             comboBoxTipoOs.SelectedIndex = -1;
-            textBoxValor.Clear();
+          //  textBoxValor.Clear();
             textBoxQuantidade.Clear();
             textBoxValorTotal.Clear();
             textBoxCEP.Clear();
             editingId = null;
+            _itensServico.Clear();
+            AtualizarGridItens();
 
         }
 
@@ -97,15 +136,8 @@
         {
             dataGridOS.AutoGenerateColumns = false;
             var os = _repository.ListarTodos();
-            dataGridOS.DataSource = null; 
+            dataGridOS.DataSource = null;
             dataGridOS.DataSource = os;
-            dataGridOS.Columns["Cep"].Visible = false;
-            dataGridOS.Columns["Logradouro"].Visible = false;
-            dataGridOS.Columns["Numero"].Visible = false;
-            dataGridOS.Columns["Complemento"].Visible = false;
-            dataGridOS.Columns["Bairro"].Visible = false;
-            dataGridOS.Columns["Localidade"].Visible = false;
-            dataGridOS.Columns["uf"].Visible = false;
         }
 
 
@@ -122,23 +154,39 @@
         {
             if (dataGridOS.SelectedRows.Count == 0)
             { return; }
-            var os = (Os)dataGridOS.SelectedRows[0].DataBoundItem;
-            var TipoOs = _tos.FirstOrDefault(t => t.Id == os.TipoOsID);
-            var clientes = _clientes.FirstOrDefault(c => c.Id == os.ClienteId);
-            comboBoxCliente.SelectedItem = clientes;
-            textBoxLogradouro.Text = os.Logradouro;
-            textBoxNumero.Text = os.Numero;
-            textBoxComplemento.Text = os.Complemento;
-            textBoxUf.Text = os.Uf;
-            textBoxCEP.Text = os.Cep;
-            textBoxBairro.Text = os.Bairro;
-            textBoxCidade.Text = os.Localidade;
-            textBoxDescricao.Text = os.Descricao;
-            comboBoxTipoOs.Text = TipoOs.Nome;
-            textBoxValor.Text = TipoOs.Valor;
-            textBoxQuantidade.Text = os.Quantidade;
-            textBoxValorTotal.Text = os.valorTotal;
-            editingId = os.Id;
+
+
+            var osSelecionada = (Os)dataGridOS.SelectedRows[0].DataBoundItem;
+
+
+            var osCompleta = _repository.ObterPorId(osSelecionada.Id);
+
+            if (osCompleta == null)
+            {
+                MessageBox.Show("Não foi possível carregar a Ordem de Serviço.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+     
+            LimparCampos(); 
+            CarregarClientes();
+            CarregarTiposDeOs();
+
+            var cliente = _clientes.FirstOrDefault(c => c.Id == osCompleta.ClienteId);
+            comboBoxCliente.SelectedItem = cliente;
+            textBoxLogradouro.Text = osCompleta.Logradouro;
+            textBoxNumero.Text = osCompleta.Numero;
+            textBoxComplemento.Text = osCompleta.Complemento;
+            textBoxUf.Text = osCompleta.Uf;
+            textBoxCEP.Text = osCompleta.Cep;
+            textBoxBairro.Text = osCompleta.Bairro;
+            textBoxCidade.Text = osCompleta.Localidade;
+            textBoxDescricao.Text = osCompleta.Descricao;
+
+            _itensServico = osCompleta.Itens.ToList();
+
+            AtualizarGridItens();
+            editingId = osCompleta.Id;
             tabControlOS.SelectTab(tabPageCadastroOS);
         }
 
@@ -152,81 +200,65 @@
 
             if (comboBoxTipoOs.SelectedItem == null)
             {
-                MessageBox.Show("Por Favor, Selecione um Tipo de Ordem de Serviço.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            Cliente cliente = (Cliente)comboBoxCliente.SelectedItem;
-            TipoOs tipoSelecionado = (TipoOs)comboBoxTipoOs.SelectedItem;
+                if (comboBoxCliente.SelectedItem == null)
+                {
+                    MessageBox.Show("Por Favor, Selecione um cliente.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            var os = new Os
-            {
-                Descricao = textBoxDescricao.Text.Trim(),
-                Quantidade = textBoxQuantidade.Text.Trim(),
-                valorTotal = textBoxValorTotal.Text.Trim(),
-                Cep = textBoxCEP.Text.Trim(),
-                Logradouro = textBoxLogradouro.Text.Trim(),
-                Complemento = textBoxComplemento.Text.Trim(),
-                Bairro = textBoxBairro.Text.Trim(),
-                Localidade = textBoxCidade.Text.Trim(),
-                Uf = textBoxUf.Text.Trim(),
-                Numero = textBoxNumero.Text.Trim(),
-                ClienteId = cliente.Id,
-                TipoOsID = tipoSelecionado.Id
-            };
-            var TipoOs = new TipoOs
-            {
-                Nome = comboBoxTipoOs.Text.Trim(),
-                Valor = textBoxValor.Text.Trim(),
-            };
-            if (editingId == null)
-            {
-                _repository.Adicionar(os);
-            }
-            else
-            {
-                os.Id = editingId.Value;
-                _repository.Atualizar(os);
+                if (_itensServico.Count == 0)
+                {
+                    MessageBox.Show("Adicione pelo menos um serviço à OS.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                foreach (var item in _itensServico)
+                {
+                    item.TipoOs = null;
+                }
+
+                Cliente cliente = (Cliente)comboBoxCliente.SelectedItem;
+
+
+                var os = new Os
+                {
+                    Descricao = textBoxDescricao.Text.Trim(),
+                    Cep = textBoxCEP.Text.Trim(),
+                    Logradouro = textBoxLogradouro.Text.Trim(),
+                    Complemento = textBoxComplemento.Text.Trim(),
+                    Bairro = textBoxBairro.Text.Trim(),
+                    Localidade = textBoxCidade.Text.Trim(),
+                    Uf = textBoxUf.Text.Trim(),
+                    Numero = textBoxNumero.Text.Trim(),
+                    ClienteId = cliente.Id,
+
+                    Itens = _itensServico,
+
+                  
+                    ValorTotalGeral = _itensServico.Sum(item => item.ValorTotalItem)
+                };
+
+               
+                if (editingId == null)
+                {
+                    _repository.Adicionar(os);
+                }
+                else
+                {
+                    os.Id = editingId.Value;
+                    _repository.Atualizar(os); 
+                }
+
+                LimparCampos();
+                CarregarTiposDeOs();
+                AtualizarGrid();
+                tabControlOS.SelectTab(tabPageConsultaOS);
             }
 
-            LimparCampos();
-            AtualizarGrid();
-            tabControlOS.SelectTab(tabPageConsultaOS);
+         
         }
 
-        private void buttonSalvarTipo_Click(object sender, EventArgs e)
-        {
-            string nomeTipo = comboBoxTipo.Text.Trim();
-            string valor = textBoxValor.Text.Trim();
-
-            TipoOs tos = _tos.FirstOrDefault(os => os.Nome.Equals(nomeTipo, StringComparison.OrdinalIgnoreCase));
-
-            if (string.IsNullOrEmpty(nomeTipo))
-            {
-                MessageBox.Show("Não é possivel salvar sem nome do Tipo de Serviço!.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            tos = new TipoOs
-            {
-                Nome = nomeTipo,
-                Valor = valor,
-            };
-
-            if (editingId == null)
-            {
-                _tosRepository.AdicionarTipo(tos);
-            }
-            else
-            {
-                tos.Id = editingId.Value;
-                _tosRepository.AtualizarTipo(tos);
-            }
-
-            LimparCampos();
-            AtualizarGrid();
-            tabControlOS.SelectTab(tabPageConsultaOS);
-
-        }
+        
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
@@ -238,24 +270,7 @@
             tabControlOS.SelectTab(tabPageConsultaOS);
         }
 
-        private void buttonExcluirTipo_Click(object sender, EventArgs e)
-        {
-            if (dataGridOS.SelectedRows.Count == 0)
-            {
-                return;
-            }
-
-            if (MessageBox.Show("Excluir Registro", "Tipo de Ordem de Serviço", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                tabControlOS.SelectTab(tabPageConsultaOS);
-            }
-
-            var Tos = (TipoOs)dataGridOS.SelectedRows[0].DataBoundItem;
-            _tosRepository.RemoverTipo(Tos.Id);
-            AtualizarGrid();
-            tabControlOS.SelectTab(tabPageConsultaOS);
-
-        }
+        
 
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
@@ -284,23 +299,25 @@
 
         private void buttonTipo_Click(object sender, EventArgs e)
         {
-            LimparCampos();
-            tabControlOS.SelectTab(tabPageCadastroTipo);
+            var tipoOs = new TipoOsForm();
+            tipoOs.MdiParent = this.MdiParent;
+            tipoOs.Show();
         }
 
-        private void comboBoxTipoOs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxTipoOs.SelectedItem is TipoOs OsSelecionada)
-            {
-                textBoxValor.Text = OsSelecionada.Valor;
-                textBoxValorCadastro.Text = OsSelecionada.Valor;
-            }
-            else
-            {
-                textBoxValor.Text = "";
-                textBoxValorCadastro.Text = "";
-            }
-        }
+        //private void comboboxtipoos_selectedindexchanged(object sender, eventargs e)
+        //{
+
+        //    if (comboboxtipoos.selecteditem is tipoos osselecionada)
+        //    {
+        //        textboxvalor.text = osselecionada.valor.tostring();
+        //        textboxvalorcadastro.text = osselecionada.valor.tostring();
+        //    }
+        //    else
+        //    {
+        //        textboxvalor.text = "";
+        //        textboxvalorcadastro.text = "";
+        //    }
+        //}
 
         private void CalcularTotal()
         {
@@ -336,6 +353,53 @@
         {
             CalcularTotal();
         }
+
+        private void buttonAdicionarServico_Click(object sender, EventArgs e)
+        {
+            if (comboBoxTipoOs.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um Tipo de Serviço.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(textBoxQuantidade.Text, out int quantidade) || quantidade <= 0)
+            {
+                MessageBox.Show("Informe uma quantidade válida.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            TipoOs tipoSelecionado = (TipoOs)comboBoxTipoOs.SelectedItem;
+
+            decimal.TryParse(textBoxValorCadastro.Text, out decimal valorUnitario);
+
+
+            string strValorTotal = textBoxValorTotal.Text
+                .Replace("R$", "")
+                .Trim();
+
+            decimal.TryParse(strValorTotal, out decimal valorTotalItem);
+
+            var novoItem = new OsItem
+            {
+                TipoOsId = tipoSelecionado.Id,
+                TipoOs = tipoSelecionado,
+                Quantidade = quantidade,
+                ValorUnitario = valorUnitario,
+                ValorTotalItem = valorTotalItem
+            };
+
+            _itensServico.Add(novoItem);
+
+            AtualizarGridItens();
+
+            comboBoxTipoOs.SelectedIndex = -1;
+          //  textBoxValor.Clear(); 
+            textBoxValorCadastro.Clear(); 
+            textBoxQuantidade.Clear();
+            textBoxValorTotal.Clear();
+        }
     }
 }
+
 

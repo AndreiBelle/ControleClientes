@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             tabPageCadastroOS = new TabPage();
+            buttonAdicionarServico = new Button();
+            dataGridCadastro = new DataGridView();
+            Valor = new DataGridViewTextBoxColumn();
             textBoxCEP = new TextBox();
-            labelCEP = new Label();
             textBoxValorTotal = new TextBox();
-            labelTotal = new Label();
             textBoxQuantidade = new TextBox();
-            labelQuantidade = new Label();
             textBoxValorCadastro = new TextBox();
-            labelValorTipo = new Label();
-            comboBoxTipoOs = new ComboBox();
-            labelTipoDeOrdem = new Label();
             textBoxDescricao = new TextBox();
             textBoxCidade = new TextBox();
             textBoxNumero = new TextBox();
@@ -46,6 +43,12 @@
             textBoxBairro = new TextBox();
             textBoxComplemento = new TextBox();
             textBoxLogradouro = new TextBox();
+            labelCEP = new Label();
+            labelTotal = new Label();
+            labelQuantidade = new Label();
+            labelValorTipo = new Label();
+            comboBoxTipoOs = new ComboBox();
+            labelTipoDeOrdem = new Label();
             labelDescricao = new Label();
             labelOs = new Label();
             labelUF = new Label();
@@ -60,6 +63,9 @@
             buttonCancelar = new Button();
             buttonSalvar = new Button();
             buttonExcluir = new Button();
+            OS = new DataGridViewTextBoxColumn();
+            Cliente = new DataGridViewTextBoxColumn();
+            tabControlOS = new TabControl();
             tabPageConsultaOS = new TabPage();
             panelSuperior = new Panel();
             buttonPesquisar = new Button();
@@ -69,42 +75,27 @@
             buttonVizualizar = new Button();
             buttonNovo = new Button();
             dataGridOS = new DataGridView();
-            OS = new DataGridViewTextBoxColumn();
-            Cliente = new DataGridViewTextBoxColumn();
-            tabControlOS = new TabControl();
-            tabPageCadastroTipo = new TabPage();
-            comboBoxTipo = new ComboBox();
-            buttonCancelTipo = new Button();
-            buttonSalvarTipo = new Button();
-            buttonExcluirTipo = new Button();
-            textBoxValor = new TextBox();
-            labelValor = new Label();
-            textBoxTipo = new TextBox();
-            labelTipo = new Label();
             Id = new DataGridViewTextBoxColumn();
             ValorTotal = new DataGridViewTextBoxColumn();
             ColunaNome = new DataGridViewTextBoxColumn();
+            tabPageCadastroTipo = new TabPage();
             tabPageCadastroOS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridCadastro).BeginInit();
+            tabControlOS.SuspendLayout();
             tabPageConsultaOS.SuspendLayout();
             panelSuperior.SuspendLayout();
             panelInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridOS).BeginInit();
-            tabControlOS.SuspendLayout();
-            tabPageCadastroTipo.SuspendLayout();
             SuspendLayout();
             // 
             // tabPageCadastroOS
             // 
+            tabPageCadastroOS.Controls.Add(buttonAdicionarServico);
+            tabPageCadastroOS.Controls.Add(dataGridCadastro);
             tabPageCadastroOS.Controls.Add(textBoxCEP);
-            tabPageCadastroOS.Controls.Add(labelCEP);
             tabPageCadastroOS.Controls.Add(textBoxValorTotal);
-            tabPageCadastroOS.Controls.Add(labelTotal);
             tabPageCadastroOS.Controls.Add(textBoxQuantidade);
-            tabPageCadastroOS.Controls.Add(labelQuantidade);
             tabPageCadastroOS.Controls.Add(textBoxValorCadastro);
-            tabPageCadastroOS.Controls.Add(labelValorTipo);
-            tabPageCadastroOS.Controls.Add(comboBoxTipoOs);
-            tabPageCadastroOS.Controls.Add(labelTipoDeOrdem);
             tabPageCadastroOS.Controls.Add(textBoxDescricao);
             tabPageCadastroOS.Controls.Add(textBoxCidade);
             tabPageCadastroOS.Controls.Add(textBoxNumero);
@@ -112,6 +103,12 @@
             tabPageCadastroOS.Controls.Add(textBoxBairro);
             tabPageCadastroOS.Controls.Add(textBoxComplemento);
             tabPageCadastroOS.Controls.Add(textBoxLogradouro);
+            tabPageCadastroOS.Controls.Add(labelCEP);
+            tabPageCadastroOS.Controls.Add(labelTotal);
+            tabPageCadastroOS.Controls.Add(labelQuantidade);
+            tabPageCadastroOS.Controls.Add(labelValorTipo);
+            tabPageCadastroOS.Controls.Add(comboBoxTipoOs);
+            tabPageCadastroOS.Controls.Add(labelTipoDeOrdem);
             tabPageCadastroOS.Controls.Add(labelDescricao);
             tabPageCadastroOS.Controls.Add(labelOs);
             tabPageCadastroOS.Controls.Add(labelUF);
@@ -130,10 +127,42 @@
             tabPageCadastroOS.Margin = new Padding(3, 4, 3, 4);
             tabPageCadastroOS.Name = "tabPageCadastroOS";
             tabPageCadastroOS.Padding = new Padding(3, 4, 3, 4);
-            tabPageCadastroOS.Size = new Size(773, 508);
+            tabPageCadastroOS.Size = new Size(1077, 822);
             tabPageCadastroOS.TabIndex = 1;
             tabPageCadastroOS.Text = "tabPage2";
             tabPageCadastroOS.UseVisualStyleBackColor = true;
+            // 
+            // buttonAdicionarServico
+            // 
+            buttonAdicionarServico.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonAdicionarServico.Location = new Point(407, 464);
+            buttonAdicionarServico.Margin = new Padding(3, 4, 3, 4);
+            buttonAdicionarServico.Name = "buttonAdicionarServico";
+            buttonAdicionarServico.Size = new Size(149, 31);
+            buttonAdicionarServico.TabIndex = 68;
+            buttonAdicionarServico.Text = "Adicionar Serviço";
+            buttonAdicionarServico.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonAdicionarServico.UseVisualStyleBackColor = true;
+            buttonAdicionarServico.Click += buttonAdicionarServico_Click;
+            // 
+            // dataGridCadastro
+            // 
+            dataGridCadastro.AllowUserToAddRows = false;
+            dataGridCadastro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridCadastro.Columns.AddRange(new DataGridViewColumn[] { Valor });
+            dataGridCadastro.Location = new Point(3, 505);
+            dataGridCadastro.Name = "dataGridCadastro";
+            dataGridCadastro.RowHeadersWidth = 51;
+            dataGridCadastro.Size = new Size(773, 186);
+            dataGridCadastro.TabIndex = 5;
+            // 
+            // Valor
+            // 
+            Valor.DataPropertyName = "ValorTotal";
+            Valor.HeaderText = "Valor Total";
+            Valor.MinimumWidth = 6;
+            Valor.Name = "Valor";
+            Valor.Width = 125;
             // 
             // textBoxCEP
             // 
@@ -141,15 +170,6 @@
             textBoxCEP.Name = "textBoxCEP";
             textBoxCEP.Size = new Size(125, 27);
             textBoxCEP.TabIndex = 67;
-            // 
-            // labelCEP
-            // 
-            labelCEP.AutoSize = true;
-            labelCEP.Location = new Point(381, 199);
-            labelCEP.Name = "labelCEP";
-            labelCEP.Size = new Size(34, 20);
-            labelCEP.TabIndex = 66;
-            labelCEP.Text = "CEP";
             // 
             // textBoxValorTotal
             // 
@@ -159,15 +179,6 @@
             textBoxValorTotal.TabIndex = 65;
             textBoxValorTotal.TextChanged += textBoxValorTotal_TextChanged;
             // 
-            // labelTotal
-            // 
-            labelTotal.AutoSize = true;
-            labelTotal.Location = new Point(248, 385);
-            labelTotal.Name = "labelTotal";
-            labelTotal.Size = new Size(80, 20);
-            labelTotal.TabIndex = 64;
-            labelTotal.Text = "Valor Total";
-            // 
             // textBoxQuantidade
             // 
             textBoxQuantidade.Location = new Point(149, 408);
@@ -176,15 +187,6 @@
             textBoxQuantidade.TabIndex = 63;
             textBoxQuantidade.TextChanged += textBoxQuantidade_TextChanged;
             // 
-            // labelQuantidade
-            // 
-            labelQuantidade.AutoSize = true;
-            labelQuantidade.Location = new Point(149, 384);
-            labelQuantidade.Name = "labelQuantidade";
-            labelQuantidade.Size = new Size(87, 20);
-            labelQuantidade.TabIndex = 62;
-            labelQuantidade.Text = "Quantidade";
-            // 
             // textBoxValorCadastro
             // 
             textBoxValorCadastro.Location = new Point(18, 408);
@@ -192,33 +194,6 @@
             textBoxValorCadastro.Size = new Size(125, 27);
             textBoxValorCadastro.TabIndex = 61;
             textBoxValorCadastro.TextChanged += textBoxValorCadastro_TextChanged;
-            // 
-            // labelValorTipo
-            // 
-            labelValorTipo.AutoSize = true;
-            labelValorTipo.Location = new Point(18, 384);
-            labelValorTipo.Name = "labelValorTipo";
-            labelValorTipo.Size = new Size(43, 20);
-            labelValorTipo.TabIndex = 60;
-            labelValorTipo.Text = "Valor";
-            // 
-            // comboBoxTipoOs
-            // 
-            comboBoxTipoOs.FormattingEnabled = true;
-            comboBoxTipoOs.Location = new Point(381, 347);
-            comboBoxTipoOs.Name = "comboBoxTipoOs";
-            comboBoxTipoOs.Size = new Size(151, 28);
-            comboBoxTipoOs.TabIndex = 59;
-            comboBoxTipoOs.SelectedIndexChanged += comboBoxTipoOs_SelectedIndexChanged;
-            // 
-            // labelTipoDeOrdem
-            // 
-            labelTipoDeOrdem.AutoSize = true;
-            labelTipoDeOrdem.Location = new Point(381, 324);
-            labelTipoDeOrdem.Name = "labelTipoDeOrdem";
-            labelTipoDeOrdem.Size = new Size(83, 20);
-            labelTipoDeOrdem.TabIndex = 58;
-            labelTipoDeOrdem.Text = "Tipo de OS";
             // 
             // textBoxDescricao
             // 
@@ -274,6 +249,59 @@
             textBoxLogradouro.Name = "textBoxLogradouro";
             textBoxLogradouro.Size = new Size(358, 27);
             textBoxLogradouro.TabIndex = 42;
+            // 
+            // labelCEP
+            // 
+            labelCEP.AutoSize = true;
+            labelCEP.Location = new Point(381, 199);
+            labelCEP.Name = "labelCEP";
+            labelCEP.Size = new Size(34, 20);
+            labelCEP.TabIndex = 66;
+            labelCEP.Text = "CEP";
+            // 
+            // labelTotal
+            // 
+            labelTotal.AutoSize = true;
+            labelTotal.Location = new Point(248, 385);
+            labelTotal.Name = "labelTotal";
+            labelTotal.Size = new Size(80, 20);
+            labelTotal.TabIndex = 64;
+            labelTotal.Text = "Valor Total";
+            // 
+            // labelQuantidade
+            // 
+            labelQuantidade.AutoSize = true;
+            labelQuantidade.Location = new Point(149, 384);
+            labelQuantidade.Name = "labelQuantidade";
+            labelQuantidade.Size = new Size(87, 20);
+            labelQuantidade.TabIndex = 62;
+            labelQuantidade.Text = "Quantidade";
+            // 
+            // labelValorTipo
+            // 
+            labelValorTipo.AutoSize = true;
+            labelValorTipo.Location = new Point(18, 384);
+            labelValorTipo.Name = "labelValorTipo";
+            labelValorTipo.Size = new Size(43, 20);
+            labelValorTipo.TabIndex = 60;
+            labelValorTipo.Text = "Valor";
+            // 
+            // comboBoxTipoOs
+            // 
+            comboBoxTipoOs.FormattingEnabled = true;
+            comboBoxTipoOs.Location = new Point(381, 347);
+            comboBoxTipoOs.Name = "comboBoxTipoOs";
+            comboBoxTipoOs.Size = new Size(151, 28);
+            comboBoxTipoOs.TabIndex = 59;
+            // 
+            // labelTipoDeOrdem
+            // 
+            labelTipoDeOrdem.AutoSize = true;
+            labelTipoDeOrdem.Location = new Point(381, 324);
+            labelTipoDeOrdem.Name = "labelTipoDeOrdem";
+            labelTipoDeOrdem.Size = new Size(83, 20);
+            labelTipoDeOrdem.TabIndex = 58;
+            labelTipoDeOrdem.Text = "Tipo de OS";
             // 
             // labelDescricao
             // 
@@ -418,123 +446,6 @@
             buttonExcluir.UseVisualStyleBackColor = true;
             buttonExcluir.Click += buttonExcluir_Click;
             // 
-            // tabPageConsultaOS
-            // 
-            tabPageConsultaOS.Controls.Add(panelSuperior);
-            tabPageConsultaOS.Controls.Add(panelInferior);
-            tabPageConsultaOS.Controls.Add(dataGridOS);
-            tabPageConsultaOS.Location = new Point(4, 29);
-            tabPageConsultaOS.Margin = new Padding(3, 4, 3, 4);
-            tabPageConsultaOS.Name = "tabPageConsultaOS";
-            tabPageConsultaOS.Padding = new Padding(3, 4, 3, 4);
-            tabPageConsultaOS.Size = new Size(773, 508);
-            tabPageConsultaOS.TabIndex = 0;
-            tabPageConsultaOS.Text = "tabPage1";
-            tabPageConsultaOS.UseVisualStyleBackColor = true;
-            // 
-            // panelSuperior
-            // 
-            panelSuperior.Controls.Add(buttonPesquisar);
-            panelSuperior.Controls.Add(textBoxPesquisarOs);
-            panelSuperior.Location = new Point(0, 0);
-            panelSuperior.Margin = new Padding(3, 4, 3, 4);
-            panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(770, 36);
-            panelSuperior.TabIndex = 0;
-            // 
-            // buttonPesquisar
-            // 
-            buttonPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonPesquisar.ForeColor = SystemColors.ControlText;
-            buttonPesquisar.Image = Properties.Resources.search;
-            buttonPesquisar.Location = new Point(654, 2);
-            buttonPesquisar.Margin = new Padding(3, 4, 3, 4);
-            buttonPesquisar.Name = "buttonPesquisar";
-            buttonPesquisar.Size = new Size(101, 31);
-            buttonPesquisar.TabIndex = 5;
-            buttonPesquisar.Text = "&Pesquisar";
-            buttonPesquisar.TextAlign = ContentAlignment.MiddleRight;
-            buttonPesquisar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonPesquisar.UseVisualStyleBackColor = true;
-            buttonPesquisar.Click += buttonPesquisar_Click;
-            // 
-            // textBoxPesquisarOs
-            // 
-            textBoxPesquisarOs.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxPesquisarOs.Location = new Point(6, 4);
-            textBoxPesquisarOs.Margin = new Padding(3, 4, 3, 4);
-            textBoxPesquisarOs.Name = "textBoxPesquisarOs";
-            textBoxPesquisarOs.PlaceholderText = "Pesquisar OS";
-            textBoxPesquisarOs.Size = new Size(642, 27);
-            textBoxPesquisarOs.TabIndex = 1;
-            // 
-            // panelInferior
-            // 
-            panelInferior.Controls.Add(buttonTipo);
-            panelInferior.Controls.Add(buttonVizualizar);
-            panelInferior.Controls.Add(buttonNovo);
-            panelInferior.Location = new Point(0, 471);
-            panelInferior.Margin = new Padding(3, 4, 3, 4);
-            panelInferior.Name = "panelInferior";
-            panelInferior.Size = new Size(773, 37);
-            panelInferior.TabIndex = 2;
-            // 
-            // buttonTipo
-            // 
-            buttonTipo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonTipo.Image = Properties.Resources.add_document;
-            buttonTipo.Location = new Point(601, 3);
-            buttonTipo.Name = "buttonTipo";
-            buttonTipo.Size = new Size(169, 29);
-            buttonTipo.TabIndex = 8;
-            buttonTipo.Text = "Novo Tipo de OS";
-            buttonTipo.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonTipo.UseVisualStyleBackColor = true;
-            buttonTipo.Click += buttonTipo_Click;
-            // 
-            // buttonVizualizar
-            // 
-            buttonVizualizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonVizualizar.Image = Properties.Resources.eye;
-            buttonVizualizar.Location = new Point(422, 5);
-            buttonVizualizar.Margin = new Padding(3, 4, 3, 4);
-            buttonVizualizar.Name = "buttonVizualizar";
-            buttonVizualizar.Size = new Size(98, 31);
-            buttonVizualizar.TabIndex = 7;
-            buttonVizualizar.Text = "&Visualizar";
-            buttonVizualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonVizualizar.UseVisualStyleBackColor = true;
-            buttonVizualizar.Click += buttonVizualizar_Click;
-            // 
-            // buttonNovo
-            // 
-            buttonNovo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonNovo.Image = Properties.Resources.add_document;
-            buttonNovo.Location = new Point(526, 3);
-            buttonNovo.Margin = new Padding(3, 4, 3, 4);
-            buttonNovo.Name = "buttonNovo";
-            buttonNovo.Size = new Size(69, 32);
-            buttonNovo.TabIndex = 6;
-            buttonNovo.Text = "&Novo";
-            buttonNovo.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonNovo.UseVisualStyleBackColor = true;
-            buttonNovo.Click += buttonNovo_Click;
-            // 
-            // dataGridOS
-            // 
-            dataGridOS.AllowUserToAddRows = false;
-            dataGridOS.AllowUserToOrderColumns = true;
-            dataGridOS.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridOS.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridOS.Columns.AddRange(new DataGridViewColumn[] { Id, ValorTotal, ColunaNome });
-            dataGridOS.Location = new Point(0, 43);
-            dataGridOS.Margin = new Padding(3, 4, 3, 4);
-            dataGridOS.Name = "dataGridOS";
-            dataGridOS.ReadOnly = true;
-            dataGridOS.RowHeadersWidth = 51;
-            dataGridOS.Size = new Size(763, 420);
-            dataGridOS.TabIndex = 1;
-            // 
             // OS
             // 
             OS.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -560,107 +471,125 @@
             tabControlOS.Margin = new Padding(3, 4, 3, 4);
             tabControlOS.Name = "tabControlOS";
             tabControlOS.SelectedIndex = 0;
-            tabControlOS.Size = new Size(781, 541);
+            tabControlOS.Size = new Size(1085, 541);
             tabControlOS.TabIndex = 4;
             // 
-            // tabPageCadastroTipo
+            // tabPageConsultaOS
             // 
-            tabPageCadastroTipo.Controls.Add(comboBoxTipo);
-            tabPageCadastroTipo.Controls.Add(buttonCancelTipo);
-            tabPageCadastroTipo.Controls.Add(buttonSalvarTipo);
-            tabPageCadastroTipo.Controls.Add(buttonExcluirTipo);
-            tabPageCadastroTipo.Controls.Add(textBoxValor);
-            tabPageCadastroTipo.Controls.Add(labelValor);
-            tabPageCadastroTipo.Controls.Add(textBoxTipo);
-            tabPageCadastroTipo.Controls.Add(labelTipo);
-            tabPageCadastroTipo.Location = new Point(4, 29);
-            tabPageCadastroTipo.Name = "tabPageCadastroTipo";
-            tabPageCadastroTipo.Padding = new Padding(3);
-            tabPageCadastroTipo.Size = new Size(773, 508);
-            tabPageCadastroTipo.TabIndex = 2;
-            tabPageCadastroTipo.Text = "tabPage1";
-            tabPageCadastroTipo.UseVisualStyleBackColor = true;
+            tabPageConsultaOS.Controls.Add(panelSuperior);
+            tabPageConsultaOS.Controls.Add(panelInferior);
+            tabPageConsultaOS.Controls.Add(dataGridOS);
+            tabPageConsultaOS.Location = new Point(4, 29);
+            tabPageConsultaOS.Margin = new Padding(3, 4, 3, 4);
+            tabPageConsultaOS.Name = "tabPageConsultaOS";
+            tabPageConsultaOS.Padding = new Padding(3, 4, 3, 4);
+            tabPageConsultaOS.Size = new Size(1077, 508);
+            tabPageConsultaOS.TabIndex = 0;
+            tabPageConsultaOS.Text = "tabPage1";
+            tabPageConsultaOS.UseVisualStyleBackColor = true;
             // 
-            // comboBoxTipo
+            // panelSuperior
             // 
-            comboBoxTipo.FormattingEnabled = true;
-            comboBoxTipo.Location = new Point(18, 48);
-            comboBoxTipo.Name = "comboBoxTipo";
-            comboBoxTipo.Size = new Size(151, 28);
-            comboBoxTipo.TabIndex = 20;
+            panelSuperior.Controls.Add(buttonPesquisar);
+            panelSuperior.Controls.Add(textBoxPesquisarOs);
+            panelSuperior.Location = new Point(0, 0);
+            panelSuperior.Margin = new Padding(3, 4, 3, 4);
+            panelSuperior.Name = "panelSuperior";
+            panelSuperior.Size = new Size(1077, 36);
+            panelSuperior.TabIndex = 0;
             // 
-            // buttonCancelTipo
+            // buttonPesquisar
             // 
-            buttonCancelTipo.Image = Properties.Resources.cross_circle;
-            buttonCancelTipo.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonCancelTipo.Location = new Point(671, 225);
-            buttonCancelTipo.Margin = new Padding(3, 4, 3, 4);
-            buttonCancelTipo.Name = "buttonCancelTipo";
-            buttonCancelTipo.Size = new Size(96, 31);
-            buttonCancelTipo.TabIndex = 19;
-            buttonCancelTipo.Text = "&Cancelar";
-            buttonCancelTipo.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonCancelTipo.UseVisualStyleBackColor = true;
-            buttonCancelTipo.Click += buttonCancelTipo_Click;
+            buttonPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonPesquisar.ForeColor = SystemColors.ControlText;
+            buttonPesquisar.Image = Properties.Resources.search;
+            buttonPesquisar.Location = new Point(961, 2);
+            buttonPesquisar.Margin = new Padding(3, 4, 3, 4);
+            buttonPesquisar.Name = "buttonPesquisar";
+            buttonPesquisar.Size = new Size(101, 31);
+            buttonPesquisar.TabIndex = 5;
+            buttonPesquisar.Text = "&Pesquisar";
+            buttonPesquisar.TextAlign = ContentAlignment.MiddleRight;
+            buttonPesquisar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonPesquisar.UseVisualStyleBackColor = true;
+            buttonPesquisar.Click += buttonPesquisar_Click;
             // 
-            // buttonSalvarTipo
+            // textBoxPesquisarOs
             // 
-            buttonSalvarTipo.Image = Properties.Resources.floppy_disk_circle_arrow_right;
-            buttonSalvarTipo.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonSalvarTipo.Location = new Point(562, 225);
-            buttonSalvarTipo.Margin = new Padding(3, 4, 3, 4);
-            buttonSalvarTipo.Name = "buttonSalvarTipo";
-            buttonSalvarTipo.Size = new Size(103, 31);
-            buttonSalvarTipo.TabIndex = 18;
-            buttonSalvarTipo.Text = "&Salvar";
-            buttonSalvarTipo.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonSalvarTipo.UseVisualStyleBackColor = true;
-            buttonSalvarTipo.Click += buttonSalvarTipo_Click;
+            textBoxPesquisarOs.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxPesquisarOs.Location = new Point(6, 4);
+            textBoxPesquisarOs.Margin = new Padding(3, 4, 3, 4);
+            textBoxPesquisarOs.Name = "textBoxPesquisarOs";
+            textBoxPesquisarOs.PlaceholderText = "Pesquisar OS";
+            textBoxPesquisarOs.Size = new Size(949, 27);
+            textBoxPesquisarOs.TabIndex = 1;
             // 
-            // buttonExcluirTipo
+            // panelInferior
             // 
-            buttonExcluirTipo.Image = Properties.Resources.trash_xmark__1_;
-            buttonExcluirTipo.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonExcluirTipo.Location = new Point(6, 225);
-            buttonExcluirTipo.Margin = new Padding(3, 4, 3, 4);
-            buttonExcluirTipo.Name = "buttonExcluirTipo";
-            buttonExcluirTipo.Size = new Size(97, 31);
-            buttonExcluirTipo.TabIndex = 17;
-            buttonExcluirTipo.Text = "  &Excluir";
-            buttonExcluirTipo.UseVisualStyleBackColor = true;
-            buttonExcluirTipo.Click += buttonExcluirTipo_Click;
+            panelInferior.Controls.Add(buttonTipo);
+            panelInferior.Controls.Add(buttonVizualizar);
+            panelInferior.Controls.Add(buttonNovo);
+            panelInferior.Location = new Point(0, 471);
+            panelInferior.Margin = new Padding(3, 4, 3, 4);
+            panelInferior.Name = "panelInferior";
+            panelInferior.Size = new Size(1077, 37);
+            panelInferior.TabIndex = 2;
             // 
-            // textBoxValor
+            // buttonTipo
             // 
-            textBoxValor.Location = new Point(18, 123);
-            textBoxValor.Name = "textBoxValor";
-            textBoxValor.Size = new Size(144, 27);
-            textBoxValor.TabIndex = 3;
+            buttonTipo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonTipo.Image = Properties.Resources.add_document;
+            buttonTipo.Location = new Point(905, 3);
+            buttonTipo.Name = "buttonTipo";
+            buttonTipo.Size = new Size(169, 29);
+            buttonTipo.TabIndex = 8;
+            buttonTipo.Text = "Novo Tipo de OS";
+            buttonTipo.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonTipo.UseVisualStyleBackColor = true;
+            buttonTipo.Click += buttonTipo_Click;
             // 
-            // labelValor
+            // buttonVizualizar
             // 
-            labelValor.AutoSize = true;
-            labelValor.Location = new Point(18, 100);
-            labelValor.Name = "labelValor";
-            labelValor.Size = new Size(43, 20);
-            labelValor.TabIndex = 2;
-            labelValor.Text = "Valor";
+            buttonVizualizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonVizualizar.Image = Properties.Resources.eye;
+            buttonVizualizar.Location = new Point(726, 5);
+            buttonVizualizar.Margin = new Padding(3, 4, 3, 4);
+            buttonVizualizar.Name = "buttonVizualizar";
+            buttonVizualizar.Size = new Size(98, 31);
+            buttonVizualizar.TabIndex = 7;
+            buttonVizualizar.Text = "&Visualizar";
+            buttonVizualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonVizualizar.UseVisualStyleBackColor = true;
+            buttonVizualizar.Click += buttonVizualizar_Click;
             // 
-            // textBoxTipo
+            // buttonNovo
             // 
-            textBoxTipo.Location = new Point(18, 48);
-            textBoxTipo.Name = "textBoxTipo";
-            textBoxTipo.Size = new Size(203, 27);
-            textBoxTipo.TabIndex = 1;
+            buttonNovo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonNovo.Image = Properties.Resources.add_document;
+            buttonNovo.Location = new Point(830, 3);
+            buttonNovo.Margin = new Padding(3, 4, 3, 4);
+            buttonNovo.Name = "buttonNovo";
+            buttonNovo.Size = new Size(69, 32);
+            buttonNovo.TabIndex = 6;
+            buttonNovo.Text = "&Novo";
+            buttonNovo.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonNovo.UseVisualStyleBackColor = true;
+            buttonNovo.Click += buttonNovo_Click;
             // 
-            // labelTipo
+            // dataGridOS
             // 
-            labelTipo.AutoSize = true;
-            labelTipo.Location = new Point(18, 25);
-            labelTipo.Name = "labelTipo";
-            labelTipo.Size = new Size(112, 20);
-            labelTipo.TabIndex = 0;
-            labelTipo.Text = "Tipo de Serviço";
+            dataGridOS.AllowUserToAddRows = false;
+            dataGridOS.AllowUserToOrderColumns = true;
+            dataGridOS.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridOS.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridOS.Columns.AddRange(new DataGridViewColumn[] { Id, ValorTotal, ColunaNome });
+            dataGridOS.Location = new Point(0, 43);
+            dataGridOS.Margin = new Padding(3, 4, 3, 4);
+            dataGridOS.Name = "dataGridOS";
+            dataGridOS.ReadOnly = true;
+            dataGridOS.RowHeadersWidth = 51;
+            dataGridOS.Size = new Size(1077, 420);
+            dataGridOS.TabIndex = 1;
             // 
             // Id
             // 
@@ -668,6 +597,7 @@
             Id.HeaderText = "Id";
             Id.MinimumWidth = 6;
             Id.Name = "Id";
+            Id.ReadOnly = true;
             // 
             // ValorTotal
             // 
@@ -675,6 +605,7 @@
             ValorTotal.HeaderText = "Valor Total";
             ValorTotal.MinimumWidth = 6;
             ValorTotal.Name = "ValorTotal";
+            ValorTotal.ReadOnly = true;
             // 
             // ColunaNome
             // 
@@ -682,31 +613,51 @@
             ColunaNome.HeaderText = "Cliente";
             ColunaNome.MinimumWidth = 6;
             ColunaNome.Name = "ColunaNome";
+            ColunaNome.ReadOnly = true;
+            // 
+            // tabPageCadastroTipo
+            // 
+            tabPageCadastroTipo.Location = new Point(4, 29);
+            tabPageCadastroTipo.Name = "tabPageCadastroTipo";
+            tabPageCadastroTipo.Padding = new Padding(3);
+            tabPageCadastroTipo.Size = new Size(1077, 822);
+            tabPageCadastroTipo.TabIndex = 2;
+            tabPageCadastroTipo.Text = "tabPage1";
+            tabPageCadastroTipo.UseVisualStyleBackColor = true;
             // 
             // OsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(780, 507);
+            ClientSize = new Size(1081, 504);
             Controls.Add(tabControlOS);
             Name = "OsForm";
             Text = "Cadastro de Ordem de Serviço";
             tabPageCadastroOS.ResumeLayout(false);
             tabPageCadastroOS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridCadastro).EndInit();
+            tabControlOS.ResumeLayout(false);
             tabPageConsultaOS.ResumeLayout(false);
             panelSuperior.ResumeLayout(false);
             panelSuperior.PerformLayout();
             panelInferior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridOS).EndInit();
-            tabControlOS.ResumeLayout(false);
-            tabPageCadastroTipo.ResumeLayout(false);
-            tabPageCadastroTipo.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private TabPage tabPageCadastroOS;
+        private TabControl tabControlOS;
+        private TabPage tabPageCadastroTipo;
+        private DataGridViewTextBoxColumn OS;
+        private DataGridViewTextBoxColumn Cliente;
+        private Button buttonAdicionarServico;
+        private DataGridView dataGridCadastro;
+        private TextBox textBoxCEP;
+        private TextBox textBoxValorTotal;
+        private TextBox textBoxQuantidade;
+        private TextBox textBoxValorCadastro;
         private TextBox textBoxDescricao;
         private TextBox textBoxCidade;
         private TextBox textBoxNumero;
@@ -714,6 +665,12 @@
         private TextBox textBoxBairro;
         private TextBox textBoxComplemento;
         private TextBox textBoxLogradouro;
+        private Label labelCEP;
+        private Label labelTotal;
+        private Label labelQuantidade;
+        private Label labelValorTipo;
+        private ComboBox comboBoxTipoOs;
+        private Label labelTipoDeOrdem;
         private Label labelDescricao;
         private Label labelOs;
         private Label labelUF;
@@ -733,34 +690,13 @@
         private Button buttonPesquisar;
         private TextBox textBoxPesquisarOs;
         private Panel panelInferior;
+        private Button buttonTipo;
         private Button buttonVizualizar;
         private Button buttonNovo;
         private DataGridView dataGridOS;
-        private TabControl tabControlOS;
-        private Button buttonTipo;
-        private TabPage tabPageCadastroTipo;
-        private Label labelValor;
-        private TextBox textBoxTipo;
-        private Label labelTipo;
-        private TextBox textBoxValor;
-        private Button buttonCancelTipo;
-        private Button buttonSalvarTipo;
-        private Button buttonExcluirTipo;
-        private Label labelTipoDeOrdem;
-        private TextBox textBoxQuantidade;
-        private Label labelQuantidade;
-        private TextBox textBoxValorCadastro;
-        private Label labelValorTipo;
-        private ComboBox comboBoxTipoOs;
-        private TextBox textBoxValorTotal;
-        private Label labelTotal;
-        private DataGridViewTextBoxColumn OS;
-        private DataGridViewTextBoxColumn Cliente;
-        private TextBox textBoxCEP;
-        private Label labelCEP;
-        private ComboBox comboBoxTipo;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn ValorTotal;
         private DataGridViewTextBoxColumn ColunaNome;
+        private DataGridViewTextBoxColumn Valor;
     }
 }

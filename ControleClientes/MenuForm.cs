@@ -46,8 +46,13 @@ namespace ControleClientes
         private void ordemDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OsForm osForm = new OsForm();
-            osForm.MdiParent = this;
             osForm.Show();
+        }
+
+        private void tipoDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TipoOsForm tipoForm = new TipoOsForm();
+            tipoForm.Show();
         }
     }
 }

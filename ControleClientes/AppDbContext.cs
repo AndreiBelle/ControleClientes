@@ -4,11 +4,12 @@ namespace ControleClientes
 {
     class AppDbContext : DbContext
     {
-      public DbSet<Cliente> Clientes { get; set; }
-      public DbSet<Cidade> Cidades { get; set; }
-      public DbSet<Os> OrdemServico { get; set; }
-
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Cidade> Cidades { get; set; }
+        public DbSet<Os> OrdemServico { get; set; }
         public DbSet<TipoOs> TiposDeOs { get; set; }
+
+        public DbSet<OsItem> OsItens { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -27,10 +28,16 @@ namespace ControleClientes
               .WithMany(c => c.Os)
               .HasForeignKey(o => o.ClienteId);
 
-            modelBuilder.Entity<Os>()
-                .HasOne(o => o.TipoOs)
-                .WithMany()
-                .HasForeignKey(o => o.TipoOsID);
+            modelBuilder.Entity<OsItem>()
+                .HasOne(item => item.Os)
+                .WithMany(os => os.Itens) 
+                .HasForeignKey(item => item.OsId); 
+
+          
+            modelBuilder.Entity<OsItem>()
+                .HasOne(item => item.TipoOs)
+                .WithMany(tipo => tipo.OsItens)
+                .HasForeignKey(item => item.TipoOsId); 
         }
     }
 }
