@@ -67,6 +67,7 @@ namespace ControleClientes
             }
 
             LimparCampos();
+            CarregarTiposDeOs();
 
         }
 
@@ -87,6 +88,7 @@ namespace ControleClientes
 
             }
 
+            CarregarTiposDeOs();
 
 
         }
