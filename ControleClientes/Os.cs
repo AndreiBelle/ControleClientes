@@ -17,6 +17,7 @@
         public string Localidade { get; set; }
         public string Uf { get; set; }
 
+        public statusOs statusOs { get; set; }
         public virtual ICollection<OsItem> Itens { get; set; } = new List<OsItem>();
 
     }

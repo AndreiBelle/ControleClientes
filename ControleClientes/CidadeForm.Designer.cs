@@ -283,7 +283,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(720, 432);
             Controls.Add(tabControlCidades);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             Name = "CidadeForm";
             Text = "Cadastro Cidade";
             tabControlCidades.ResumeLayout(false);

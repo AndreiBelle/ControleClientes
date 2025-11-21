@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             tabPageCadastroOS = new TabPage();
+            comboBoxStatus = new ComboBox();
+            labelStatus = new Label();
             buttonAdicionarServico = new Button();
             dataGridCadastro = new DataGridView();
             textBoxCEP = new TextBox();
@@ -74,11 +76,10 @@
             buttonVizualizar = new Button();
             buttonNovo = new Button();
             dataGridOS = new DataGridView();
-            descricaoCadastro = new DataGridViewTextBoxColumn();
-            Valor = new DataGridViewTextBoxColumn();
             ColunaNome = new DataGridViewTextBoxColumn();
             descricao = new DataGridViewTextBoxColumn();
             valorSomado = new DataGridViewTextBoxColumn();
+            buttonRemoverServico = new Button();
             tabPageCadastroOS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridCadastro).BeginInit();
             tabControlOS.SuspendLayout();
@@ -90,6 +91,9 @@
             // 
             // tabPageCadastroOS
             // 
+            tabPageCadastroOS.Controls.Add(buttonRemoverServico);
+            tabPageCadastroOS.Controls.Add(comboBoxStatus);
+            tabPageCadastroOS.Controls.Add(labelStatus);
             tabPageCadastroOS.Controls.Add(buttonAdicionarServico);
             tabPageCadastroOS.Controls.Add(dataGridCadastro);
             tabPageCadastroOS.Controls.Add(textBoxCEP);
@@ -132,13 +136,30 @@
             tabPageCadastroOS.Text = "tabPage2";
             tabPageCadastroOS.UseVisualStyleBackColor = true;
             // 
+            // comboBoxStatus
+            // 
+            comboBoxStatus.FormattingEnabled = true;
+            comboBoxStatus.Location = new Point(538, 347);
+            comboBoxStatus.Name = "comboBoxStatus";
+            comboBoxStatus.Size = new Size(151, 28);
+            comboBoxStatus.TabIndex = 70;
+            // 
+            // labelStatus
+            // 
+            labelStatus.AutoSize = true;
+            labelStatus.Location = new Point(538, 324);
+            labelStatus.Name = "labelStatus";
+            labelStatus.Size = new Size(49, 20);
+            labelStatus.TabIndex = 69;
+            labelStatus.Text = "Status";
+            // 
             // buttonAdicionarServico
             // 
             buttonAdicionarServico.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAdicionarServico.Location = new Point(495, 464);
+            buttonAdicionarServico.Location = new Point(449, 404);
             buttonAdicionarServico.Margin = new Padding(3, 4, 3, 4);
             buttonAdicionarServico.Name = "buttonAdicionarServico";
-            buttonAdicionarServico.Size = new Size(149, 31);
+            buttonAdicionarServico.Size = new Size(172, 31);
             buttonAdicionarServico.TabIndex = 68;
             buttonAdicionarServico.Text = "Adicionar Serviço";
             buttonAdicionarServico.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -149,7 +170,6 @@
             // 
             dataGridCadastro.AllowUserToAddRows = false;
             dataGridCadastro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridCadastro.Columns.AddRange(new DataGridViewColumn[] { descricaoCadastro, Valor });
             dataGridCadastro.Location = new Point(3, 505);
             dataGridCadastro.Name = "dataGridCadastro";
             dataGridCadastro.RowHeadersWidth = 51;
@@ -292,9 +312,9 @@
             labelTipoDeOrdem.AutoSize = true;
             labelTipoDeOrdem.Location = new Point(381, 324);
             labelTipoDeOrdem.Name = "labelTipoDeOrdem";
-            labelTipoDeOrdem.Size = new Size(83, 20);
+            labelTipoDeOrdem.Size = new Size(112, 20);
             labelTipoDeOrdem.TabIndex = 58;
-            labelTipoDeOrdem.Text = "Tipo de OS";
+            labelTipoDeOrdem.Text = "Tipo de Serviço";
             // 
             // labelDescricao
             // 
@@ -430,7 +450,7 @@
             // 
             buttonExcluir.Image = Properties.Resources.trash_xmark__1_;
             buttonExcluir.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonExcluir.Location = new Point(6, 464);
+            buttonExcluir.Location = new Point(15, 467);
             buttonExcluir.Margin = new Padding(3, 4, 3, 4);
             buttonExcluir.Name = "buttonExcluir";
             buttonExcluir.Size = new Size(97, 31);
@@ -457,6 +477,7 @@
             // 
             // tabControlOS
             // 
+            tabControlOS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControlOS.Controls.Add(tabPageConsultaOS);
             tabControlOS.Controls.Add(tabPageCadastroOS);
             tabControlOS.Location = new Point(1, -31);
@@ -583,23 +604,6 @@
             dataGridOS.Size = new Size(864, 420);
             dataGridOS.TabIndex = 1;
             // 
-            // descricaoCadastro
-            // 
-            descricaoCadastro.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            descricaoCadastro.DataPropertyName = "Descricao";
-            descricaoCadastro.HeaderText = "Descrição";
-            descricaoCadastro.MinimumWidth = 6;
-            descricaoCadastro.Name = "descricaoCadastro";
-            // 
-            // Valor
-            // 
-            Valor.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Valor.DataPropertyName = "ValorTotal";
-            Valor.HeaderText = "Valor Total";
-            Valor.MinimumWidth = 6;
-            Valor.Name = "Valor";
-            Valor.Width = 109;
-            // 
             // ColunaNome
             // 
             ColunaNome.DataPropertyName = "ColunaNome";
@@ -624,12 +628,28 @@
             valorSomado.Name = "valorSomado";
             valorSomado.ReadOnly = true;
             // 
+            // buttonRemoverServico
+            // 
+            buttonRemoverServico.Image = Properties.Resources.cross_circle;
+            buttonRemoverServico.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonRemoverServico.Location = new Point(118, 467);
+            buttonRemoverServico.Name = "buttonRemoverServico";
+            buttonRemoverServico.Size = new Size(145, 31);
+            buttonRemoverServico.TabIndex = 71;
+            buttonRemoverServico.Text = "Remover Serviço";
+            buttonRemoverServico.TextAlign = ContentAlignment.MiddleRight;
+            buttonRemoverServico.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonRemoverServico.UseVisualStyleBackColor = true;
+            buttonRemoverServico.Click += buttonRemoverServico_Click;
+            // 
             // OsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(872, 652);
             Controls.Add(tabControlOS);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "OsForm";
             Text = "Cadastro de Ordem de Serviço";
             tabPageCadastroOS.ResumeLayout(false);
@@ -695,7 +715,8 @@
         private DataGridViewTextBoxColumn ColunaNome;
         private DataGridViewTextBoxColumn descricao;
         private DataGridViewTextBoxColumn valorSomado;
-        private DataGridViewTextBoxColumn descricaoCadastro;
-        private DataGridViewTextBoxColumn Valor;
+        private ComboBox comboBoxStatus;
+        private Label labelStatus;
+        private Button buttonRemoverServico;
     }
 }

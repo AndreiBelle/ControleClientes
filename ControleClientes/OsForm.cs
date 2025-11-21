@@ -1,4 +1,6 @@
-﻿namespace ControleClientes
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ControleClientes
 {
     public partial class OsForm : Form
     {
@@ -18,23 +20,25 @@
             InitializeComponent();
             CarregarClientes();
             CarregarTiposDeOs();
-            ConfigurarGridItens();
+            CarregarEstado();
             AtualizarGrid();
         }
 
-        private void ConfigurarGridItens()
+        List<StatusItem> ListaStatus = new List<StatusItem>
         {
+            new StatusItem {Valor = statusOs.Aguardando_Orcamento, ValorNome = "Aguardando Avaliação" },
+            new StatusItem {Valor = statusOs.Em_Avaliacao, ValorNome = "Em Avaliação"},
+            new StatusItem {Valor = statusOs.Aguardando_Aprovacao, ValorNome = "Aguardando Aprovação"},
+            new StatusItem {Valor = statusOs.Aprovado, ValorNome = "Aprovado"},
+            new StatusItem {Valor = statusOs.Recusado, ValorNome = "Reprovado"},
+            new StatusItem {Valor = statusOs.Finalizado, ValorNome = "Finalizado"},
+        };
 
-            dataGridCadastro.AutoGenerateColumns = false;
-            dataGridCadastro.DataSource = null;
-
-            dataGridCadastro.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "ServicoNome",
-                HeaderText = "Serviço",
-                DataPropertyName = "TipoOsNome"
-            });
-
+        private void CarregarEstado()
+        {
+            comboBoxStatus.DataSource = ListaStatus;
+            comboBoxStatus.DisplayMember = "ValorNome";
+            comboBoxStatus.ValueMember = "Valor";
         }
 
         private void AtualizarGridItens()
@@ -55,6 +59,11 @@
                 dataGridCadastro.Columns["ValorUnitario"].DefaultCellStyle.Format = "C2";
             if (dataGridCadastro.Columns.Contains("ValorTotal"))
                 dataGridCadastro.Columns["ValorTotal"].DefaultCellStyle.Format = "C2";
+
+            dataGridCadastro.Columns["Servico"].HeaderText = "Descrição";
+            dataGridCadastro.Columns["ValorUnitario"].HeaderText = "Valor Unitário";
+            dataGridCadastro.Columns["ValorTotal"].HeaderText = "Valor Total";
+            dataGridCadastro.Columns["Servico"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         public void CarregarClientes()
@@ -123,7 +132,7 @@
             textBoxCEP.Clear();
             editingId = null;
             _itensServico.Clear();
-            AtualizarGridItens();
+
 
         }
 
@@ -149,6 +158,7 @@
             CarregarTiposDeOs();
             LimparCampos();
             tabControlOS.SelectTab(tabPageCadastroOS);
+            dataGridCadastro.DataSource = null;
             CarregarClientes();
 
         }
@@ -175,6 +185,7 @@
             CarregarClientes();
             CarregarTiposDeOs();
 
+            var os = new Os();
             var cliente = _clientes.FirstOrDefault(c => c.Id == osCompleta.ClienteId);
             comboBoxCliente.SelectedItem = cliente;
             textBoxLogradouro.Text = osCompleta.Logradouro;
@@ -185,6 +196,7 @@
             textBoxBairro.Text = osCompleta.Bairro;
             textBoxCidade.Text = osCompleta.Localidade;
             textBoxDescricao.Text = osCompleta.Descricao;
+            comboBoxStatus.SelectedItem = ListaStatus.FirstOrDefault(s => s.Valor == os.statusOs);
 
             _itensServico = osCompleta.Itens.ToList();
 
@@ -221,7 +233,7 @@
                 }
 
                 Cliente cliente = (Cliente)comboBoxCliente.SelectedItem;
-
+                StatusItem listaStatus = (StatusItem)comboBoxCliente.SelectedItem;
 
                 var os = new Os
                 {
@@ -234,6 +246,7 @@
                     Uf = textBoxUf.Text.Trim(),
                     Numero = textBoxNumero.Text.Trim(),
                     ClienteId = cliente.Id,
+                    statusOs = listaStatus.Valor,
 
                     Itens = _itensServico,
 
@@ -255,6 +268,7 @@
                 LimparCampos();
                 CarregarTiposDeOs();
                 AtualizarGrid();
+                AtualizarGridItens();
                 tabControlOS.SelectTab(tabPageConsultaOS);
             }
 
@@ -271,6 +285,7 @@
         private void buttonCancelTipo_Click(object sender, EventArgs e)
         {
             tabControlOS.SelectTab(tabPageConsultaOS);
+            dataGridCadastro.DataSource = null;
         }
 
 
@@ -346,7 +361,7 @@
 
         private void buttonAdicionarServico_Click(object sender, EventArgs e)
         {
-            if (comboBoxTipoOs.SelectedItem == null)
+            if (comboBoxTipoOs.SelectedItem == null || comboBoxTipoOs.SelectedItem == "")
             {
                 MessageBox.Show("Selecione um Tipo de Serviço.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -382,11 +397,14 @@
             _itensServico.Add(novoItem);
 
             AtualizarGridItens();
+            AtualizarGrid();
+
 
             comboBoxTipoOs.SelectedIndex = -1;
             textBoxValorCadastro.Clear();
             textBoxQuantidade.Clear();
             textBoxValorTotal.Clear();
+            textBoxDescricao.Clear();
         }
 
         private void comboBoxTipoOs_SelectedIndexChanged(object sender, EventArgs e)
@@ -400,6 +418,26 @@
                 comboBoxTipoOs.SelectedIndex = -1;
                 textBoxValorCadastro.Text = "";
             }
+        }
+
+        private void buttonRemoverServico_Click(object sender, EventArgs e)
+        {
+            if(dataGridCadastro.CurrentRow == null)
+            {
+                MessageBox.Show("É necessário selecionar um linha inteira para remover o arquivo!");
+                return;
+            }
+
+            var itemParaRemover = dataGridCadastro.CurrentRow.DataBoundItem as TipoOs;
+
+            if (itemParaRemover != null)
+            {
+                _tos.Remove(itemParaRemover);
+                dataGridCadastro.DataSource = null;
+                dataGridCadastro.DataSource = _itensServico;
+
+            }
+
         }
     }
 }

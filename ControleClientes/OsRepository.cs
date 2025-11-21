@@ -52,6 +52,7 @@ namespace ControleClientes
                 osExistente.Descricao = osAtualizada.Descricao;
                 osExistente.ClienteId = osAtualizada.ClienteId;
                 osExistente.ValorTotalGeral = osAtualizada.ValorTotalGeral;
+                osExistente.statusOs = osAtualizada.statusOs;
 
 
                 _context.OsItens.RemoveRange(osExistente.Itens);

@@ -124,6 +124,8 @@
             Controls.Add(textBoxValor);
             Controls.Add(labelValor);
             Controls.Add(labelTipo);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "TipoOsForm";
             Text = "TipoOsForm";
             ResumeLayout(false);
