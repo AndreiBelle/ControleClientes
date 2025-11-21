@@ -18,8 +18,8 @@
             InitializeComponent();
             CarregarClientes();
             CarregarTiposDeOs();
-            AtualizarGrid();
             ConfigurarGridItens();
+            AtualizarGrid();
         }
 
         private void ConfigurarGridItens()
@@ -76,10 +76,6 @@
             comboBoxTipoOs.DisplayMember = "Nome";
             comboBoxTipoOs.ValueMember = "Id";
             comboBoxTipoOs.SelectedIndex = -1;
-            //comboBoxTipo.DataSource = _tos;
-            //comboBoxTipo.DisplayMember = "Nome";
-            //comboBoxTipo.ValueMember = "Id";
-            //comboBoxTipo.SelectedIndex = -1;
         }
 
         private void comboBoxCliente_SelectedIndexChanged(object sender, EventArgs e)
@@ -122,7 +118,6 @@
             textBoxDescricao.Clear();
             comboBoxCliente.SelectedIndex = -1;
             comboBoxTipoOs.SelectedIndex = -1;
-          //  textBoxValor.Clear();
             textBoxQuantidade.Clear();
             textBoxValorTotal.Clear();
             textBoxCEP.Clear();
@@ -135,9 +130,17 @@
         public void AtualizarGrid()
         {
             dataGridOS.AutoGenerateColumns = false;
-            var os = _repository.ListarTodos();
+            var listaOs = _repository.ListarTodos();
+            var listaGrid = listaOs.Select(os => new
+            {
+
+                Id = os.Id,
+                ColunaNome = os.Cliente != null ? os.Cliente.Nome : "Sem Cliente",
+                Descricao = os.Descricao
+
+            }).ToList();
             dataGridOS.DataSource = null;
-            dataGridOS.DataSource = os;
+            dataGridOS.DataSource = listaOs;
         }
 
 
@@ -167,8 +170,8 @@
                 return;
             }
 
-     
-            LimparCampos(); 
+
+            LimparCampos();
             CarregarClientes();
             CarregarTiposDeOs();
 
@@ -234,11 +237,11 @@
 
                     Itens = _itensServico,
 
-                  
+
                     ValorTotalGeral = _itensServico.Sum(item => item.ValorTotalItem)
                 };
 
-               
+
                 if (editingId == null)
                 {
                     _repository.Adicionar(os);
@@ -246,7 +249,7 @@
                 else
                 {
                     os.Id = editingId.Value;
-                    _repository.Atualizar(os); 
+                    _repository.Atualizar(os);
                 }
 
                 LimparCampos();
@@ -255,10 +258,10 @@
                 tabControlOS.SelectTab(tabPageConsultaOS);
             }
 
-         
+
         }
 
-        
+
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
@@ -270,7 +273,7 @@
             tabControlOS.SelectTab(tabPageConsultaOS);
         }
 
-        
+
 
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
@@ -304,20 +307,7 @@
             tipoOs.Show();
         }
 
-        //private void comboboxtipoos_selectedindexchanged(object sender, eventargs e)
-        //{
 
-        //    if (comboboxtipoos.selecteditem is tipoos osselecionada)
-        //    {
-        //        textboxvalor.text = osselecionada.valor.tostring();
-        //        textboxvalorcadastro.text = osselecionada.valor.tostring();
-        //    }
-        //    else
-        //    {
-        //        textboxvalor.text = "";
-        //        textboxvalorcadastro.text = "";
-        //    }
-        //}
 
         private void CalcularTotal()
         {
@@ -394,10 +384,22 @@
             AtualizarGridItens();
 
             comboBoxTipoOs.SelectedIndex = -1;
-          //  textBoxValor.Clear(); 
-            textBoxValorCadastro.Clear(); 
+            textBoxValorCadastro.Clear();
             textBoxQuantidade.Clear();
             textBoxValorTotal.Clear();
+        }
+
+        private void comboBoxTipoOs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxTipoOs.SelectedItem is TipoOs tiposelecionado)
+            {
+                textBoxValorCadastro.Text = tiposelecionado.Valor.ToString("N2");
+            }
+            else
+            {
+                comboBoxTipoOs.SelectedIndex = -1;
+                textBoxValorCadastro.Text = "";
+            }
         }
     }
 }

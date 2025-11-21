@@ -41,15 +41,30 @@ namespace ControleClientes
                 .FirstOrDefault(o => o.Id == id);
         }
 
-        public void Atualizar(Os os)
+        public void Atualizar(Os osAtualizada)
         {
- 
+            var osExistente = _context.OrdemServico
+                           .Include(o => o.Itens)
+                           .FirstOrDefault(o => o.Id == osAtualizada.Id);
 
-            _context.Entry(os).State = EntityState.Modified;
+            if (osExistente != null)
+            {
+                osExistente.Descricao = osAtualizada.Descricao;
+                osExistente.ClienteId = osAtualizada.ClienteId;
+                osExistente.ValorTotalGeral = osAtualizada.ValorTotalGeral;
 
- 
 
-            _context.SaveChanges();
+                _context.OsItens.RemoveRange(osExistente.Itens);
+
+                foreach (var item in osAtualizada.Itens)
+                {
+                    item.Id = 0; 
+                    item.OsId = osExistente.Id;
+                    _context.OsItens.Add(item);
+                }
+
+                _context.SaveChanges();
+            }
         }
 
         public void Remover(int id)
