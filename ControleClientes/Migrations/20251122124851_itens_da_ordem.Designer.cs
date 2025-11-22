@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ControleClientes.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251118143220_clientes")]
-    partial class clientes
+    [Migration("20251122124851_itens_da_ordem")]
+    partial class itens_da_ordem
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -150,6 +150,9 @@ namespace ControleClientes.Migrations
 
                     b.Property<decimal>("ValorTotalGeral")
                         .HasColumnType("numeric");
+
+                    b.Property<int>("statusOs")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

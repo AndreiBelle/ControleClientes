@@ -6,7 +6,6 @@
         public int Quantidade { get; set; }
         public decimal ValorUnitario { get; set; }
         public decimal ValorTotalItem { get; set; }
-
         public int OsId { get; set; }
         public Os Os { get; set; }
 

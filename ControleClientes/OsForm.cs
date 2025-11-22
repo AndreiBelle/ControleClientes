@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Drawing.Text;
 
 namespace ControleClientes
 {
@@ -9,9 +10,11 @@ namespace ControleClientes
         private readonly TipoOsRepository _tosRepository;
         private int? editingId = null;
 
+        private int? LinhaParaEditar = null;
+
         List<Cliente> _clientes;
 
-        List<TipoOs> _tos;
+        List<TipoOs> _tos = new List<TipoOs>();
 
         public OsForm()
         {
@@ -20,7 +23,7 @@ namespace ControleClientes
             InitializeComponent();
             CarregarClientes();
             CarregarTiposDeOs();
-            CarregarEstado();
+            CarregarStatus();
             AtualizarGrid();
         }
 
@@ -34,7 +37,7 @@ namespace ControleClientes
             new StatusItem {Valor = statusOs.Finalizado, ValorNome = "Finalizado"},
         };
 
-        private void CarregarEstado()
+        private void CarregarStatus()
         {
             comboBoxStatus.DataSource = ListaStatus;
             comboBoxStatus.DisplayMember = "ValorNome";
@@ -145,11 +148,13 @@ namespace ControleClientes
 
                 Id = os.Id,
                 ColunaNome = os.Cliente != null ? os.Cliente.Nome : "Sem Cliente",
-                Descricao = os.Descricao
+                Descricao = os.Descricao,
+                StatusNome = ListaStatus.FirstOrDefault(s => s.Valor == os.statusOs)?.ValorNome ?? os.statusOs.ToString(),
+                ValorTotalGeral = os.ValorTotalGeral
 
             }).ToList();
             dataGridOS.DataSource = null;
-            dataGridOS.DataSource = listaOs;
+            dataGridOS.DataSource = listaGrid;
         }
 
 
@@ -169,10 +174,10 @@ namespace ControleClientes
             { return; }
 
 
-            var osSelecionada = (Os)dataGridOS.SelectedRows[0].DataBoundItem;
+            dynamic osSelecionada = dataGridOS.SelectedRows[0].DataBoundItem;
+            int idSelecionado = osSelecionada.Id;
 
-
-            var osCompleta = _repository.ObterPorId(osSelecionada.Id);
+            Os osCompleta = _repository.ObterPorId(osSelecionada.Id);
 
             if (osCompleta == null)
             {
@@ -198,7 +203,7 @@ namespace ControleClientes
             textBoxDescricao.Text = osCompleta.Descricao;
             comboBoxStatus.SelectedItem = ListaStatus.FirstOrDefault(s => s.Valor == os.statusOs);
 
-            _itensServico = osCompleta.Itens.ToList();
+            _itensServico = osCompleta.Itens?.ToList() ?? new List<OsItem>();
 
             AtualizarGridItens();
             editingId = osCompleta.Id;
@@ -233,7 +238,7 @@ namespace ControleClientes
                 }
 
                 Cliente cliente = (Cliente)comboBoxCliente.SelectedItem;
-                StatusItem listaStatus = (StatusItem)comboBoxCliente.SelectedItem;
+                StatusItem listaStatus = (StatusItem)comboBoxStatus.SelectedItem;
 
                 var os = new Os
                 {
@@ -361,6 +366,7 @@ namespace ControleClientes
 
         private void buttonAdicionarServico_Click(object sender, EventArgs e)
         {
+
             if (comboBoxTipoOs.SelectedItem == null || comboBoxTipoOs.SelectedItem == "")
             {
                 MessageBox.Show("Selecione um Tipo de Serviço.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -373,29 +379,52 @@ namespace ControleClientes
                 return;
             }
 
-
             TipoOs tipoSelecionado = (TipoOs)comboBoxTipoOs.SelectedItem;
 
-            decimal.TryParse(textBoxValorCadastro.Text, out decimal valorUnitario);
-
-
-            string strValorTotal = textBoxValorTotal.Text
-                .Replace("R$", "")
-                .Trim();
-
-            decimal.TryParse(strValorTotal, out decimal valorTotalItem);
-
-            var novoItem = new OsItem
+            if (LinhaParaEditar == null)
             {
-                TipoOsId = tipoSelecionado.Id,
-                TipoOs = tipoSelecionado,
-                Quantidade = quantidade,
-                ValorUnitario = valorUnitario,
-                ValorTotalItem = valorTotalItem
-            };
+                decimal.TryParse(textBoxValorCadastro.Text, out decimal valorUnitario);
 
-            _itensServico.Add(novoItem);
 
+                string strValorTotal = textBoxValorTotal.Text
+                    .Replace("R$", "")
+                    .Trim();
+
+                decimal.TryParse(strValorTotal, out decimal valorTotalItem);
+
+                var novoItem = new OsItem
+                {
+                    TipoOsId = tipoSelecionado.Id,
+                    TipoOs = tipoSelecionado,
+                    Quantidade = quantidade,
+                    ValorUnitario = valorUnitario,
+                    ValorTotalItem = valorTotalItem
+                };
+
+                _itensServico.Add(novoItem);
+            }
+            else
+            {
+                int index = dataGridCadastro.CurrentRow.Index;
+
+                var ItemEdicao = _itensServico[index];
+
+                TipoOs editarTipo = (TipoOs)comboBoxTipoOs.SelectedItem;
+                decimal.TryParse(textBoxValorCadastro.Text, out decimal valorUnitario);
+
+
+                string strValorTotal = textBoxValorTotal.Text.Replace("R$", "").Trim();
+                decimal.TryParse(strValorTotal, out decimal valorTotalItem);
+
+                ItemEdicao.TipoOsId = editarTipo.Id;
+                ItemEdicao.TipoOs = editarTipo;
+                ItemEdicao.Quantidade = quantidade;
+                ItemEdicao.ValorUnitario = valorUnitario;
+                ItemEdicao.ValorTotalItem = valorTotalItem;
+
+                MessageBox.Show("Item Atualizado!");
+
+            }
             AtualizarGridItens();
             AtualizarGrid();
 
@@ -404,7 +433,6 @@ namespace ControleClientes
             textBoxValorCadastro.Clear();
             textBoxQuantidade.Clear();
             textBoxValorTotal.Clear();
-            textBoxDescricao.Clear();
         }
 
         private void comboBoxTipoOs_SelectedIndexChanged(object sender, EventArgs e)
@@ -422,22 +450,47 @@ namespace ControleClientes
 
         private void buttonRemoverServico_Click(object sender, EventArgs e)
         {
-            if(dataGridCadastro.CurrentRow == null)
+
+            if (dataGridCadastro.CurrentRow == null)
             {
                 MessageBox.Show("É necessário selecionar um linha inteira para remover o arquivo!");
                 return;
             }
 
-            var itemParaRemover = dataGridCadastro.CurrentRow.DataBoundItem as TipoOs;
-
-            if (itemParaRemover != null)
+            if (MessageBox.Show("Deseja remover este item da OS?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
-                _tos.Remove(itemParaRemover);
-                dataGridCadastro.DataSource = null;
-                dataGridCadastro.DataSource = _itensServico;
-
+                return;
             }
 
+            int linha = dataGridCadastro.CurrentRow.Index;
+
+            if (linha >= 0 && linha < _itensServico.Count)
+            {
+                _itensServico.RemoveAt(linha);
+
+                AtualizarGridItens();
+            }
+
+        }
+
+        private void dataGridCadastro_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0 && e.RowIndex < _itensServico.Count)
+            {
+                LinhaParaEditar = e.RowIndex;
+
+                DataGridViewRow linha = dataGridCadastro.Rows[e.RowIndex];
+
+                var itemSelecionado = _itensServico[e.RowIndex];
+
+                textBoxValorCadastro.Text = itemSelecionado.ValorUnitario.ToString("C2");
+                comboBoxTipoOs.SelectedValue = itemSelecionado.TipoOsId;
+                textBoxQuantidade.Text = itemSelecionado.Quantidade.ToString();
+                textBoxValorTotal.Text = itemSelecionado.ValorTotalItem.ToString("C2");
+
+                buttonAdicionarServico.Text = "Salvar alteração";
+                
+            }
         }
     }
 }

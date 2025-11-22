@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ControleClientes.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251121134104_Status")]
-    partial class Status
+    [Migration("20251122121510_cidades")]
+    partial class cidades
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -168,6 +168,10 @@ namespace ControleClientes.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("OsId")
                         .HasColumnType("integer");

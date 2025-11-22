@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             tabPageCadastroOS = new TabPage();
+            labelServico = new Label();
+            buttonRemoverServico = new Button();
             comboBoxStatus = new ComboBox();
             labelStatus = new Label();
             buttonAdicionarServico = new Button();
@@ -76,10 +78,11 @@
             buttonVizualizar = new Button();
             buttonNovo = new Button();
             dataGridOS = new DataGridView();
+            ColumnId = new DataGridViewTextBoxColumn();
             ColunaNome = new DataGridViewTextBoxColumn();
+            ColumnStatus = new DataGridViewTextBoxColumn();
             descricao = new DataGridViewTextBoxColumn();
             valorSomado = new DataGridViewTextBoxColumn();
-            buttonRemoverServico = new Button();
             tabPageCadastroOS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridCadastro).BeginInit();
             tabControlOS.SuspendLayout();
@@ -91,6 +94,7 @@
             // 
             // tabPageCadastroOS
             // 
+            tabPageCadastroOS.Controls.Add(labelServico);
             tabPageCadastroOS.Controls.Add(buttonRemoverServico);
             tabPageCadastroOS.Controls.Add(comboBoxStatus);
             tabPageCadastroOS.Controls.Add(labelStatus);
@@ -131,23 +135,47 @@
             tabPageCadastroOS.Margin = new Padding(3, 4, 3, 4);
             tabPageCadastroOS.Name = "tabPageCadastroOS";
             tabPageCadastroOS.Padding = new Padding(3, 4, 3, 4);
-            tabPageCadastroOS.Size = new Size(865, 654);
+            tabPageCadastroOS.Size = new Size(873, 758);
             tabPageCadastroOS.TabIndex = 1;
             tabPageCadastroOS.Text = "tabPage2";
             tabPageCadastroOS.UseVisualStyleBackColor = true;
             // 
+            // labelServico
+            // 
+            labelServico.AutoSize = true;
+            labelServico.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelServico.Location = new Point(15, 410);
+            labelServico.Name = "labelServico";
+            labelServico.Size = new Size(83, 27);
+            labelServico.TabIndex = 72;
+            labelServico.Text = "Serviço";
+            // 
+            // buttonRemoverServico
+            // 
+            buttonRemoverServico.Image = Properties.Resources.cross_circle;
+            buttonRemoverServico.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonRemoverServico.Location = new Point(118, 527);
+            buttonRemoverServico.Name = "buttonRemoverServico";
+            buttonRemoverServico.Size = new Size(145, 31);
+            buttonRemoverServico.TabIndex = 71;
+            buttonRemoverServico.Text = "Remover Serviço";
+            buttonRemoverServico.TextAlign = ContentAlignment.MiddleRight;
+            buttonRemoverServico.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonRemoverServico.UseVisualStyleBackColor = true;
+            buttonRemoverServico.Click += buttonRemoverServico_Click;
+            // 
             // comboBoxStatus
             // 
             comboBoxStatus.FormattingEnabled = true;
-            comboBoxStatus.Location = new Point(538, 347);
+            comboBoxStatus.Location = new Point(381, 347);
             comboBoxStatus.Name = "comboBoxStatus";
-            comboBoxStatus.Size = new Size(151, 28);
+            comboBoxStatus.Size = new Size(215, 28);
             comboBoxStatus.TabIndex = 70;
             // 
             // labelStatus
             // 
             labelStatus.AutoSize = true;
-            labelStatus.Location = new Point(538, 324);
+            labelStatus.Location = new Point(381, 323);
             labelStatus.Name = "labelStatus";
             labelStatus.Size = new Size(49, 20);
             labelStatus.TabIndex = 69;
@@ -156,7 +184,7 @@
             // buttonAdicionarServico
             // 
             buttonAdicionarServico.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAdicionarServico.Location = new Point(449, 404);
+            buttonAdicionarServico.Location = new Point(552, 477);
             buttonAdicionarServico.Margin = new Padding(3, 4, 3, 4);
             buttonAdicionarServico.Name = "buttonAdicionarServico";
             buttonAdicionarServico.Size = new Size(172, 31);
@@ -170,11 +198,12 @@
             // 
             dataGridCadastro.AllowUserToAddRows = false;
             dataGridCadastro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridCadastro.Location = new Point(3, 505);
+            dataGridCadastro.Location = new Point(0, 562);
             dataGridCadastro.Name = "dataGridCadastro";
             dataGridCadastro.RowHeadersWidth = 51;
-            dataGridCadastro.Size = new Size(862, 149);
+            dataGridCadastro.Size = new Size(873, 196);
             dataGridCadastro.TabIndex = 5;
+            dataGridCadastro.CellDoubleClick += dataGridCadastro_CellDoubleClick;
             // 
             // textBoxCEP
             // 
@@ -185,7 +214,7 @@
             // 
             // textBoxValorTotal
             // 
-            textBoxValorTotal.Location = new Point(248, 408);
+            textBoxValorTotal.Location = new Point(407, 479);
             textBoxValorTotal.Name = "textBoxValorTotal";
             textBoxValorTotal.Size = new Size(125, 27);
             textBoxValorTotal.TabIndex = 65;
@@ -193,7 +222,7 @@
             // 
             // textBoxQuantidade
             // 
-            textBoxQuantidade.Location = new Point(149, 408);
+            textBoxQuantidade.Location = new Point(312, 479);
             textBoxQuantidade.Name = "textBoxQuantidade";
             textBoxQuantidade.Size = new Size(89, 27);
             textBoxQuantidade.TabIndex = 63;
@@ -201,7 +230,7 @@
             // 
             // textBoxValorCadastro
             // 
-            textBoxValorCadastro.Location = new Point(18, 408);
+            textBoxValorCadastro.Location = new Point(181, 479);
             textBoxValorCadastro.Name = "textBoxValorCadastro";
             textBoxValorCadastro.Size = new Size(125, 27);
             textBoxValorCadastro.TabIndex = 61;
@@ -274,7 +303,7 @@
             // labelTotal
             // 
             labelTotal.AutoSize = true;
-            labelTotal.Location = new Point(248, 385);
+            labelTotal.Location = new Point(407, 456);
             labelTotal.Name = "labelTotal";
             labelTotal.Size = new Size(80, 20);
             labelTotal.TabIndex = 64;
@@ -283,7 +312,7 @@
             // labelQuantidade
             // 
             labelQuantidade.AutoSize = true;
-            labelQuantidade.Location = new Point(149, 384);
+            labelQuantidade.Location = new Point(312, 455);
             labelQuantidade.Name = "labelQuantidade";
             labelQuantidade.Size = new Size(87, 20);
             labelQuantidade.TabIndex = 62;
@@ -292,7 +321,7 @@
             // labelValorTipo
             // 
             labelValorTipo.AutoSize = true;
-            labelValorTipo.Location = new Point(18, 384);
+            labelValorTipo.Location = new Point(181, 455);
             labelValorTipo.Name = "labelValorTipo";
             labelValorTipo.Size = new Size(43, 20);
             labelValorTipo.TabIndex = 60;
@@ -301,7 +330,7 @@
             // comboBoxTipoOs
             // 
             comboBoxTipoOs.FormattingEnabled = true;
-            comboBoxTipoOs.Location = new Point(381, 347);
+            comboBoxTipoOs.Location = new Point(15, 478);
             comboBoxTipoOs.Name = "comboBoxTipoOs";
             comboBoxTipoOs.Size = new Size(151, 28);
             comboBoxTipoOs.TabIndex = 59;
@@ -310,7 +339,7 @@
             // labelTipoDeOrdem
             // 
             labelTipoDeOrdem.AutoSize = true;
-            labelTipoDeOrdem.Location = new Point(381, 324);
+            labelTipoDeOrdem.Location = new Point(17, 455);
             labelTipoDeOrdem.Name = "labelTipoDeOrdem";
             labelTipoDeOrdem.Size = new Size(112, 20);
             labelTipoDeOrdem.TabIndex = 58;
@@ -422,7 +451,7 @@
             // 
             buttonCancelar.Image = Properties.Resources.cross_circle;
             buttonCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonCancelar.Location = new Point(759, 464);
+            buttonCancelar.Location = new Point(759, 524);
             buttonCancelar.Margin = new Padding(3, 4, 3, 4);
             buttonCancelar.Name = "buttonCancelar";
             buttonCancelar.Size = new Size(96, 31);
@@ -436,7 +465,7 @@
             // 
             buttonSalvar.Image = Properties.Resources.floppy_disk_circle_arrow_right;
             buttonSalvar.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonSalvar.Location = new Point(650, 464);
+            buttonSalvar.Location = new Point(650, 524);
             buttonSalvar.Margin = new Padding(3, 4, 3, 4);
             buttonSalvar.Name = "buttonSalvar";
             buttonSalvar.Size = new Size(103, 31);
@@ -450,7 +479,7 @@
             // 
             buttonExcluir.Image = Properties.Resources.trash_xmark__1_;
             buttonExcluir.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonExcluir.Location = new Point(15, 467);
+            buttonExcluir.Location = new Point(15, 527);
             buttonExcluir.Margin = new Padding(3, 4, 3, 4);
             buttonExcluir.Name = "buttonExcluir";
             buttonExcluir.Size = new Size(97, 31);
@@ -480,11 +509,11 @@
             tabControlOS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControlOS.Controls.Add(tabPageConsultaOS);
             tabControlOS.Controls.Add(tabPageCadastroOS);
-            tabControlOS.Location = new Point(1, -31);
+            tabControlOS.Location = new Point(-4, -31);
             tabControlOS.Margin = new Padding(3, 4, 3, 4);
             tabControlOS.Name = "tabControlOS";
             tabControlOS.SelectedIndex = 0;
-            tabControlOS.Size = new Size(873, 687);
+            tabControlOS.Size = new Size(881, 791);
             tabControlOS.TabIndex = 4;
             // 
             // tabPageConsultaOS
@@ -496,7 +525,7 @@
             tabPageConsultaOS.Margin = new Padding(3, 4, 3, 4);
             tabPageConsultaOS.Name = "tabPageConsultaOS";
             tabPageConsultaOS.Padding = new Padding(3, 4, 3, 4);
-            tabPageConsultaOS.Size = new Size(865, 654);
+            tabPageConsultaOS.Size = new Size(865, 758);
             tabPageConsultaOS.TabIndex = 0;
             tabPageConsultaOS.Text = "tabPage1";
             tabPageConsultaOS.UseVisualStyleBackColor = true;
@@ -595,7 +624,7 @@
             dataGridOS.AllowUserToOrderColumns = true;
             dataGridOS.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridOS.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridOS.Columns.AddRange(new DataGridViewColumn[] { ColunaNome, descricao, valorSomado });
+            dataGridOS.Columns.AddRange(new DataGridViewColumn[] { ColumnId, ColunaNome, ColumnStatus, descricao, valorSomado });
             dataGridOS.Location = new Point(0, 43);
             dataGridOS.Margin = new Padding(3, 4, 3, 4);
             dataGridOS.Name = "dataGridOS";
@@ -604,17 +633,37 @@
             dataGridOS.Size = new Size(864, 420);
             dataGridOS.TabIndex = 1;
             // 
+            // ColumnId
+            // 
+            ColumnId.DataPropertyName = "iD";
+            ColumnId.FillWeight = 53.47593F;
+            ColumnId.HeaderText = "ID";
+            ColumnId.MinimumWidth = 6;
+            ColumnId.Name = "ColumnId";
+            ColumnId.ReadOnly = true;
+            // 
             // ColunaNome
             // 
             ColunaNome.DataPropertyName = "ColunaNome";
+            ColunaNome.FillWeight = 111.63102F;
             ColunaNome.HeaderText = "Cliente";
             ColunaNome.MinimumWidth = 6;
             ColunaNome.Name = "ColunaNome";
             ColunaNome.ReadOnly = true;
             // 
+            // ColumnStatus
+            // 
+            ColumnStatus.DataPropertyName = "StatusNome";
+            ColumnStatus.FillWeight = 111.63102F;
+            ColumnStatus.HeaderText = "Status";
+            ColumnStatus.MinimumWidth = 6;
+            ColumnStatus.Name = "ColumnStatus";
+            ColumnStatus.ReadOnly = true;
+            // 
             // descricao
             // 
             descricao.DataPropertyName = "Descricao";
+            descricao.FillWeight = 111.63102F;
             descricao.HeaderText = "Descrição";
             descricao.MinimumWidth = 6;
             descricao.Name = "descricao";
@@ -623,30 +672,17 @@
             // valorSomado
             // 
             valorSomado.DataPropertyName = "ValorTotalGeral";
+            valorSomado.FillWeight = 111.63102F;
             valorSomado.HeaderText = "Valor";
             valorSomado.MinimumWidth = 6;
             valorSomado.Name = "valorSomado";
             valorSomado.ReadOnly = true;
             // 
-            // buttonRemoverServico
-            // 
-            buttonRemoverServico.Image = Properties.Resources.cross_circle;
-            buttonRemoverServico.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonRemoverServico.Location = new Point(118, 467);
-            buttonRemoverServico.Name = "buttonRemoverServico";
-            buttonRemoverServico.Size = new Size(145, 31);
-            buttonRemoverServico.TabIndex = 71;
-            buttonRemoverServico.Text = "Remover Serviço";
-            buttonRemoverServico.TextAlign = ContentAlignment.MiddleRight;
-            buttonRemoverServico.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonRemoverServico.UseVisualStyleBackColor = true;
-            buttonRemoverServico.Click += buttonRemoverServico_Click;
-            // 
             // OsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(872, 652);
+            ClientSize = new Size(872, 756);
             Controls.Add(tabControlOS);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -712,11 +748,14 @@
         private Button buttonVizualizar;
         private Button buttonNovo;
         private DataGridView dataGridOS;
-        private DataGridViewTextBoxColumn ColunaNome;
-        private DataGridViewTextBoxColumn descricao;
-        private DataGridViewTextBoxColumn valorSomado;
         private ComboBox comboBoxStatus;
         private Label labelStatus;
         private Button buttonRemoverServico;
+        private DataGridViewTextBoxColumn ColumnId;
+        private DataGridViewTextBoxColumn ColunaNome;
+        private DataGridViewTextBoxColumn ColumnStatus;
+        private DataGridViewTextBoxColumn descricao;
+        private DataGridViewTextBoxColumn valorSomado;
+        private Label labelServico;
     }
 }

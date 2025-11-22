@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ControleClientes.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251118143301_TipoDeOs")]
-    partial class TipoDeOs
+    [Migration("20251122121503_clientes")]
+    partial class clientes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -151,6 +151,9 @@ namespace ControleClientes.Migrations
                     b.Property<decimal>("ValorTotalGeral")
                         .HasColumnType("numeric");
 
+                    b.Property<int>("statusOs")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
@@ -165,6 +168,10 @@ namespace ControleClientes.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("OsId")
                         .HasColumnType("integer");

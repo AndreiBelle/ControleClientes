@@ -5,7 +5,7 @@
 namespace ControleClientes.Migrations
 {
     /// <inheritdoc />
-    public partial class OrdemDeServico : Migration
+    public partial class tipo_de_ordem : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

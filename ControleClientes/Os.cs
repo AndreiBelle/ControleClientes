@@ -3,12 +3,10 @@
     public class Os
     {
         public int Id { get; set; }
-        public string Descricao { get; set; }
         public decimal ValorTotalGeral { get; set; }
-
+        public string Descricao { get; set; }
         public Cliente Cliente { get; set; }
         public int ClienteId { get; set; }
-
         public string Cep { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }

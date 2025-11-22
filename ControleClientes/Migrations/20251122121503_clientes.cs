@@ -75,7 +75,6 @@ namespace ControleClientes.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Descricao = table.Column<string>(type: "text", nullable: false),
                     ValorTotalGeral = table.Column<decimal>(type: "numeric", nullable: false),
                     ClienteId = table.Column<int>(type: "integer", nullable: false),
                     Cep = table.Column<string>(type: "text", nullable: false),
@@ -84,7 +83,9 @@ namespace ControleClientes.Migrations
                     Complemento = table.Column<string>(type: "text", nullable: false),
                     Bairro = table.Column<string>(type: "text", nullable: false),
                     Localidade = table.Column<string>(type: "text", nullable: false),
-                    Uf = table.Column<string>(type: "text", nullable: false)
+                    Uf = table.Column<string>(type: "text", nullable: false),
+                    Descricao = table.Column<string>(type: "text", nullable: false),
+                    statusOs = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -106,6 +107,7 @@ namespace ControleClientes.Migrations
                     Quantidade = table.Column<int>(type: "integer", nullable: false),
                     ValorUnitario = table.Column<decimal>(type: "numeric", nullable: false),
                     ValorTotalItem = table.Column<decimal>(type: "numeric", nullable: false),
+                    Descricao = table.Column<string>(type: "text", nullable: false),
                     OsId = table.Column<int>(type: "integer", nullable: false),
                     TipoOsId = table.Column<int>(type: "integer", nullable: false)
                 },

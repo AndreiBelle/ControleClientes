@@ -17,7 +17,7 @@ namespace ControleClientes
 
         private void LimparCampos()
         {
-            comboBoxTipo.SelectedIndex = -1;
+            comboBoxTipo.SelectedItem = -1;
             textBoxValor.Clear();
         }
 
@@ -88,8 +88,8 @@ namespace ControleClientes
 
             }
 
+            LimparCampos();
             CarregarTiposDeOs();
-
 
         }
 

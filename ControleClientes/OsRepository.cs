@@ -36,6 +36,7 @@ namespace ControleClientes
         public Os ObterPorId(int id)
         {
             return _context.OrdemServico
+                .AsNoTracking()
                 .Include(o => o.Itens) 
                     .ThenInclude(item => item.TipoOs) 
                 .FirstOrDefault(o => o.Id == id);
@@ -59,8 +60,13 @@ namespace ControleClientes
 
                 foreach (var item in osAtualizada.Itens)
                 {
-                    item.Id = 0; 
+                    item.Id = 0;
                     item.OsId = osExistente.Id;
+
+                    item.Os = null;
+
+                    item.TipoOs = null;
+                    
                     _context.OsItens.Add(item);
                 }
 
