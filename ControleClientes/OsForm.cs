@@ -315,9 +315,9 @@ namespace ControleClientes
 
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            //     var os = _repository.ObterPorNome(textBoxPesquisarOs.Text);
-            //     dataGridOS.AutoGenerateColumns = false;
-            //     dataGridOS.DataSource = os;
+            var os = _repository.Pesquisar(textBoxPesquisarOs.Text);
+            dataGridOS.AutoGenerateColumns = false;
+            dataGridOS.DataSource = os;
         }
 
         private void buttonTipo_Click(object sender, EventArgs e)

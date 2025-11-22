@@ -157,7 +157,7 @@
             buttonRemoverServico.Location = new Point(118, 527);
             buttonRemoverServico.Name = "buttonRemoverServico";
             buttonRemoverServico.Size = new Size(145, 31);
-            buttonRemoverServico.TabIndex = 71;
+            buttonRemoverServico.TabIndex = 17;
             buttonRemoverServico.Text = "Remover Serviço";
             buttonRemoverServico.TextAlign = ContentAlignment.MiddleRight;
             buttonRemoverServico.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -170,7 +170,7 @@
             comboBoxStatus.Location = new Point(381, 347);
             comboBoxStatus.Name = "comboBoxStatus";
             comboBoxStatus.Size = new Size(215, 28);
-            comboBoxStatus.TabIndex = 70;
+            comboBoxStatus.TabIndex = 9;
             // 
             // labelStatus
             // 
@@ -188,7 +188,7 @@
             buttonAdicionarServico.Margin = new Padding(3, 4, 3, 4);
             buttonAdicionarServico.Name = "buttonAdicionarServico";
             buttonAdicionarServico.Size = new Size(172, 31);
-            buttonAdicionarServico.TabIndex = 68;
+            buttonAdicionarServico.TabIndex = 13;
             buttonAdicionarServico.Text = "Adicionar Serviço";
             buttonAdicionarServico.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAdicionarServico.UseVisualStyleBackColor = true;
@@ -210,14 +210,14 @@
             textBoxCEP.Location = new Point(381, 222);
             textBoxCEP.Name = "textBoxCEP";
             textBoxCEP.Size = new Size(125, 27);
-            textBoxCEP.TabIndex = 67;
+            textBoxCEP.TabIndex = 7;
             // 
             // textBoxValorTotal
             // 
             textBoxValorTotal.Location = new Point(407, 479);
             textBoxValorTotal.Name = "textBoxValorTotal";
             textBoxValorTotal.Size = new Size(125, 27);
-            textBoxValorTotal.TabIndex = 65;
+            textBoxValorTotal.TabIndex = 12;
             textBoxValorTotal.TextChanged += textBoxValorTotal_TextChanged;
             // 
             // textBoxQuantidade
@@ -225,7 +225,7 @@
             textBoxQuantidade.Location = new Point(312, 479);
             textBoxQuantidade.Name = "textBoxQuantidade";
             textBoxQuantidade.Size = new Size(89, 27);
-            textBoxQuantidade.TabIndex = 63;
+            textBoxQuantidade.TabIndex = 11;
             textBoxQuantidade.TextChanged += textBoxQuantidade_TextChanged;
             // 
             // textBoxValorCadastro
@@ -242,14 +242,14 @@
             textBoxDescricao.Multiline = true;
             textBoxDescricao.Name = "textBoxDescricao";
             textBoxDescricao.Size = new Size(355, 27);
-            textBoxDescricao.TabIndex = 57;
+            textBoxDescricao.TabIndex = 8;
             // 
             // textBoxCidade
             // 
             textBoxCidade.Location = new Point(178, 222);
             textBoxCidade.Name = "textBoxCidade";
             textBoxCidade.Size = new Size(195, 27);
-            textBoxCidade.TabIndex = 55;
+            textBoxCidade.TabIndex = 6;
             // 
             // textBoxNumero
             // 
@@ -257,7 +257,7 @@
             textBoxNumero.Margin = new Padding(3, 4, 3, 4);
             textBoxNumero.Name = "textBoxNumero";
             textBoxNumero.Size = new Size(114, 27);
-            textBoxNumero.TabIndex = 53;
+            textBoxNumero.TabIndex = 2;
             // 
             // textBoxUf
             // 
@@ -265,7 +265,7 @@
             textBoxUf.Margin = new Padding(3, 4, 3, 4);
             textBoxUf.Name = "textBoxUf";
             textBoxUf.Size = new Size(46, 27);
-            textBoxUf.TabIndex = 51;
+            textBoxUf.TabIndex = 4;
             // 
             // textBoxBairro
             // 
@@ -273,7 +273,7 @@
             textBoxBairro.Margin = new Padding(3, 4, 3, 4);
             textBoxBairro.Name = "textBoxBairro";
             textBoxBairro.Size = new Size(153, 27);
-            textBoxBairro.TabIndex = 50;
+            textBoxBairro.TabIndex = 5;
             // 
             // textBoxComplemento
             // 
@@ -281,7 +281,7 @@
             textBoxComplemento.Margin = new Padding(3, 4, 3, 4);
             textBoxComplemento.Name = "textBoxComplemento";
             textBoxComplemento.Size = new Size(142, 27);
-            textBoxComplemento.TabIndex = 49;
+            textBoxComplemento.TabIndex = 3;
             // 
             // textBoxLogradouro
             // 
@@ -289,7 +289,7 @@
             textBoxLogradouro.Margin = new Padding(3, 4, 3, 4);
             textBoxLogradouro.Name = "textBoxLogradouro";
             textBoxLogradouro.Size = new Size(358, 27);
-            textBoxLogradouro.TabIndex = 42;
+            textBoxLogradouro.TabIndex = 1;
             // 
             // labelCEP
             // 
@@ -333,7 +333,7 @@
             comboBoxTipoOs.Location = new Point(15, 478);
             comboBoxTipoOs.Name = "comboBoxTipoOs";
             comboBoxTipoOs.Size = new Size(151, 28);
-            comboBoxTipoOs.TabIndex = 59;
+            comboBoxTipoOs.TabIndex = 10;
             comboBoxTipoOs.SelectedIndexChanged += comboBoxTipoOs_SelectedIndexChanged;
             // 
             // labelTipoDeOrdem
@@ -434,7 +434,7 @@
             comboBoxCliente.Location = new Point(18, 48);
             comboBoxCliente.Name = "comboBoxCliente";
             comboBoxCliente.Size = new Size(182, 28);
-            comboBoxCliente.TabIndex = 18;
+            comboBoxCliente.TabIndex = 0;
             comboBoxCliente.SelectedIndexChanged += comboBoxCliente_SelectedIndexChanged;
             // 
             // labelCliente
@@ -455,7 +455,7 @@
             buttonCancelar.Margin = new Padding(3, 4, 3, 4);
             buttonCancelar.Name = "buttonCancelar";
             buttonCancelar.Size = new Size(96, 31);
-            buttonCancelar.TabIndex = 16;
+            buttonCancelar.TabIndex = 15;
             buttonCancelar.Text = "&Cancelar";
             buttonCancelar.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonCancelar.UseVisualStyleBackColor = true;
@@ -469,7 +469,7 @@
             buttonSalvar.Margin = new Padding(3, 4, 3, 4);
             buttonSalvar.Name = "buttonSalvar";
             buttonSalvar.Size = new Size(103, 31);
-            buttonSalvar.TabIndex = 15;
+            buttonSalvar.TabIndex = 14;
             buttonSalvar.Text = "&Salvar";
             buttonSalvar.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonSalvar.UseVisualStyleBackColor = true;
@@ -483,7 +483,7 @@
             buttonExcluir.Margin = new Padding(3, 4, 3, 4);
             buttonExcluir.Name = "buttonExcluir";
             buttonExcluir.Size = new Size(97, 31);
-            buttonExcluir.TabIndex = 14;
+            buttonExcluir.TabIndex = 16;
             buttonExcluir.Text = "  &Excluir";
             buttonExcluir.UseVisualStyleBackColor = true;
             buttonExcluir.Click += buttonExcluir_Click;
@@ -525,7 +525,7 @@
             tabPageConsultaOS.Margin = new Padding(3, 4, 3, 4);
             tabPageConsultaOS.Name = "tabPageConsultaOS";
             tabPageConsultaOS.Padding = new Padding(3, 4, 3, 4);
-            tabPageConsultaOS.Size = new Size(865, 758);
+            tabPageConsultaOS.Size = new Size(873, 758);
             tabPageConsultaOS.TabIndex = 0;
             tabPageConsultaOS.Text = "tabPage1";
             tabPageConsultaOS.UseVisualStyleBackColor = true;
@@ -549,7 +549,7 @@
             buttonPesquisar.Margin = new Padding(3, 4, 3, 4);
             buttonPesquisar.Name = "buttonPesquisar";
             buttonPesquisar.Size = new Size(101, 31);
-            buttonPesquisar.TabIndex = 5;
+            buttonPesquisar.TabIndex = 1;
             buttonPesquisar.Text = "&Pesquisar";
             buttonPesquisar.TextAlign = ContentAlignment.MiddleRight;
             buttonPesquisar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -564,7 +564,7 @@
             textBoxPesquisarOs.Name = "textBoxPesquisarOs";
             textBoxPesquisarOs.PlaceholderText = "Pesquisar OS";
             textBoxPesquisarOs.Size = new Size(736, 27);
-            textBoxPesquisarOs.TabIndex = 1;
+            textBoxPesquisarOs.TabIndex = 0;
             // 
             // panelInferior
             // 
@@ -584,7 +584,7 @@
             buttonTipo.Location = new Point(692, 3);
             buttonTipo.Name = "buttonTipo";
             buttonTipo.Size = new Size(169, 29);
-            buttonTipo.TabIndex = 8;
+            buttonTipo.TabIndex = 2;
             buttonTipo.Text = "Novo Tipo de OS";
             buttonTipo.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonTipo.UseVisualStyleBackColor = true;
@@ -598,7 +598,7 @@
             buttonVizualizar.Margin = new Padding(3, 4, 3, 4);
             buttonVizualizar.Name = "buttonVizualizar";
             buttonVizualizar.Size = new Size(98, 31);
-            buttonVizualizar.TabIndex = 7;
+            buttonVizualizar.TabIndex = 0;
             buttonVizualizar.Text = "&Visualizar";
             buttonVizualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonVizualizar.UseVisualStyleBackColor = true;
@@ -612,7 +612,7 @@
             buttonNovo.Margin = new Padding(3, 4, 3, 4);
             buttonNovo.Name = "buttonNovo";
             buttonNovo.Size = new Size(69, 32);
-            buttonNovo.TabIndex = 6;
+            buttonNovo.TabIndex = 1;
             buttonNovo.Text = "&Novo";
             buttonNovo.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonNovo.UseVisualStyleBackColor = true;

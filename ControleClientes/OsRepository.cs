@@ -4,11 +4,12 @@ namespace ControleClientes
 {
     public class OsRepository
     {
-        //  public IEnumerable<Os> ObterPorNome(string nome)
-        //{
-        //  return _context.OrdemServico.Where(o => o.TipoOs.ToLower().Contains(nome.ToLower()))
-        //    .ToList();
-        //}
+        public IEnumerable<Os> Pesquisar(string termo)
+        {
+            return _context.OrdemServico.AsNoTracking().Include(o => o.Cliente).Where(o => o.Cliente.Nome.ToLower().Contains(termo.ToLower()) ||
+            o.Descricao.ToLower().Contains(termo.ToLower()) ||
+            o.Id.ToString().Contains(termo)).ToList();
+        }
 
         private readonly AppDbContext _context;
 

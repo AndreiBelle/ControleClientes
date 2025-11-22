@@ -119,7 +119,7 @@
             cmbCidade.Margin = new Padding(3, 4, 3, 4);
             cmbCidade.Name = "cmbCidade";
             cmbCidade.Size = new Size(266, 28);
-            cmbCidade.TabIndex = 41;
+            cmbCidade.TabIndex = 13;
             // 
             // txtUf
             // 
@@ -127,7 +127,7 @@
             txtUf.Margin = new Padding(3, 4, 3, 4);
             txtUf.Name = "txtUf";
             txtUf.Size = new Size(46, 27);
-            txtUf.TabIndex = 40;
+            txtUf.TabIndex = 14;
             // 
             // txtBairro
             // 
@@ -135,7 +135,7 @@
             txtBairro.Margin = new Padding(3, 4, 3, 4);
             txtBairro.Name = "txtBairro";
             txtBairro.Size = new Size(153, 27);
-            txtBairro.TabIndex = 38;
+            txtBairro.TabIndex = 12;
             // 
             // txtNumero
             // 
@@ -143,7 +143,7 @@
             txtNumero.Margin = new Padding(3, 4, 3, 4);
             txtNumero.Name = "txtNumero";
             txtNumero.Size = new Size(114, 27);
-            txtNumero.TabIndex = 37;
+            txtNumero.TabIndex = 6;
             // 
             // txtComplemento
             // 
@@ -151,7 +151,7 @@
             txtComplemento.Margin = new Padding(3, 4, 3, 4);
             txtComplemento.Name = "txtComplemento";
             txtComplemento.Size = new Size(206, 27);
-            txtComplemento.TabIndex = 36;
+            txtComplemento.TabIndex = 7;
             // 
             // label8
             // 
@@ -213,7 +213,7 @@
             txtLogradouro.Margin = new Padding(3, 4, 3, 4);
             txtLogradouro.Name = "txtLogradouro";
             txtLogradouro.Size = new Size(358, 27);
-            txtLogradouro.TabIndex = 22;
+            txtLogradouro.TabIndex = 11;
             // 
             // btnCep
             // 
@@ -221,7 +221,7 @@
             btnCep.Margin = new Padding(3, 4, 3, 4);
             btnCep.Name = "btnCep";
             btnCep.Size = new Size(86, 31);
-            btnCep.TabIndex = 21;
+            btnCep.TabIndex = 5;
             btnCep.Text = "Buscar";
             btnCep.UseVisualStyleBackColor = true;
             btnCep.Click += btnCep_Click;
@@ -233,7 +233,7 @@
             textCEP.Mask = "00000-000";
             textCEP.Name = "textCEP";
             textCEP.Size = new Size(114, 27);
-            textCEP.TabIndex = 20;
+            textCEP.TabIndex = 4;
             // 
             // txtCEP
             // 
@@ -260,7 +260,7 @@
             cmbEstadoCivil.Margin = new Padding(3, 4, 3, 4);
             cmbEstadoCivil.Name = "cmbEstadoCivil";
             cmbEstadoCivil.Size = new Size(121, 28);
-            cmbEstadoCivil.TabIndex = 16;
+            cmbEstadoCivil.TabIndex = 3;
             // 
             // labelGenero
             // 
@@ -278,7 +278,7 @@
             cmbGenero.Margin = new Padding(3, 4, 3, 4);
             cmbGenero.Name = "cmbGenero";
             cmbGenero.Size = new Size(121, 28);
-            cmbGenero.TabIndex = 14;
+            cmbGenero.TabIndex = 1;
             // 
             // btnCancelar
             // 
@@ -288,7 +288,7 @@
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(96, 31);
-            btnCancelar.TabIndex = 13;
+            btnCancelar.TabIndex = 9;
             btnCancelar.Text = "&Cancelar";
             btnCancelar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCancelar.UseVisualStyleBackColor = true;
@@ -302,7 +302,7 @@
             btnSalvar.Margin = new Padding(3, 4, 3, 4);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(103, 31);
-            btnSalvar.TabIndex = 12;
+            btnSalvar.TabIndex = 8;
             btnSalvar.Text = "&Salvar";
             btnSalvar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSalvar.UseVisualStyleBackColor = true;
@@ -316,7 +316,7 @@
             btnExcluir.Margin = new Padding(3, 4, 3, 4);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(97, 31);
-            btnExcluir.TabIndex = 11;
+            btnExcluir.TabIndex = 10;
             btnExcluir.Text = "  &Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
             btnExcluir.Click += btnExcluir_Click;
@@ -327,7 +327,7 @@
             txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(425, 27);
-            txtEmail.TabIndex = 10;
+            txtEmail.TabIndex = 2;
             // 
             // txtNome
             // 
@@ -335,7 +335,7 @@
             txtNome.Margin = new Padding(3, 4, 3, 4);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(427, 27);
-            txtNome.TabIndex = 8;
+            txtNome.TabIndex = 0;
             // 
             // label1
             // 
@@ -472,7 +472,7 @@
             btnVisualizar.Margin = new Padding(3, 4, 3, 4);
             btnVisualizar.Name = "btnVisualizar";
             btnVisualizar.Size = new Size(102, 32);
-            btnVisualizar.TabIndex = 3;
+            btnVisualizar.TabIndex = 0;
             btnVisualizar.Text = "&Visualizar";
             btnVisualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnVisualizar.UseVisualStyleBackColor = true;
@@ -486,7 +486,7 @@
             btnNovo.Margin = new Padding(3, 4, 3, 4);
             btnNovo.Name = "btnNovo";
             btnNovo.Size = new Size(69, 32);
-            btnNovo.TabIndex = 2;
+            btnNovo.TabIndex = 1;
             btnNovo.Text = "&Novo";
             btnNovo.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnNovo.UseVisualStyleBackColor = true;

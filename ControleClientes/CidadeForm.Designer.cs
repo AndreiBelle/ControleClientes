@@ -99,7 +99,7 @@
             btnPesquisarCidade.Margin = new Padding(3, 4, 3, 4);
             btnPesquisarCidade.Name = "btnPesquisarCidade";
             btnPesquisarCidade.Size = new Size(101, 31);
-            btnPesquisarCidade.TabIndex = 2;
+            btnPesquisarCidade.TabIndex = 1;
             btnPesquisarCidade.Text = "&Pesquisar";
             btnPesquisarCidade.TextAlign = ContentAlignment.MiddleRight;
             btnPesquisarCidade.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -114,7 +114,7 @@
             txtPesquisaCidade.Name = "txtPesquisaCidade";
             txtPesquisaCidade.PlaceholderText = "Pesquisar cidades";
             txtPesquisaCidade.Size = new Size(581, 27);
-            txtPesquisaCidade.TabIndex = 1;
+            txtPesquisaCidade.TabIndex = 0;
             // 
             // panelInferior
             // 
@@ -135,7 +135,7 @@
             btnVisualizarCidade.Margin = new Padding(3, 4, 3, 4);
             btnVisualizarCidade.Name = "btnVisualizarCidade";
             btnVisualizarCidade.Size = new Size(105, 32);
-            btnVisualizarCidade.TabIndex = 5;
+            btnVisualizarCidade.TabIndex = 0;
             btnVisualizarCidade.Text = "Visualizar";
             btnVisualizarCidade.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnVisualizarCidade.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             btnNovaCidade.Margin = new Padding(3, 4, 3, 4);
             btnNovaCidade.Name = "btnNovaCidade";
             btnNovaCidade.Size = new Size(69, 32);
-            btnNovaCidade.TabIndex = 4;
+            btnNovaCidade.TabIndex = 1;
             btnNovaCidade.Text = "&Novo";
             btnNovaCidade.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnNovaCidade.UseVisualStyleBackColor = true;
@@ -212,7 +212,7 @@
             btnCancelarCidade.Margin = new Padding(3, 4, 3, 4);
             btnCancelarCidade.Name = "btnCancelarCidade";
             btnCancelarCidade.Size = new Size(96, 31);
-            btnCancelarCidade.TabIndex = 16;
+            btnCancelarCidade.TabIndex = 3;
             btnCancelarCidade.Text = "&Cancelar";
             btnCancelarCidade.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCancelarCidade.UseVisualStyleBackColor = true;
@@ -226,7 +226,7 @@
             btnSalvarCidade.Margin = new Padding(3, 4, 3, 4);
             btnSalvarCidade.Name = "btnSalvarCidade";
             btnSalvarCidade.Size = new Size(103, 31);
-            btnSalvarCidade.TabIndex = 15;
+            btnSalvarCidade.TabIndex = 2;
             btnSalvarCidade.Text = "&Salvar";
             btnSalvarCidade.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSalvarCidade.UseVisualStyleBackColor = true;
@@ -240,7 +240,7 @@
             btnExcluirCidade.Margin = new Padding(3, 4, 3, 4);
             btnExcluirCidade.Name = "btnExcluirCidade";
             btnExcluirCidade.Size = new Size(97, 31);
-            btnExcluirCidade.TabIndex = 14;
+            btnExcluirCidade.TabIndex = 4;
             btnExcluirCidade.Text = "  &Excluir";
             btnExcluirCidade.UseVisualStyleBackColor = true;
             btnExcluirCidade.Click += btnExcluirCidade_Click;
@@ -250,14 +250,14 @@
             textUF.Location = new Point(26, 130);
             textUF.Name = "textUF";
             textUF.Size = new Size(125, 27);
-            textUF.TabIndex = 3;
+            textUF.TabIndex = 1;
             // 
             // textCidade
             // 
             textCidade.Location = new Point(26, 51);
             textCidade.Name = "textCidade";
             textCidade.Size = new Size(125, 27);
-            textCidade.TabIndex = 2;
+            textCidade.TabIndex = 0;
             // 
             // labelUF
             // 

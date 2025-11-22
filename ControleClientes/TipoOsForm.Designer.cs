@@ -43,7 +43,7 @@
             comboBoxTipo.Location = new Point(32, 37);
             comboBoxTipo.Name = "comboBoxTipo";
             comboBoxTipo.Size = new Size(151, 28);
-            comboBoxTipo.TabIndex = 27;
+            comboBoxTipo.TabIndex = 0;
             comboBoxTipo.SelectedIndexChanged += comboBoxTipo_SelectedIndexChanged;
             // 
             // buttonCancelTipo
@@ -54,7 +54,7 @@
             buttonCancelTipo.Margin = new Padding(3, 4, 3, 4);
             buttonCancelTipo.Name = "buttonCancelTipo";
             buttonCancelTipo.Size = new Size(96, 31);
-            buttonCancelTipo.TabIndex = 26;
+            buttonCancelTipo.TabIndex = 3;
             buttonCancelTipo.Text = "&Cancelar";
             buttonCancelTipo.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonCancelTipo.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@
             buttonSalvarTipo.Margin = new Padding(3, 4, 3, 4);
             buttonSalvarTipo.Name = "buttonSalvarTipo";
             buttonSalvarTipo.Size = new Size(103, 31);
-            buttonSalvarTipo.TabIndex = 25;
+            buttonSalvarTipo.TabIndex = 2;
             buttonSalvarTipo.Text = "&Salvar";
             buttonSalvarTipo.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonSalvarTipo.UseVisualStyleBackColor = true;
@@ -82,7 +82,7 @@
             buttonExcluirTipo.Margin = new Padding(3, 4, 3, 4);
             buttonExcluirTipo.Name = "buttonExcluirTipo";
             buttonExcluirTipo.Size = new Size(97, 31);
-            buttonExcluirTipo.TabIndex = 24;
+            buttonExcluirTipo.TabIndex = 4;
             buttonExcluirTipo.Text = "  &Excluir";
             buttonExcluirTipo.UseVisualStyleBackColor = true;
             buttonExcluirTipo.Click += buttonExcluirTipo_Click;
@@ -92,7 +92,7 @@
             textBoxValor.Location = new Point(32, 112);
             textBoxValor.Name = "textBoxValor";
             textBoxValor.Size = new Size(144, 27);
-            textBoxValor.TabIndex = 23;
+            textBoxValor.TabIndex = 1;
             // 
             // labelValor
             // 
