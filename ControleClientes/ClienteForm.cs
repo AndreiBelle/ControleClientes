@@ -156,6 +156,23 @@ namespace ControleClientes
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            if (textBoxNome.Text.Trim() == "")
+            {
+                MessageBox.Show("Necessário adicionar o nome do cliente", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (comboBoxCidade.SelectedItem == null && comboBoxCidade.Text.Trim() == "")
+            {
+                MessageBox.Show("Necessário adicionar a cidade.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (textBoxUf.Text.Trim() == "")
+            {
+                MessageBox.Show("Necessário adicionar a UF.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             ItemEstadoCivil estado = (ItemEstadoCivil)comboBoxEstadoCivil.SelectedItem;
             ItemGenero genero = (ItemGenero)comboBoxGenero.SelectedItem;

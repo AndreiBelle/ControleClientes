@@ -79,6 +79,18 @@ namespace ControleClientes
 
         private void btnSalvarCidade_Click(object sender, EventArgs e)
         {
+            if (textBoxCidade.Text.Trim() == "")
+            {
+                MessageBox.Show("Necessário adicionar o nome da cidade que deseja cadastrar.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (textBoxUF.Text.Trim() == "")
+            {
+                MessageBox.Show("Necessário adicionar a UF da cidade que deseja cadastrar.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var cidade = new Cidade
             {
                 Nome = textBoxCidade.Text.Trim(),
