@@ -286,7 +286,7 @@ namespace ControleClientes
         {
             if (textBoxCidade.Text.Trim() != "" || comboBoxCliente.Text.Trim() != "" || textBoxDescricao.Text.Trim() != "")
             {
-                if (MessageBox.Show("Você não salvou sua Cidade/UF deseja salva-la?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Você não salvou sua Ordem de Serviço deseja salva-la?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     buttonSalvar.PerformClick();
                 }
