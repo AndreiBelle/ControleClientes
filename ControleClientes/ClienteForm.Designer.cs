@@ -57,9 +57,6 @@
             label2 = new Label();
             tabPageClienteConsulta = new TabPage();
             dataGridClientes = new DataGridView();
-            ColID = new DataGridViewTextBoxColumn();
-            ColNome = new DataGridViewTextBoxColumn();
-            colemail = new DataGridViewTextBoxColumn();
             pnlSuperior = new Panel();
             textBoxPesquisa = new TextBox();
             buttonPesquisar = new Button();
@@ -67,6 +64,9 @@
             buttonVisualizar = new Button();
             buttonNovo = new Button();
             tabControlCliente = new TabControl();
+            ColID = new DataGridViewTextBoxColumn();
+            ColNome = new DataGridViewTextBoxColumn();
+            colemail = new DataGridViewTextBoxColumn();
             tabPageClienteCadastro.SuspendLayout();
             tabPageClienteConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridClientes).BeginInit();
@@ -384,35 +384,6 @@
             dataGridClientes.Size = new Size(696, 324);
             dataGridClientes.TabIndex = 0;
             // 
-            // ColID
-            // 
-            ColID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColID.DataPropertyName = "Id";
-            ColID.HeaderText = "ID";
-            ColID.MinimumWidth = 6;
-            ColID.Name = "ColID";
-            ColID.ReadOnly = true;
-            ColID.Resizable = DataGridViewTriState.True;
-            ColID.Width = 53;
-            // 
-            // ColNome
-            // 
-            ColNome.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ColNome.DataPropertyName = "Nome";
-            ColNome.HeaderText = "Nome";
-            ColNome.MinimumWidth = 6;
-            ColNome.Name = "ColNome";
-            ColNome.ReadOnly = true;
-            // 
-            // colemail
-            // 
-            colemail.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colemail.DataPropertyName = "Email";
-            colemail.HeaderText = "E-mail";
-            colemail.MinimumWidth = 6;
-            colemail.Name = "colemail";
-            colemail.ReadOnly = true;
-            // 
             // pnlSuperior
             // 
             pnlSuperior.Controls.Add(textBoxPesquisa);
@@ -504,6 +475,34 @@
             tabControlCliente.Size = new Size(710, 428);
             tabControlCliente.TabIndex = 0;
             // 
+            // ColID
+            // 
+            ColID.DataPropertyName = "Id";
+            ColID.HeaderText = "ID";
+            ColID.MinimumWidth = 6;
+            ColID.Name = "ColID";
+            ColID.ReadOnly = true;
+            ColID.Resizable = DataGridViewTriState.True;
+            ColID.Width = 53;
+            // 
+            // ColNome
+            // 
+            ColNome.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ColNome.DataPropertyName = "Nome";
+            ColNome.HeaderText = "Nome";
+            ColNome.MinimumWidth = 6;
+            ColNome.Name = "ColNome";
+            ColNome.ReadOnly = true;
+            // 
+            // colemail
+            // 
+            colemail.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colemail.DataPropertyName = "Email";
+            colemail.HeaderText = "E-mail";
+            colemail.MinimumWidth = 6;
+            colemail.Name = "colemail";
+            colemail.ReadOnly = true;
+            // 
             // ClienteForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -544,9 +543,6 @@
         private TextBox textBoxPesquisa;
         private Panel pnlInferior;
         private Panel pnlSuperior;
-        private DataGridViewTextBoxColumn ColID;
-        private DataGridViewTextBoxColumn ColNome;
-        private DataGridViewTextBoxColumn colemail;
         private ComboBox comboBoxGenero;
         private Label labelGenero;
         private Label labelEstadoCivil;
@@ -566,5 +562,8 @@
         private Label label4;
         private TextBox textBoxLogradouro;
         private ComboBox comboBoxCidade;
+        private DataGridViewTextBoxColumn ColID;
+        private DataGridViewTextBoxColumn ColNome;
+        private DataGridViewTextBoxColumn colemail;
     }
 }

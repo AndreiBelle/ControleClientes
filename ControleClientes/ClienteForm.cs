@@ -163,7 +163,7 @@ namespace ControleClientes
             string nomeCidade = comboBoxCidade.Text.Trim();
             string ufCidade = textBoxUf.Text.Trim();
 
-            Cidade cidade = _cidades.FirstOrDefault(c => c.Nome.Equals(nomeCidade, StringComparison.OrdinalIgnoreCase) && 
+            Cidade cidade = _cidades.FirstOrDefault(c => c.Nome.Equals(nomeCidade, StringComparison.OrdinalIgnoreCase) &&
             c.UF.Equals(ufCidade, StringComparison.OrdinalIgnoreCase));
 
             if (cidade == null)
@@ -182,46 +182,36 @@ namespace ControleClientes
 
             }
 
-            if (textBoxNome.Text.Trim() == "")
+            var cliente = new Cliente
             {
-                if (MessageBox.Show("Você deve atribuir o nome do seu cliente no espaço Nome", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    return;
-                }
-                else {
-                    buttonSalvar.PerformClick();
+                Nome = textBoxNome.Text.Trim(),
+                Email = textBoxEmail.Text.Trim(),
+                Cep = textCEP.Text.Trim(),
+                Logradouro = textBoxLogradouro.Text.Trim(),
+                Complemento = textBoxComplemento.Text.Trim(),
+                Bairro = textBoxBairro.Text.Trim(),
+                Localidade = cidade.Nome,
+                Uf = cidade.UF,
+                Numero = textBoxNumero.Text.Trim(),
+                Genero = genero.Valor,
+                estadocivil = estado.Valor,
+                CidadeId = cidade.Id
+            };
 
-                    var cliente = new Cliente
-                    {
-                        Nome = textBoxNome.Text.Trim(),
-                        Email = textBoxEmail.Text.Trim(),
-                        Cep = textCEP.Text.Trim(),
-                        Logradouro = textBoxLogradouro.Text.Trim(),
-                        Complemento = textBoxComplemento.Text.Trim(),
-                        Bairro = textBoxBairro.Text.Trim(),
-                        Localidade = cidade.Nome,
-                        Uf = cidade.UF,
-                        Numero = textBoxNumero.Text.Trim(),
-                        Genero = genero.Valor,
-                        estadocivil = estado.Valor,
-                        CidadeId = cidade.Id
-                    };
+            if (editingId == null)
+            {
+                _repository.Adicionar(cliente);
+            }
+            else
+            {
+                cliente.Id = editingId.Value;
+                _repository.Atualizar(cliente);
+            }
 
-                    if (editingId == null)
-                    {
-                        _repository.Adicionar(cliente);
-                    }
-                    else
-                    {
-                        cliente.Id = editingId.Value;
-                        _repository.Atualizar(cliente);
-                    }
+            LimparCampos();
+            AtualizarGrid();
+            tabControlCliente.SelectTab(tabPageClienteConsulta);
 
-                    LimparCampos();
-                    AtualizarGrid();
-                    tabControlCliente.SelectTab(tabPageClienteConsulta);
-
-            }   }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {

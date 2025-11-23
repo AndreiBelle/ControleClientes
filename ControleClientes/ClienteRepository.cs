@@ -3,10 +3,9 @@
     public class ClienteRepository
     {
 
-        public IEnumerable<Cidade> ObterPorNome(string nome)
+        public IEnumerable<Cliente> ObterPorNome(string nome)
         {
-            return _context.Cidades.Where(c => c.Nome.ToLower().Contains(nome.ToLower()))
-                .ToList();
+            return _context.Clientes.Where(c => c.Nome.ToLower().Contains(nome.ToLower())).ToList();
         }
 
 
