@@ -27,8 +27,8 @@ namespace ControleClientes
 
         private void LimparCampos()
         {
-            textCidade.Clear();
-            textUF.Clear();
+            textBoxCidade.Clear();
+            textBoxUF.Clear();
             editingId = null;
         }
 
@@ -54,8 +54,8 @@ namespace ControleClientes
                 return;
             }
             var cidade = (Cidade)dataGridCidade.SelectedRows[0].DataBoundItem;
-            textCidade.Text = cidade.Nome;
-            textUF.Text = cidade.UF;
+            textBoxCidade.Text = cidade.Nome;
+            textBoxUF.Text = cidade.UF;
             editingId = cidade.Id;
             tabControlCidades.SelectTab(tabPageCadastroCidades);
         }
@@ -81,8 +81,8 @@ namespace ControleClientes
         {
             var cidade = new Cidade
             {
-                Nome = textCidade.Text.Trim(),
-                UF = textUF.Text.Trim(),
+                Nome = textBoxCidade.Text.Trim(),
+                UF = textBoxUF.Text.Trim(),
             };
 
             if (editingId == null)
@@ -100,8 +100,16 @@ namespace ControleClientes
 
         private void btnCancelarCidade_Click(object sender, EventArgs e)
         {
+            if (textBoxCidade.Text.Trim() != "" || textBoxUF.Text.Trim() != "")
+            {
+                if (MessageBox.Show("Você não salvou sua Cidade/UF deseja salva-la?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    buttonSalvarCidade.PerformClick();
+                }
+            }
             tabControlCidades.SelectTab(tabPageConsultaCidades);
         }
+
     }
 }
 

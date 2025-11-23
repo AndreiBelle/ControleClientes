@@ -100,7 +100,7 @@ namespace ControleClientes
                 textBoxUf.Text = clienteSelecionado.Uf;
                 textBoxBairro.Text = clienteSelecionado.Bairro;
                 textBoxCidade.Text = clienteSelecionado.Localidade;
-                textBoxCEP.Text = clienteSelecionado.Cep;
+                maskedTextBoxCEP.Text = clienteSelecionado.Cep;
             }
             else
             {
@@ -110,7 +110,7 @@ namespace ControleClientes
                 textBoxUf.Text = "";
                 textBoxBairro.Text = "";
                 textBoxCidade.Text = "";
-                textBoxCEP.Text = "";
+                maskedTextBoxCEP.Text = "";
 
 
 
@@ -132,7 +132,7 @@ namespace ControleClientes
             comboBoxTipoOs.SelectedIndex = -1;
             textBoxQuantidade.Clear();
             textBoxValorTotal.Clear();
-            textBoxCEP.Clear();
+            maskedTextBoxCEP.Clear();
             editingId = null;
             _itensServico.Clear();
 
@@ -197,7 +197,7 @@ namespace ControleClientes
             textBoxNumero.Text = osCompleta.Numero;
             textBoxComplemento.Text = osCompleta.Complemento;
             textBoxUf.Text = osCompleta.Uf;
-            textBoxCEP.Text = osCompleta.Cep;
+            maskedTextBoxCEP.Text = osCompleta.Cep;
             textBoxBairro.Text = osCompleta.Bairro;
             textBoxCidade.Text = osCompleta.Localidade;
             textBoxDescricao.Text = osCompleta.Descricao;
@@ -218,14 +218,14 @@ namespace ControleClientes
                 return;
             }
 
+            if (textBoxDescricao.Text.Trim() == "")
+            {
+                MessageBox.Show("Necessário adicionar a descrição da Os.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (comboBoxTipoOs.SelectedItem == null)
             {
-                if (comboBoxCliente.SelectedItem == null)
-                {
-                    MessageBox.Show("Por Favor, Selecione um cliente.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 if (_itensServico.Count == 0)
                 {
                     MessageBox.Show("Adicione pelo menos um serviço à OS.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -243,7 +243,7 @@ namespace ControleClientes
                 var os = new Os
                 {
                     Descricao = textBoxDescricao.Text.Trim(),
-                    Cep = textBoxCEP.Text.Trim(),
+                    Cep = maskedTextBoxCEP.Text.Trim(),
                     Logradouro = textBoxLogradouro.Text.Trim(),
                     Complemento = textBoxComplemento.Text.Trim(),
                     Bairro = textBoxBairro.Text.Trim(),
@@ -284,6 +284,13 @@ namespace ControleClientes
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
+            if (textBoxCidade.Text.Trim() != "" || comboBoxCliente.Text.Trim() != "" || textBoxDescricao.Text.Trim() != "")
+            {
+                if (MessageBox.Show("Você não salvou sua Cidade/UF deseja salva-la?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    buttonSalvar.PerformClick();
+                }
+            }
             tabControlOS.SelectTab(tabPageConsultaOS);
         }
 
@@ -475,7 +482,7 @@ namespace ControleClientes
 
         private void dataGridCadastro_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0 && e.RowIndex < _itensServico.Count)
+            if (e.RowIndex >= 0 && e.RowIndex < _itensServico.Count)
             {
                 LinhaParaEditar = e.RowIndex;
 
@@ -489,9 +496,11 @@ namespace ControleClientes
                 textBoxValorTotal.Text = itemSelecionado.ValorTotalItem.ToString("C2");
 
                 buttonAdicionarServico.Text = "Salvar alteração";
-                
+
             }
         }
+
+       
     }
 }
 

@@ -29,15 +29,14 @@
         private void InitializeComponent()
         {
             tabPageCadastroOS = new TabPage();
+            maskedTextBoxCEP = new MaskedTextBox();
             labelServico = new Label();
             buttonRemoverServico = new Button();
             comboBoxStatus = new ComboBox();
             labelStatus = new Label();
             buttonAdicionarServico = new Button();
             dataGridCadastro = new DataGridView();
-            textBoxCEP = new TextBox();
             textBoxValorTotal = new TextBox();
-            textBoxQuantidade = new TextBox();
             textBoxValorCadastro = new TextBox();
             textBoxDescricao = new TextBox();
             textBoxCidade = new TextBox();
@@ -83,6 +82,7 @@
             ColumnStatus = new DataGridViewTextBoxColumn();
             descricao = new DataGridViewTextBoxColumn();
             valorSomado = new DataGridViewTextBoxColumn();
+            textBoxQuantidade = new TextBox();
             tabPageCadastroOS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridCadastro).BeginInit();
             tabControlOS.SuspendLayout();
@@ -94,15 +94,15 @@
             // 
             // tabPageCadastroOS
             // 
+            tabPageCadastroOS.Controls.Add(textBoxQuantidade);
+            tabPageCadastroOS.Controls.Add(maskedTextBoxCEP);
             tabPageCadastroOS.Controls.Add(labelServico);
             tabPageCadastroOS.Controls.Add(buttonRemoverServico);
             tabPageCadastroOS.Controls.Add(comboBoxStatus);
             tabPageCadastroOS.Controls.Add(labelStatus);
             tabPageCadastroOS.Controls.Add(buttonAdicionarServico);
             tabPageCadastroOS.Controls.Add(dataGridCadastro);
-            tabPageCadastroOS.Controls.Add(textBoxCEP);
             tabPageCadastroOS.Controls.Add(textBoxValorTotal);
-            tabPageCadastroOS.Controls.Add(textBoxQuantidade);
             tabPageCadastroOS.Controls.Add(textBoxValorCadastro);
             tabPageCadastroOS.Controls.Add(textBoxDescricao);
             tabPageCadastroOS.Controls.Add(textBoxCidade);
@@ -139,6 +139,14 @@
             tabPageCadastroOS.TabIndex = 1;
             tabPageCadastroOS.Text = "tabPage2";
             tabPageCadastroOS.UseVisualStyleBackColor = true;
+            // 
+            // maskedTextBoxCEP
+            // 
+            maskedTextBoxCEP.Location = new Point(381, 222);
+            maskedTextBoxCEP.Mask = "00000-000";
+            maskedTextBoxCEP.Name = "maskedTextBoxCEP";
+            maskedTextBoxCEP.Size = new Size(125, 27);
+            maskedTextBoxCEP.TabIndex = 73;
             // 
             // labelServico
             // 
@@ -205,32 +213,17 @@
             dataGridCadastro.TabIndex = 5;
             dataGridCadastro.CellDoubleClick += dataGridCadastro_CellDoubleClick;
             // 
-            // textBoxCEP
-            // 
-            textBoxCEP.Location = new Point(381, 222);
-            textBoxCEP.Name = "textBoxCEP";
-            textBoxCEP.Size = new Size(125, 27);
-            textBoxCEP.TabIndex = 7;
-            // 
             // textBoxValorTotal
             // 
-            textBoxValorTotal.Location = new Point(407, 479);
+            textBoxValorTotal.Location = new Point(408, 479);
             textBoxValorTotal.Name = "textBoxValorTotal";
             textBoxValorTotal.Size = new Size(125, 27);
             textBoxValorTotal.TabIndex = 12;
             textBoxValorTotal.TextChanged += textBoxValorTotal_TextChanged;
             // 
-            // textBoxQuantidade
-            // 
-            textBoxQuantidade.Location = new Point(312, 479);
-            textBoxQuantidade.Name = "textBoxQuantidade";
-            textBoxQuantidade.Size = new Size(89, 27);
-            textBoxQuantidade.TabIndex = 11;
-            textBoxQuantidade.TextChanged += textBoxQuantidade_TextChanged;
-            // 
             // textBoxValorCadastro
             // 
-            textBoxValorCadastro.Location = new Point(181, 479);
+            textBoxValorCadastro.Location = new Point(177, 478);
             textBoxValorCadastro.Name = "textBoxValorCadastro";
             textBoxValorCadastro.Size = new Size(125, 27);
             textBoxValorCadastro.TabIndex = 61;
@@ -303,7 +296,7 @@
             // labelTotal
             // 
             labelTotal.AutoSize = true;
-            labelTotal.Location = new Point(407, 456);
+            labelTotal.Location = new Point(403, 456);
             labelTotal.Name = "labelTotal";
             labelTotal.Size = new Size(80, 20);
             labelTotal.TabIndex = 64;
@@ -312,7 +305,7 @@
             // labelQuantidade
             // 
             labelQuantidade.AutoSize = true;
-            labelQuantidade.Location = new Point(312, 455);
+            labelQuantidade.Location = new Point(308, 455);
             labelQuantidade.Name = "labelQuantidade";
             labelQuantidade.Size = new Size(87, 20);
             labelQuantidade.TabIndex = 62;
@@ -321,7 +314,7 @@
             // labelValorTipo
             // 
             labelValorTipo.AutoSize = true;
-            labelValorTipo.Location = new Point(181, 455);
+            labelValorTipo.Location = new Point(177, 455);
             labelValorTipo.Name = "labelValorTipo";
             labelValorTipo.Size = new Size(43, 20);
             labelValorTipo.TabIndex = 60;
@@ -678,6 +671,14 @@
             valorSomado.Name = "valorSomado";
             valorSomado.ReadOnly = true;
             // 
+            // textBoxQuantidade
+            // 
+            textBoxQuantidade.Location = new Point(307, 479);
+            textBoxQuantidade.Name = "textBoxQuantidade";
+            textBoxQuantidade.Size = new Size(95, 27);
+            textBoxQuantidade.TabIndex = 75;
+            textBoxQuantidade.TextChanged += textBoxQuantidade_TextChanged;
+            // 
             // OsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -708,9 +709,7 @@
         private DataGridViewTextBoxColumn Cliente;
         private Button buttonAdicionarServico;
         private DataGridView dataGridCadastro;
-        private TextBox textBoxCEP;
         private TextBox textBoxValorTotal;
-        private TextBox textBoxQuantidade;
         private TextBox textBoxValorCadastro;
         private TextBox textBoxDescricao;
         private TextBox textBoxCidade;
@@ -757,5 +756,7 @@
         private DataGridViewTextBoxColumn descricao;
         private DataGridViewTextBoxColumn valorSomado;
         private Label labelServico;
+        private MaskedTextBox maskedTextBoxCEP;
+        private TextBox textBoxQuantidade;
     }
 }

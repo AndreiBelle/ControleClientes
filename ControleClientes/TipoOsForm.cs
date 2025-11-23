@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ControleClientes
 {
@@ -110,6 +111,13 @@ namespace ControleClientes
 
         private void buttonCancelTipo_Click(object sender, EventArgs e)
         {
+            if (comboBoxTipo.Text.Trim() != "" || textBoxValor.Text.Trim() != "")
+            {
+                if (MessageBox.Show("Você não salvou sua Cidade/UF deseja salva-la?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    buttonSalvarTipo.PerformClick();
+                }
+            }
             Close();
         }
     }

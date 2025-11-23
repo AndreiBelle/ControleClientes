@@ -28,130 +28,130 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tpClienteCadastro = new TabPage();
-            cmbCidade = new ComboBox();
-            txtUf = new TextBox();
-            txtBairro = new TextBox();
-            txtNumero = new TextBox();
-            txtComplemento = new TextBox();
+            tabPageClienteCadastro = new TabPage();
+            comboBoxCidade = new ComboBox();
+            textBoxUf = new TextBox();
+            textBoxBairro = new TextBox();
+            textBoxNumero = new TextBox();
+            textBoxComplemento = new TextBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
             label3 = new Label();
             label4 = new Label();
-            txtLogradouro = new TextBox();
-            btnCep = new Button();
+            textBoxLogradouro = new TextBox();
+            buttonCep = new Button();
             textCEP = new MaskedTextBox();
             txtCEP = new Label();
             labelEstadoCivil = new Label();
-            cmbEstadoCivil = new ComboBox();
+            comboBoxEstadoCivil = new ComboBox();
             labelGenero = new Label();
-            cmbGenero = new ComboBox();
-            btnCancelar = new Button();
-            btnSalvar = new Button();
-            btnExcluir = new Button();
-            txtEmail = new TextBox();
-            txtNome = new TextBox();
+            comboBoxGenero = new ComboBox();
+            buttonCancelar = new Button();
+            buttonSalvar = new Button();
+            buttonExcluir = new Button();
+            textBoxEmail = new TextBox();
+            textBoxNome = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            tpClienteConsulta = new TabPage();
-            gridClientes = new DataGridView();
+            tabPageClienteConsulta = new TabPage();
+            dataGridClientes = new DataGridView();
             ColID = new DataGridViewTextBoxColumn();
             ColNome = new DataGridViewTextBoxColumn();
             colemail = new DataGridViewTextBoxColumn();
             pnlSuperior = new Panel();
-            txtPesquisa = new TextBox();
-            btnPesquisar = new Button();
+            textBoxPesquisa = new TextBox();
+            buttonPesquisar = new Button();
             pnlInferior = new Panel();
-            btnVisualizar = new Button();
-            btnNovo = new Button();
-            tcCliente = new TabControl();
-            tpClienteCadastro.SuspendLayout();
-            tpClienteConsulta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gridClientes).BeginInit();
+            buttonVisualizar = new Button();
+            buttonNovo = new Button();
+            tabControlCliente = new TabControl();
+            tabPageClienteCadastro.SuspendLayout();
+            tabPageClienteConsulta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridClientes).BeginInit();
             pnlSuperior.SuspendLayout();
             pnlInferior.SuspendLayout();
-            tcCliente.SuspendLayout();
+            tabControlCliente.SuspendLayout();
             SuspendLayout();
             // 
-            // tpClienteCadastro
+            // tabPageClienteCadastro
             // 
-            tpClienteCadastro.Controls.Add(cmbCidade);
-            tpClienteCadastro.Controls.Add(txtUf);
-            tpClienteCadastro.Controls.Add(txtBairro);
-            tpClienteCadastro.Controls.Add(txtNumero);
-            tpClienteCadastro.Controls.Add(txtComplemento);
-            tpClienteCadastro.Controls.Add(label8);
-            tpClienteCadastro.Controls.Add(label7);
-            tpClienteCadastro.Controls.Add(label6);
-            tpClienteCadastro.Controls.Add(label5);
-            tpClienteCadastro.Controls.Add(label3);
-            tpClienteCadastro.Controls.Add(label4);
-            tpClienteCadastro.Controls.Add(txtLogradouro);
-            tpClienteCadastro.Controls.Add(btnCep);
-            tpClienteCadastro.Controls.Add(textCEP);
-            tpClienteCadastro.Controls.Add(txtCEP);
-            tpClienteCadastro.Controls.Add(labelEstadoCivil);
-            tpClienteCadastro.Controls.Add(cmbEstadoCivil);
-            tpClienteCadastro.Controls.Add(labelGenero);
-            tpClienteCadastro.Controls.Add(cmbGenero);
-            tpClienteCadastro.Controls.Add(btnCancelar);
-            tpClienteCadastro.Controls.Add(btnSalvar);
-            tpClienteCadastro.Controls.Add(btnExcluir);
-            tpClienteCadastro.Controls.Add(txtEmail);
-            tpClienteCadastro.Controls.Add(txtNome);
-            tpClienteCadastro.Controls.Add(label1);
-            tpClienteCadastro.Controls.Add(label2);
-            tpClienteCadastro.Location = new Point(4, 29);
-            tpClienteCadastro.Margin = new Padding(3, 4, 3, 4);
-            tpClienteCadastro.Name = "tpClienteCadastro";
-            tpClienteCadastro.Padding = new Padding(3, 4, 3, 4);
-            tpClienteCadastro.Size = new Size(702, 395);
-            tpClienteCadastro.TabIndex = 2;
-            tpClienteCadastro.Text = "Cadastro";
-            tpClienteCadastro.UseVisualStyleBackColor = true;
+            tabPageClienteCadastro.Controls.Add(comboBoxCidade);
+            tabPageClienteCadastro.Controls.Add(textBoxUf);
+            tabPageClienteCadastro.Controls.Add(textBoxBairro);
+            tabPageClienteCadastro.Controls.Add(textBoxNumero);
+            tabPageClienteCadastro.Controls.Add(textBoxComplemento);
+            tabPageClienteCadastro.Controls.Add(label8);
+            tabPageClienteCadastro.Controls.Add(label7);
+            tabPageClienteCadastro.Controls.Add(label6);
+            tabPageClienteCadastro.Controls.Add(label5);
+            tabPageClienteCadastro.Controls.Add(label3);
+            tabPageClienteCadastro.Controls.Add(label4);
+            tabPageClienteCadastro.Controls.Add(textBoxLogradouro);
+            tabPageClienteCadastro.Controls.Add(buttonCep);
+            tabPageClienteCadastro.Controls.Add(textCEP);
+            tabPageClienteCadastro.Controls.Add(txtCEP);
+            tabPageClienteCadastro.Controls.Add(labelEstadoCivil);
+            tabPageClienteCadastro.Controls.Add(comboBoxEstadoCivil);
+            tabPageClienteCadastro.Controls.Add(labelGenero);
+            tabPageClienteCadastro.Controls.Add(comboBoxGenero);
+            tabPageClienteCadastro.Controls.Add(buttonCancelar);
+            tabPageClienteCadastro.Controls.Add(buttonSalvar);
+            tabPageClienteCadastro.Controls.Add(buttonExcluir);
+            tabPageClienteCadastro.Controls.Add(textBoxEmail);
+            tabPageClienteCadastro.Controls.Add(textBoxNome);
+            tabPageClienteCadastro.Controls.Add(label1);
+            tabPageClienteCadastro.Controls.Add(label2);
+            tabPageClienteCadastro.Location = new Point(4, 29);
+            tabPageClienteCadastro.Margin = new Padding(3, 4, 3, 4);
+            tabPageClienteCadastro.Name = "tabPageClienteCadastro";
+            tabPageClienteCadastro.Padding = new Padding(3, 4, 3, 4);
+            tabPageClienteCadastro.Size = new Size(702, 395);
+            tabPageClienteCadastro.TabIndex = 2;
+            tabPageClienteCadastro.Text = "Cadastro";
+            tabPageClienteCadastro.UseVisualStyleBackColor = true;
             // 
-            // cmbCidade
+            // comboBoxCidade
             // 
-            cmbCidade.FormattingEnabled = true;
-            cmbCidade.Location = new Point(374, 240);
-            cmbCidade.Margin = new Padding(3, 4, 3, 4);
-            cmbCidade.Name = "cmbCidade";
-            cmbCidade.Size = new Size(266, 28);
-            cmbCidade.TabIndex = 13;
+            comboBoxCidade.FormattingEnabled = true;
+            comboBoxCidade.Location = new Point(374, 240);
+            comboBoxCidade.Margin = new Padding(3, 4, 3, 4);
+            comboBoxCidade.Name = "comboBoxCidade";
+            comboBoxCidade.Size = new Size(266, 28);
+            comboBoxCidade.TabIndex = 13;
             // 
-            // txtUf
+            // textBoxUf
             // 
-            txtUf.Location = new Point(647, 239);
-            txtUf.Margin = new Padding(3, 4, 3, 4);
-            txtUf.Name = "txtUf";
-            txtUf.Size = new Size(46, 27);
-            txtUf.TabIndex = 14;
+            textBoxUf.Location = new Point(647, 239);
+            textBoxUf.Margin = new Padding(3, 4, 3, 4);
+            textBoxUf.Name = "textBoxUf";
+            textBoxUf.Size = new Size(46, 27);
+            textBoxUf.TabIndex = 14;
             // 
-            // txtBairro
+            // textBoxBairro
             // 
-            txtBairro.Location = new Point(214, 239);
-            txtBairro.Margin = new Padding(3, 4, 3, 4);
-            txtBairro.Name = "txtBairro";
-            txtBairro.Size = new Size(153, 27);
-            txtBairro.TabIndex = 12;
+            textBoxBairro.Location = new Point(214, 239);
+            textBoxBairro.Margin = new Padding(3, 4, 3, 4);
+            textBoxBairro.Name = "textBoxBairro";
+            textBoxBairro.Size = new Size(153, 27);
+            textBoxBairro.TabIndex = 12;
             // 
-            // txtNumero
+            // textBoxNumero
             // 
-            txtNumero.Location = new Point(583, 176);
-            txtNumero.Margin = new Padding(3, 4, 3, 4);
-            txtNumero.Name = "txtNumero";
-            txtNumero.Size = new Size(114, 27);
-            txtNumero.TabIndex = 6;
+            textBoxNumero.Location = new Point(583, 176);
+            textBoxNumero.Margin = new Padding(3, 4, 3, 4);
+            textBoxNumero.Name = "textBoxNumero";
+            textBoxNumero.Size = new Size(114, 27);
+            textBoxNumero.TabIndex = 6;
             // 
-            // txtComplemento
+            // textBoxComplemento
             // 
-            txtComplemento.Location = new Point(0, 239);
-            txtComplemento.Margin = new Padding(3, 4, 3, 4);
-            txtComplemento.Name = "txtComplemento";
-            txtComplemento.Size = new Size(206, 27);
-            txtComplemento.TabIndex = 7;
+            textBoxComplemento.Location = new Point(0, 239);
+            textBoxComplemento.Margin = new Padding(3, 4, 3, 4);
+            textBoxComplemento.Name = "textBoxComplemento";
+            textBoxComplemento.Size = new Size(206, 27);
+            textBoxComplemento.TabIndex = 7;
             // 
             // label8
             // 
@@ -207,24 +207,24 @@
             label4.TabIndex = 30;
             label4.Text = "Logradouro";
             // 
-            // txtLogradouro
+            // textBoxLogradouro
             // 
-            txtLogradouro.Location = new Point(217, 176);
-            txtLogradouro.Margin = new Padding(3, 4, 3, 4);
-            txtLogradouro.Name = "txtLogradouro";
-            txtLogradouro.Size = new Size(358, 27);
-            txtLogradouro.TabIndex = 11;
+            textBoxLogradouro.Location = new Point(217, 176);
+            textBoxLogradouro.Margin = new Padding(3, 4, 3, 4);
+            textBoxLogradouro.Name = "textBoxLogradouro";
+            textBoxLogradouro.Size = new Size(358, 27);
+            textBoxLogradouro.TabIndex = 11;
             // 
-            // btnCep
+            // buttonCep
             // 
-            btnCep.Location = new Point(125, 175);
-            btnCep.Margin = new Padding(3, 4, 3, 4);
-            btnCep.Name = "btnCep";
-            btnCep.Size = new Size(86, 31);
-            btnCep.TabIndex = 5;
-            btnCep.Text = "Buscar";
-            btnCep.UseVisualStyleBackColor = true;
-            btnCep.Click += btnCep_Click;
+            buttonCep.Location = new Point(125, 175);
+            buttonCep.Margin = new Padding(3, 4, 3, 4);
+            buttonCep.Name = "buttonCep";
+            buttonCep.Size = new Size(86, 31);
+            buttonCep.TabIndex = 5;
+            buttonCep.Text = "Buscar";
+            buttonCep.UseVisualStyleBackColor = true;
+            buttonCep.Click += btnCep_Click;
             // 
             // textCEP
             // 
@@ -253,14 +253,14 @@
             labelEstadoCivil.TabIndex = 17;
             labelEstadoCivil.Text = "Estado Civil";
             // 
-            // cmbEstadoCivil
+            // comboBoxEstadoCivil
             // 
-            cmbEstadoCivil.FormattingEnabled = true;
-            cmbEstadoCivil.Location = new Point(455, 105);
-            cmbEstadoCivil.Margin = new Padding(3, 4, 3, 4);
-            cmbEstadoCivil.Name = "cmbEstadoCivil";
-            cmbEstadoCivil.Size = new Size(121, 28);
-            cmbEstadoCivil.TabIndex = 3;
+            comboBoxEstadoCivil.FormattingEnabled = true;
+            comboBoxEstadoCivil.Location = new Point(455, 105);
+            comboBoxEstadoCivil.Margin = new Padding(3, 4, 3, 4);
+            comboBoxEstadoCivil.Name = "comboBoxEstadoCivil";
+            comboBoxEstadoCivil.Size = new Size(121, 28);
+            comboBoxEstadoCivil.TabIndex = 3;
             // 
             // labelGenero
             // 
@@ -271,71 +271,71 @@
             labelGenero.TabIndex = 15;
             labelGenero.Text = "Gênero";
             // 
-            // cmbGenero
+            // comboBoxGenero
             // 
-            cmbGenero.FormattingEnabled = true;
-            cmbGenero.Location = new Point(455, 37);
-            cmbGenero.Margin = new Padding(3, 4, 3, 4);
-            cmbGenero.Name = "cmbGenero";
-            cmbGenero.Size = new Size(121, 28);
-            cmbGenero.TabIndex = 1;
+            comboBoxGenero.FormattingEnabled = true;
+            comboBoxGenero.Location = new Point(455, 37);
+            comboBoxGenero.Margin = new Padding(3, 4, 3, 4);
+            comboBoxGenero.Name = "comboBoxGenero";
+            comboBoxGenero.Size = new Size(121, 28);
+            comboBoxGenero.TabIndex = 1;
             // 
-            // btnCancelar
+            // buttonCancelar
             // 
-            btnCancelar.Image = Properties.Resources.cross_circle;
-            btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(600, 316);
-            btnCancelar.Margin = new Padding(3, 4, 3, 4);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(96, 31);
-            btnCancelar.TabIndex = 9;
-            btnCancelar.Text = "&Cancelar";
-            btnCancelar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            buttonCancelar.Image = Properties.Resources.cross_circle;
+            buttonCancelar.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonCancelar.Location = new Point(600, 316);
+            buttonCancelar.Margin = new Padding(3, 4, 3, 4);
+            buttonCancelar.Name = "buttonCancelar";
+            buttonCancelar.Size = new Size(96, 31);
+            buttonCancelar.TabIndex = 9;
+            buttonCancelar.Text = "&Cancelar";
+            buttonCancelar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonCancelar.UseVisualStyleBackColor = true;
+            buttonCancelar.Click += btnCancelar_Click;
             // 
-            // btnSalvar
+            // buttonSalvar
             // 
-            btnSalvar.Image = Properties.Resources.floppy_disk_circle_arrow_right;
-            btnSalvar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalvar.Location = new Point(490, 316);
-            btnSalvar.Margin = new Padding(3, 4, 3, 4);
-            btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(103, 31);
-            btnSalvar.TabIndex = 8;
-            btnSalvar.Text = "&Salvar";
-            btnSalvar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSalvar.UseVisualStyleBackColor = true;
-            btnSalvar.Click += btnSalvar_Click;
+            buttonSalvar.Image = Properties.Resources.floppy_disk_circle_arrow_right;
+            buttonSalvar.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonSalvar.Location = new Point(490, 316);
+            buttonSalvar.Margin = new Padding(3, 4, 3, 4);
+            buttonSalvar.Name = "buttonSalvar";
+            buttonSalvar.Size = new Size(103, 31);
+            buttonSalvar.TabIndex = 8;
+            buttonSalvar.Text = "&Salvar";
+            buttonSalvar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonSalvar.UseVisualStyleBackColor = true;
+            buttonSalvar.Click += btnSalvar_Click;
             // 
-            // btnExcluir
+            // buttonExcluir
             // 
-            btnExcluir.Image = Properties.Resources.trash_xmark__1_;
-            btnExcluir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExcluir.Location = new Point(6, 316);
-            btnExcluir.Margin = new Padding(3, 4, 3, 4);
-            btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(97, 31);
-            btnExcluir.TabIndex = 10;
-            btnExcluir.Text = "  &Excluir";
-            btnExcluir.UseVisualStyleBackColor = true;
-            btnExcluir.Click += btnExcluir_Click;
+            buttonExcluir.Image = Properties.Resources.trash_xmark__1_;
+            buttonExcluir.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonExcluir.Location = new Point(6, 316);
+            buttonExcluir.Margin = new Padding(3, 4, 3, 4);
+            buttonExcluir.Name = "buttonExcluir";
+            buttonExcluir.Size = new Size(97, 31);
+            buttonExcluir.TabIndex = 10;
+            buttonExcluir.Text = "  &Excluir";
+            buttonExcluir.UseVisualStyleBackColor = true;
+            buttonExcluir.Click += btnExcluir_Click;
             // 
-            // txtEmail
+            // textBoxEmail
             // 
-            txtEmail.Location = new Point(3, 105);
-            txtEmail.Margin = new Padding(3, 4, 3, 4);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(425, 27);
-            txtEmail.TabIndex = 2;
+            textBoxEmail.Location = new Point(3, 105);
+            textBoxEmail.Margin = new Padding(3, 4, 3, 4);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(425, 27);
+            textBoxEmail.TabIndex = 2;
             // 
-            // txtNome
+            // textBoxNome
             // 
-            txtNome.Location = new Point(3, 37);
-            txtNome.Margin = new Padding(3, 4, 3, 4);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(427, 27);
-            txtNome.TabIndex = 0;
+            textBoxNome.Location = new Point(3, 37);
+            textBoxNome.Margin = new Padding(3, 4, 3, 4);
+            textBoxNome.Name = "textBoxNome";
+            textBoxNome.Size = new Size(427, 27);
+            textBoxNome.TabIndex = 0;
             // 
             // label1
             // 
@@ -355,34 +355,34 @@
             label2.TabIndex = 7;
             label2.Text = "Nome:";
             // 
-            // tpClienteConsulta
+            // tabPageClienteConsulta
             // 
-            tpClienteConsulta.Controls.Add(gridClientes);
-            tpClienteConsulta.Controls.Add(pnlSuperior);
-            tpClienteConsulta.Controls.Add(pnlInferior);
-            tpClienteConsulta.Location = new Point(4, 29);
-            tpClienteConsulta.Margin = new Padding(3, 4, 3, 4);
-            tpClienteConsulta.Name = "tpClienteConsulta";
-            tpClienteConsulta.Padding = new Padding(3, 4, 3, 4);
-            tpClienteConsulta.Size = new Size(702, 395);
-            tpClienteConsulta.TabIndex = 1;
-            tpClienteConsulta.Text = "Consulta";
-            tpClienteConsulta.UseVisualStyleBackColor = true;
+            tabPageClienteConsulta.Controls.Add(dataGridClientes);
+            tabPageClienteConsulta.Controls.Add(pnlSuperior);
+            tabPageClienteConsulta.Controls.Add(pnlInferior);
+            tabPageClienteConsulta.Location = new Point(4, 29);
+            tabPageClienteConsulta.Margin = new Padding(3, 4, 3, 4);
+            tabPageClienteConsulta.Name = "tabPageClienteConsulta";
+            tabPageClienteConsulta.Padding = new Padding(3, 4, 3, 4);
+            tabPageClienteConsulta.Size = new Size(702, 395);
+            tabPageClienteConsulta.TabIndex = 1;
+            tabPageClienteConsulta.Text = "Consulta";
+            tabPageClienteConsulta.UseVisualStyleBackColor = true;
             // 
-            // gridClientes
+            // dataGridClientes
             // 
-            gridClientes.AllowUserToAddRows = false;
-            gridClientes.AllowUserToDeleteRows = false;
-            gridClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridClientes.Columns.AddRange(new DataGridViewColumn[] { ColID, ColNome, colemail });
-            gridClientes.Dock = DockStyle.Fill;
-            gridClientes.Location = new Point(3, 35);
-            gridClientes.Margin = new Padding(3, 4, 3, 4);
-            gridClientes.Name = "gridClientes";
-            gridClientes.ReadOnly = true;
-            gridClientes.RowHeadersWidth = 51;
-            gridClientes.Size = new Size(696, 324);
-            gridClientes.TabIndex = 0;
+            dataGridClientes.AllowUserToAddRows = false;
+            dataGridClientes.AllowUserToDeleteRows = false;
+            dataGridClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridClientes.Columns.AddRange(new DataGridViewColumn[] { ColID, ColNome, colemail });
+            dataGridClientes.Dock = DockStyle.Fill;
+            dataGridClientes.Location = new Point(3, 35);
+            dataGridClientes.Margin = new Padding(3, 4, 3, 4);
+            dataGridClientes.Name = "dataGridClientes";
+            dataGridClientes.ReadOnly = true;
+            dataGridClientes.RowHeadersWidth = 51;
+            dataGridClientes.Size = new Size(696, 324);
+            dataGridClientes.TabIndex = 0;
             // 
             // ColID
             // 
@@ -415,8 +415,8 @@
             // 
             // pnlSuperior
             // 
-            pnlSuperior.Controls.Add(txtPesquisa);
-            pnlSuperior.Controls.Add(btnPesquisar);
+            pnlSuperior.Controls.Add(textBoxPesquisa);
+            pnlSuperior.Controls.Add(buttonPesquisar);
             pnlSuperior.Dock = DockStyle.Top;
             pnlSuperior.Location = new Point(3, 4);
             pnlSuperior.Margin = new Padding(3, 4, 3, 4);
@@ -425,36 +425,36 @@
             pnlSuperior.TabIndex = 0;
             pnlSuperior.TabStop = true;
             // 
-            // txtPesquisa
+            // textBoxPesquisa
             // 
-            txtPesquisa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtPesquisa.Location = new Point(0, 0);
-            txtPesquisa.Margin = new Padding(3, 4, 3, 4);
-            txtPesquisa.Name = "txtPesquisa";
-            txtPesquisa.PlaceholderText = "Pesquisar nomes";
-            txtPesquisa.Size = new Size(583, 27);
-            txtPesquisa.TabIndex = 0;
+            textBoxPesquisa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxPesquisa.Location = new Point(0, 0);
+            textBoxPesquisa.Margin = new Padding(3, 4, 3, 4);
+            textBoxPesquisa.Name = "textBoxPesquisa";
+            textBoxPesquisa.PlaceholderText = "Pesquisar nomes";
+            textBoxPesquisa.Size = new Size(583, 27);
+            textBoxPesquisa.TabIndex = 0;
             // 
-            // btnPesquisar
+            // buttonPesquisar
             // 
-            btnPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnPesquisar.ForeColor = SystemColors.ControlText;
-            btnPesquisar.Image = Properties.Resources.search;
-            btnPesquisar.Location = new Point(588, -1);
-            btnPesquisar.Margin = new Padding(3, 4, 3, 4);
-            btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(101, 31);
-            btnPesquisar.TabIndex = 1;
-            btnPesquisar.Text = "&Pesquisar";
-            btnPesquisar.TextAlign = ContentAlignment.MiddleRight;
-            btnPesquisar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnPesquisar.UseVisualStyleBackColor = true;
-            btnPesquisar.Click += btnPesquisar_Click;
+            buttonPesquisar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonPesquisar.ForeColor = SystemColors.ControlText;
+            buttonPesquisar.Image = Properties.Resources.search;
+            buttonPesquisar.Location = new Point(588, -1);
+            buttonPesquisar.Margin = new Padding(3, 4, 3, 4);
+            buttonPesquisar.Name = "buttonPesquisar";
+            buttonPesquisar.Size = new Size(101, 31);
+            buttonPesquisar.TabIndex = 1;
+            buttonPesquisar.Text = "&Pesquisar";
+            buttonPesquisar.TextAlign = ContentAlignment.MiddleRight;
+            buttonPesquisar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonPesquisar.UseVisualStyleBackColor = true;
+            buttonPesquisar.Click += btnPesquisar_Click;
             // 
             // pnlInferior
             // 
-            pnlInferior.Controls.Add(btnVisualizar);
-            pnlInferior.Controls.Add(btnNovo);
+            pnlInferior.Controls.Add(buttonVisualizar);
+            pnlInferior.Controls.Add(buttonNovo);
             pnlInferior.Dock = DockStyle.Bottom;
             pnlInferior.Location = new Point(3, 359);
             pnlInferior.Margin = new Padding(3, 4, 3, 4);
@@ -463,46 +463,46 @@
             pnlInferior.TabIndex = 0;
             pnlInferior.TabStop = true;
             // 
-            // btnVisualizar
+            // buttonVisualizar
             // 
-            btnVisualizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnVisualizar.Image = Properties.Resources.eye;
-            btnVisualizar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVisualizar.Location = new Point(525, 0);
-            btnVisualizar.Margin = new Padding(3, 4, 3, 4);
-            btnVisualizar.Name = "btnVisualizar";
-            btnVisualizar.Size = new Size(102, 32);
-            btnVisualizar.TabIndex = 0;
-            btnVisualizar.Text = "&Visualizar";
-            btnVisualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnVisualizar.UseVisualStyleBackColor = true;
-            btnVisualizar.Click += btnVisualizar_Click;
+            buttonVisualizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonVisualizar.Image = Properties.Resources.eye;
+            buttonVisualizar.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonVisualizar.Location = new Point(525, 0);
+            buttonVisualizar.Margin = new Padding(3, 4, 3, 4);
+            buttonVisualizar.Name = "buttonVisualizar";
+            buttonVisualizar.Size = new Size(102, 32);
+            buttonVisualizar.TabIndex = 0;
+            buttonVisualizar.Text = "&Visualizar";
+            buttonVisualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonVisualizar.UseVisualStyleBackColor = true;
+            buttonVisualizar.Click += btnVisualizar_Click;
             // 
-            // btnNovo
+            // buttonNovo
             // 
-            btnNovo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnNovo.Image = Properties.Resources.add_document;
-            btnNovo.Location = new Point(627, 0);
-            btnNovo.Margin = new Padding(3, 4, 3, 4);
-            btnNovo.Name = "btnNovo";
-            btnNovo.Size = new Size(69, 32);
-            btnNovo.TabIndex = 1;
-            btnNovo.Text = "&Novo";
-            btnNovo.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnNovo.UseVisualStyleBackColor = true;
-            btnNovo.Click += btnNovo_Click;
+            buttonNovo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonNovo.Image = Properties.Resources.add_document;
+            buttonNovo.Location = new Point(627, 0);
+            buttonNovo.Margin = new Padding(3, 4, 3, 4);
+            buttonNovo.Name = "buttonNovo";
+            buttonNovo.Size = new Size(69, 32);
+            buttonNovo.TabIndex = 1;
+            buttonNovo.Text = "&Novo";
+            buttonNovo.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonNovo.UseVisualStyleBackColor = true;
+            buttonNovo.Click += btnNovo_Click;
             // 
-            // tcCliente
+            // tabControlCliente
             // 
-            tcCliente.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tcCliente.Controls.Add(tpClienteConsulta);
-            tcCliente.Controls.Add(tpClienteCadastro);
-            tcCliente.Location = new Point(1, -29);
-            tcCliente.Margin = new Padding(3, 4, 3, 4);
-            tcCliente.Name = "tcCliente";
-            tcCliente.SelectedIndex = 0;
-            tcCliente.Size = new Size(710, 428);
-            tcCliente.TabIndex = 0;
+            tabControlCliente.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tabControlCliente.Controls.Add(tabPageClienteConsulta);
+            tabControlCliente.Controls.Add(tabPageClienteCadastro);
+            tabControlCliente.Location = new Point(1, -29);
+            tabControlCliente.Margin = new Padding(3, 4, 3, 4);
+            tabControlCliente.Name = "tabControlCliente";
+            tabControlCliente.SelectedIndex = 0;
+            tabControlCliente.Size = new Size(710, 428);
+            tabControlCliente.TabIndex = 0;
             // 
             // ClienteForm
             // 
@@ -510,61 +510,61 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(710, 399);
-            Controls.Add(tcCliente);
+            Controls.Add(tabControlCliente);
             Margin = new Padding(3, 4, 3, 4);
             Name = "ClienteForm";
             Text = "Controle Clientes";
-            tpClienteCadastro.ResumeLayout(false);
-            tpClienteCadastro.PerformLayout();
-            tpClienteConsulta.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gridClientes).EndInit();
+            tabPageClienteCadastro.ResumeLayout(false);
+            tabPageClienteCadastro.PerformLayout();
+            tabPageClienteConsulta.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridClientes).EndInit();
             pnlSuperior.ResumeLayout(false);
             pnlSuperior.PerformLayout();
             pnlInferior.ResumeLayout(false);
-            tcCliente.ResumeLayout(false);
+            tabControlCliente.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TabPage tpClienteCadastro;
-        private Button btnCancelar;
-        private Button btnSalvar;
-        private Button btnExcluir;
-        private TextBox txtEmail;
-        private TextBox txtNome;
+        private TabPage tabPageClienteCadastro;
+        private Button buttonCancelar;
+        private Button buttonSalvar;
+        private Button buttonExcluir;
+        private TextBox textBoxEmail;
+        private TextBox textBoxNome;
         private Label label1;
         private Label label2;
-        private TabPage tpClienteConsulta;
-        private TabControl tcCliente;
-        private DataGridView gridClientes;
-        private Button btnVisualizar;
-        private Button btnPesquisar;
-        private Button btnNovo;
-        private TextBox txtPesquisa;
+        private TabPage tabPageClienteConsulta;
+        private TabControl tabControlCliente;
+        private DataGridView dataGridClientes;
+        private Button buttonVisualizar;
+        private Button buttonPesquisar;
+        private Button buttonNovo;
+        private TextBox textBoxPesquisa;
         private Panel pnlInferior;
         private Panel pnlSuperior;
         private DataGridViewTextBoxColumn ColID;
         private DataGridViewTextBoxColumn ColNome;
         private DataGridViewTextBoxColumn colemail;
-        private ComboBox cmbGenero;
+        private ComboBox comboBoxGenero;
         private Label labelGenero;
         private Label labelEstadoCivil;
-        private ComboBox cmbEstadoCivil;
+        private ComboBox comboBoxEstadoCivil;
         private Label txtCEP;
         private MaskedTextBox textCEP;
-        private Button btnCep;
-        private TextBox txtUf;
-        private TextBox txtBairro;
-        private TextBox txtNumero;
-        private TextBox txtComplemento;
+        private Button buttonCep;
+        private TextBox textBoxUf;
+        private TextBox textBoxBairro;
+        private TextBox textBoxNumero;
+        private TextBox textBoxComplemento;
         private Label label8;
         private Label label7;
         private Label label6;
         private Label label5;
         private Label label3;
         private Label label4;
-        private TextBox txtLogradouro;
-        private ComboBox cmbCidade;
+        private TextBox textBoxLogradouro;
+        private ComboBox comboBoxCidade;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ControleClientes
 {
@@ -18,10 +19,10 @@ namespace ControleClientes
         {
             var cidadeRepository = new CidadeRepository();
             _cidades = cidadeRepository.ListarTodos();
-            cmbCidade.DataSource = _cidades;
-            cmbCidade.DisplayMember = "Nome";
-            cmbCidade.ValueMember = "id";
-            cmbCidade.SelectedIndex = -1;
+            comboBoxCidade.DataSource = _cidades;
+            comboBoxCidade.DisplayMember = "Nome";
+            comboBoxCidade.ValueMember = "id";
+            comboBoxCidade.SelectedIndex = -1;
 
         }
 
@@ -45,22 +46,22 @@ namespace ControleClientes
         private void CarregarEnd()
         {
 
-            cmbGenero.DisplayMember = "Localidade";
+            comboBoxGenero.DisplayMember = "Localidade";
 
         }
 
         private void CarregarGenero()
         {
-            cmbGenero.DataSource = itemGeneros;
-            cmbGenero.DisplayMember = "Descricao";
-            cmbGenero.ValueMember = "Valor";
+            comboBoxGenero.DataSource = itemGeneros;
+            comboBoxGenero.DisplayMember = "Descricao";
+            comboBoxGenero.ValueMember = "Valor";
         }
 
         private void CarregarEstado()
         {
-            cmbEstadoCivil.DataSource = estadocivillista;
-            cmbEstadoCivil.DisplayMember = "Descricao";
-            cmbEstadoCivil.ValueMember = "Valor";
+            comboBoxEstadoCivil.DataSource = estadocivillista;
+            comboBoxEstadoCivil.DisplayMember = "Descricao";
+            comboBoxEstadoCivil.ValueMember = "Valor";
         }
 
         public ClienteForm()
@@ -79,31 +80,32 @@ namespace ControleClientes
         {
 
             var clientes = _repository.ListarTodos();
-            gridClientes.DataSource = null;
-            gridClientes.DataSource = clientes;
-            gridClientes.Columns["CidadeId"].Visible = false;
-            gridClientes.Columns["Cidade"].Visible = false;
-            gridClientes.Columns["Cep"].Visible = false;
-            gridClientes.Columns["Logradouro"].Visible = false;
-            gridClientes.Columns["Numero"].Visible = false;
-            gridClientes.Columns["Complemento"].Visible = false;
-            gridClientes.Columns["Bairro"].Visible = false;
-            gridClientes.Columns["Localidade"].Visible = false;
-            gridClientes.Columns["uf"].Visible = false;
-            gridClientes.Columns["estadocivil"].Visible = false;
-            gridClientes.Columns["OS"].Visible = false;
+            dataGridClientes.DataSource = null;
+            dataGridClientes.DataSource = clientes;
+            dataGridClientes.Columns["CidadeId"].Visible = false;
+            dataGridClientes.Columns["Cidade"].Visible = false;
+            dataGridClientes.Columns["Cep"].Visible = false;
+            dataGridClientes.Columns["Logradouro"].Visible = false;
+            dataGridClientes.Columns["Numero"].Visible = false;
+            dataGridClientes.Columns["Complemento"].Visible = false;
+            dataGridClientes.Columns["Bairro"].Visible = false;
+            dataGridClientes.Columns["Localidade"].Visible = false;
+            dataGridClientes.Columns["uf"].Visible = false;
+            dataGridClientes.Columns["estadocivil"].Visible = false;
+            dataGridClientes.Columns["OS"].Visible = false;
+            dataGridClientes.Columns["Genero"].Visible = false;
         }
         private void LimparCampos()
         {
-            txtNome.Clear();
-            txtEmail.Clear();
+            textBoxNome.Clear();
+            textBoxEmail.Clear();
             textCEP.Clear();
-            txtLogradouro.Clear();
-            txtBairro.Clear();
-            txtUf.Clear();
-            txtNumero.Focus();
+            textBoxLogradouro.Clear();
+            textBoxBairro.Clear();
+            textBoxUf.Clear();
+            textBoxNumero.Focus();
             editingId = null;
-            gridClientes.ClearSelection();
+            dataGridClientes.ClearSelection();
             
         }
 
@@ -111,55 +113,55 @@ namespace ControleClientes
         {
             LimparCampos();
 
-            tcCliente.SelectTab(tpClienteCadastro);
+            tabControlCliente.SelectTab(tabPageClienteCadastro);
         }
 
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
-            if (gridClientes.SelectedRows.Count == 0)
+            if (dataGridClientes.SelectedRows.Count == 0)
                 return;
-            var cliente = (Cliente)gridClientes.SelectedRows[0].DataBoundItem;
+            var cliente = (Cliente)dataGridClientes.SelectedRows[0].DataBoundItem;
             var cidade = _cidades.FirstOrDefault(c => c.Id == cliente.CidadeId);
-            cmbCidade.SelectedItem = cidade;
-            txtUf.Text = cidade.UF;
-            txtNome.Text = cliente.Nome;
-            txtEmail.Text = cliente.Email;
+            comboBoxCidade.SelectedItem = cidade;
+            textBoxUf.Text = cidade.UF;
+            textBoxNome.Text = cliente.Nome;
+            textBoxEmail.Text = cliente.Email;
             textCEP.Text = cliente.Cep;
-            txtBairro.Text = cliente.Bairro;
-            txtLogradouro.Text = cliente.Logradouro;
-            txtNumero.Text = cliente.Numero;
-            txtComplemento.Text = cliente.Complemento;
-            cmbGenero.SelectedItem = itemGeneros.FirstOrDefault(
+            textBoxBairro.Text = cliente.Bairro;
+            textBoxLogradouro.Text = cliente.Logradouro;
+            textBoxNumero.Text = cliente.Numero;
+            textBoxComplemento.Text = cliente.Complemento;
+            comboBoxGenero.SelectedItem = itemGeneros.FirstOrDefault(
                 g => g.Valor == cliente.Genero);
-            cmbEstadoCivil.SelectedItem = estadocivillista.FirstOrDefault(e => e.Valor == cliente.estadocivil);
+            comboBoxEstadoCivil.SelectedItem = estadocivillista.FirstOrDefault(e => e.Valor == cliente.estadocivil);
             editingId = cliente.Id;
-            tcCliente.SelectTab(tpClienteCadastro);
+            tabControlCliente.SelectTab(tabPageClienteCadastro);
 
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (gridClientes.SelectedRows.Count == 0)
+            if (dataGridClientes.SelectedRows.Count == 0)
                 return;
 
             if (MessageBox.Show("Excluir Registo?", "Clientes", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                tcCliente.SelectTab(tpClienteConsulta);
+                tabControlCliente.SelectTab(tabPageClienteConsulta);
             }
-            var cliente = (Cliente)gridClientes.SelectedRows[0].DataBoundItem;
+            var cliente = (Cliente)dataGridClientes.SelectedRows[0].DataBoundItem;
             _repository.Remover(cliente.Id);
             AtualizarGrid();
-            tcCliente.SelectTab(tpClienteConsulta);
+            tabControlCliente.SelectTab(tabPageClienteConsulta);
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
 
-            ItemEstadoCivil estado = (ItemEstadoCivil)cmbEstadoCivil.SelectedItem;
-            ItemGenero genero = (ItemGenero)cmbGenero.SelectedItem;
+            ItemEstadoCivil estado = (ItemEstadoCivil)comboBoxEstadoCivil.SelectedItem;
+            ItemGenero genero = (ItemGenero)comboBoxGenero.SelectedItem;
 
-            string nomeCidade = cmbCidade.Text.Trim();
-            string ufCidade = txtUf.Text.Trim();
+            string nomeCidade = comboBoxCidade.Text.Trim();
+            string ufCidade = textBoxUf.Text.Trim();
 
             Cidade cidade = _cidades.FirstOrDefault(c => c.Nome.Equals(nomeCidade, StringComparison.OrdinalIgnoreCase) && 
             c.UF.Equals(ufCidade, StringComparison.OrdinalIgnoreCase));
@@ -180,41 +182,59 @@ namespace ControleClientes
 
             }
 
-            var cliente = new Cliente
+            if (textBoxNome.Text.Trim() == "")
             {
-                Nome = txtNome.Text.Trim(),
-                Email = txtEmail.Text.Trim(),
-                Cep = textCEP.Text.Trim(),
-                Logradouro = txtLogradouro.Text.Trim(),
-                Complemento = txtComplemento.Text.Trim(),
-                Bairro = txtBairro.Text.Trim(),
-                Localidade = cidade.Nome, 
-                Uf = cidade.UF,           
-                Numero = txtNumero.Text.Trim(),
-                Genero = genero.Valor,
-                estadocivil = estado.Valor,
-                CidadeId = cidade.Id
-            };
+                if (MessageBox.Show("Você deve atribuir o nome do seu cliente no espaço Nome", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    return;
+                }
+                else {
+                    buttonSalvar.PerformClick();
 
-            if (editingId == null)
-            {
-                _repository.Adicionar(cliente);
-            }
-            else
-            {
-                cliente.Id = editingId.Value;
-                _repository.Atualizar(cliente);
-            }
+                    var cliente = new Cliente
+                    {
+                        Nome = textBoxNome.Text.Trim(),
+                        Email = textBoxEmail.Text.Trim(),
+                        Cep = textCEP.Text.Trim(),
+                        Logradouro = textBoxLogradouro.Text.Trim(),
+                        Complemento = textBoxComplemento.Text.Trim(),
+                        Bairro = textBoxBairro.Text.Trim(),
+                        Localidade = cidade.Nome,
+                        Uf = cidade.UF,
+                        Numero = textBoxNumero.Text.Trim(),
+                        Genero = genero.Valor,
+                        estadocivil = estado.Valor,
+                        CidadeId = cidade.Id
+                    };
 
-            LimparCampos();
-            AtualizarGrid();
-            tcCliente.SelectTab(tpClienteConsulta);
+                    if (editingId == null)
+                    {
+                        _repository.Adicionar(cliente);
+                    }
+                    else
+                    {
+                        cliente.Id = editingId.Value;
+                        _repository.Atualizar(cliente);
+                    }
 
+                    LimparCampos();
+                    AtualizarGrid();
+                    tabControlCliente.SelectTab(tabPageClienteConsulta);
+
+            }   }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            tcCliente.SelectTab(tpClienteConsulta);
+            if (textBoxNome.Text.Trim() != "" || comboBoxCidade.Text.Trim() != "")
+            {
+
+                if (MessageBox.Show("Você não salvou o cadastro do Cliente deseja salvar?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    buttonSalvar.PerformClick();
+                }
+                tabControlCliente.SelectTab(tabPageClienteConsulta);
+            }   
+            
         }
 
         private async Task<Endereco> BuscarCepAsync(string cep)
@@ -250,11 +270,11 @@ namespace ControleClientes
             try
             {
                 Endereco endereco = await BuscarCepAsync(cep);
-                txtLogradouro.Text = endereco.Logradouro;
-                txtBairro.Text = endereco.Bairro;
-                cmbCidade.Text = endereco.Localidade;
-                txtUf.Text = endereco.Uf;
-                txtNumero.Focus();
+                textBoxLogradouro.Text = endereco.Logradouro;
+                textBoxBairro.Text = endereco.Bairro;
+                comboBoxCidade.Text = endereco.Localidade;
+                textBoxUf.Text = endereco.Uf;
+                textBoxNumero.Focus();
             }
             catch (HttpRequestException ex)
             {
@@ -272,9 +292,9 @@ namespace ControleClientes
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            var Clientes = _repository.ObterPorNome(txtPesquisa.Text);
-            gridClientes.AutoGenerateColumns = false;
-            gridClientes.DataSource = Clientes;
+            var Clientes = _repository.ObterPorNome(textBoxPesquisa.Text);
+            dataGridClientes.AutoGenerateColumns = false;
+            dataGridClientes.DataSource = Clientes;
         }
     }
 }

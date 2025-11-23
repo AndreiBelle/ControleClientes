@@ -33,12 +33,12 @@
             clienteToolStripMenuItem = new ToolStripMenuItem();
             cidadeToolStripMenuItem = new ToolStripMenuItem();
             ordemDeServiçoToolStripMenuItem = new ToolStripMenuItem();
+            tipoDeServiçoToolStripMenuItem = new ToolStripMenuItem();
             janelaToolStripMenuItem = new ToolStripMenuItem();
             cascataToolStripMenuItem = new ToolStripMenuItem();
             ladoALadoHorizontalToolStripMenuItem = new ToolStripMenuItem();
             ladoALadoVerticalToolStripMenuItem = new ToolStripMenuItem();
             íconesMinimizadosToolStripMenuItem = new ToolStripMenuItem();
-            tipoDeServiçoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
-            menuStrip1.Size = new Size(947, 30);
+            menuStrip1.Size = new Size(982, 30);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -63,23 +63,30 @@
             // clienteToolStripMenuItem
             // 
             clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            clienteToolStripMenuItem.Size = new Size(224, 26);
+            clienteToolStripMenuItem.Size = new Size(211, 26);
             clienteToolStripMenuItem.Text = "Cliente";
             clienteToolStripMenuItem.Click += clienteToolStripMenuItem_Click;
             // 
             // cidadeToolStripMenuItem
             // 
             cidadeToolStripMenuItem.Name = "cidadeToolStripMenuItem";
-            cidadeToolStripMenuItem.Size = new Size(224, 26);
+            cidadeToolStripMenuItem.Size = new Size(211, 26);
             cidadeToolStripMenuItem.Text = "Cidade";
             cidadeToolStripMenuItem.Click += cidadeToolStripMenuItem_Click;
             // 
             // ordemDeServiçoToolStripMenuItem
             // 
             ordemDeServiçoToolStripMenuItem.Name = "ordemDeServiçoToolStripMenuItem";
-            ordemDeServiçoToolStripMenuItem.Size = new Size(224, 26);
+            ordemDeServiçoToolStripMenuItem.Size = new Size(211, 26);
             ordemDeServiçoToolStripMenuItem.Text = "Ordem de Serviço";
             ordemDeServiçoToolStripMenuItem.Click += ordemDeServiçoToolStripMenuItem_Click;
+            // 
+            // tipoDeServiçoToolStripMenuItem
+            // 
+            tipoDeServiçoToolStripMenuItem.Name = "tipoDeServiçoToolStripMenuItem";
+            tipoDeServiçoToolStripMenuItem.Size = new Size(211, 26);
+            tipoDeServiçoToolStripMenuItem.Text = "Tipo de Serviço";
+            tipoDeServiçoToolStripMenuItem.Click += tipoDeServiçoToolStripMenuItem_Click;
             // 
             // janelaToolStripMenuItem
             // 
@@ -116,18 +123,11 @@
             íconesMinimizadosToolStripMenuItem.Text = "Ícones minimizados";
             íconesMinimizadosToolStripMenuItem.Click += íconesMinimizadosToolStripMenuItem_Click;
             // 
-            // tipoDeServiçoToolStripMenuItem
-            // 
-            tipoDeServiçoToolStripMenuItem.Name = "tipoDeServiçoToolStripMenuItem";
-            tipoDeServiçoToolStripMenuItem.Size = new Size(224, 26);
-            tipoDeServiçoToolStripMenuItem.Text = "Tipo de Serviço";
-            tipoDeServiçoToolStripMenuItem.Click += tipoDeServiçoToolStripMenuItem_Click;
-            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(947, 615);
+            ClientSize = new Size(982, 839);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;

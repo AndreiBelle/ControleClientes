@@ -40,11 +40,11 @@
             Cidade = new DataGridViewTextBoxColumn();
             UF = new DataGridViewTextBoxColumn();
             tabPageCadastroCidades = new TabPage();
-            btnCancelarCidade = new Button();
-            btnSalvarCidade = new Button();
-            btnExcluirCidade = new Button();
-            textUF = new TextBox();
-            textCidade = new TextBox();
+            buttonCancelarCidade = new Button();
+            buttonSalvarCidade = new Button();
+            buttonExcluirCidade = new Button();
+            textBoxUF = new TextBox();
+            textBoxCidade = new TextBox();
             labelUF = new Label();
             labelCidade = new Label();
             tabControlCidades.SuspendLayout();
@@ -188,11 +188,11 @@
             // 
             // tabPageCadastroCidades
             // 
-            tabPageCadastroCidades.Controls.Add(btnCancelarCidade);
-            tabPageCadastroCidades.Controls.Add(btnSalvarCidade);
-            tabPageCadastroCidades.Controls.Add(btnExcluirCidade);
-            tabPageCadastroCidades.Controls.Add(textUF);
-            tabPageCadastroCidades.Controls.Add(textCidade);
+            tabPageCadastroCidades.Controls.Add(buttonCancelarCidade);
+            tabPageCadastroCidades.Controls.Add(buttonSalvarCidade);
+            tabPageCadastroCidades.Controls.Add(buttonExcluirCidade);
+            tabPageCadastroCidades.Controls.Add(textBoxUF);
+            tabPageCadastroCidades.Controls.Add(textBoxCidade);
             tabPageCadastroCidades.Controls.Add(labelUF);
             tabPageCadastroCidades.Controls.Add(labelCidade);
             tabPageCadastroCidades.Location = new Point(4, 29);
@@ -204,60 +204,60 @@
             tabPageCadastroCidades.Text = "tabPage2";
             tabPageCadastroCidades.UseVisualStyleBackColor = true;
             // 
-            // btnCancelarCidade
+            // buttonCancelarCidade
             // 
-            btnCancelarCidade.Image = Properties.Resources.cross_circle;
-            btnCancelarCidade.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelarCidade.Location = new Point(609, 266);
-            btnCancelarCidade.Margin = new Padding(3, 4, 3, 4);
-            btnCancelarCidade.Name = "btnCancelarCidade";
-            btnCancelarCidade.Size = new Size(96, 31);
-            btnCancelarCidade.TabIndex = 3;
-            btnCancelarCidade.Text = "&Cancelar";
-            btnCancelarCidade.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnCancelarCidade.UseVisualStyleBackColor = true;
-            btnCancelarCidade.Click += btnCancelarCidade_Click;
+            buttonCancelarCidade.Image = Properties.Resources.cross_circle;
+            buttonCancelarCidade.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonCancelarCidade.Location = new Point(609, 266);
+            buttonCancelarCidade.Margin = new Padding(3, 4, 3, 4);
+            buttonCancelarCidade.Name = "buttonCancelarCidade";
+            buttonCancelarCidade.Size = new Size(96, 31);
+            buttonCancelarCidade.TabIndex = 3;
+            buttonCancelarCidade.Text = "&Cancelar";
+            buttonCancelarCidade.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonCancelarCidade.UseVisualStyleBackColor = true;
+            buttonCancelarCidade.Click += btnCancelarCidade_Click;
             // 
-            // btnSalvarCidade
+            // buttonSalvarCidade
             // 
-            btnSalvarCidade.Image = Properties.Resources.floppy_disk_circle_arrow_right;
-            btnSalvarCidade.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalvarCidade.Location = new Point(499, 266);
-            btnSalvarCidade.Margin = new Padding(3, 4, 3, 4);
-            btnSalvarCidade.Name = "btnSalvarCidade";
-            btnSalvarCidade.Size = new Size(103, 31);
-            btnSalvarCidade.TabIndex = 2;
-            btnSalvarCidade.Text = "&Salvar";
-            btnSalvarCidade.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSalvarCidade.UseVisualStyleBackColor = true;
-            btnSalvarCidade.Click += btnSalvarCidade_Click;
+            buttonSalvarCidade.Image = Properties.Resources.floppy_disk_circle_arrow_right;
+            buttonSalvarCidade.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonSalvarCidade.Location = new Point(499, 266);
+            buttonSalvarCidade.Margin = new Padding(3, 4, 3, 4);
+            buttonSalvarCidade.Name = "buttonSalvarCidade";
+            buttonSalvarCidade.Size = new Size(103, 31);
+            buttonSalvarCidade.TabIndex = 2;
+            buttonSalvarCidade.Text = "&Salvar";
+            buttonSalvarCidade.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonSalvarCidade.UseVisualStyleBackColor = true;
+            buttonSalvarCidade.Click += btnSalvarCidade_Click;
             // 
-            // btnExcluirCidade
+            // buttonExcluirCidade
             // 
-            btnExcluirCidade.Image = Properties.Resources.trash_xmark__1_;
-            btnExcluirCidade.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExcluirCidade.Location = new Point(15, 266);
-            btnExcluirCidade.Margin = new Padding(3, 4, 3, 4);
-            btnExcluirCidade.Name = "btnExcluirCidade";
-            btnExcluirCidade.Size = new Size(97, 31);
-            btnExcluirCidade.TabIndex = 4;
-            btnExcluirCidade.Text = "  &Excluir";
-            btnExcluirCidade.UseVisualStyleBackColor = true;
-            btnExcluirCidade.Click += btnExcluirCidade_Click;
+            buttonExcluirCidade.Image = Properties.Resources.trash_xmark__1_;
+            buttonExcluirCidade.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonExcluirCidade.Location = new Point(15, 266);
+            buttonExcluirCidade.Margin = new Padding(3, 4, 3, 4);
+            buttonExcluirCidade.Name = "buttonExcluirCidade";
+            buttonExcluirCidade.Size = new Size(97, 31);
+            buttonExcluirCidade.TabIndex = 4;
+            buttonExcluirCidade.Text = "  &Excluir";
+            buttonExcluirCidade.UseVisualStyleBackColor = true;
+            buttonExcluirCidade.Click += btnExcluirCidade_Click;
             // 
-            // textUF
+            // textBoxUF
             // 
-            textUF.Location = new Point(26, 130);
-            textUF.Name = "textUF";
-            textUF.Size = new Size(125, 27);
-            textUF.TabIndex = 1;
+            textBoxUF.Location = new Point(26, 130);
+            textBoxUF.Name = "textBoxUF";
+            textBoxUF.Size = new Size(125, 27);
+            textBoxUF.TabIndex = 1;
             // 
-            // textCidade
+            // textBoxCidade
             // 
-            textCidade.Location = new Point(26, 51);
-            textCidade.Name = "textCidade";
-            textCidade.Size = new Size(125, 27);
-            textCidade.TabIndex = 0;
+            textBoxCidade.Location = new Point(26, 51);
+            textBoxCidade.Name = "textBoxCidade";
+            textBoxCidade.Size = new Size(125, 27);
+            textBoxCidade.TabIndex = 0;
             // 
             // labelUF
             // 
@@ -311,13 +311,13 @@
         private Button btnNovaCidade;
         private DataGridView dataGridCidade;
         private TabPage tabPageCadastroCidades;
-        private TextBox textUF;
-        private TextBox textCidade;
+        private TextBox textBoxUF;
+        private TextBox textBoxCidade;
         private Label labelUF;
         private Label labelCidade;
-        private Button btnCancelarCidade;
-        private Button btnSalvarCidade;
-        private Button btnExcluirCidade;
+        private Button buttonCancelarCidade;
+        private Button buttonSalvarCidade;
+        private Button buttonExcluirCidade;
         private DataGridViewTextBoxColumn Cidade;
         private DataGridViewTextBoxColumn UF;
     }
